@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { IonButtons, IonContent, IonHeader, IonLabel, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import TextEditor from "../components/TextEditor";
 import { RouteComponentProps } from "react-router";
 
@@ -10,39 +10,55 @@ interface AddProps {
 }
 
 interface AddStates {
-  
+
 }
 
 class TextPage extends Component<RouteComponentProps<AddProps>> {
 
   render() {
-    console.log(this.props);
     const save = (newValue: string) => {
       console.log('save', newValue);
     }
-    
     const titleDate: string = this.props.match.params.date + ' notaition';
-    const updatedAt = new Date();
+    
     return (
       <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonButtons slot="start">
-              <IonMenuButton>
-              </IonMenuButton>
-            </IonButtons>
+            <IonButton>
+              <IonIcon>kjbilb</IonIcon>
+              Back
+            </IonButton>
             <IonTitle>
               {titleDate}
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          <IonLabel>{"Last updated " + updatedAt}</IonLabel>
+          <IonTitle>
+            <TextEditor
+              value={"Title"}
+              onChange={save}
+            />
+          </IonTitle>
           <TextEditor
             value={""}
             onChange={save}
-          ></TextEditor>
+          />
         </IonContent>
+        <IonToolbar>
+          <IonLabel>
+          </IonLabel>
+          <IonRadioGroup >
+            <IonRadio></IonRadio>
+            <IonRadio></IonRadio>
+            <IonRadio></IonRadio>
+            <IonRadio></IonRadio>
+            <IonRadio></IonRadio>
+            <IonRadio></IonRadio>
+          </IonRadioGroup>          
+        </IonToolbar>
+        <IonButton>done</IonButton>
       </IonPage>
     );
   }
