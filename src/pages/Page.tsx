@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonMenuButton, IonNavLink, IonPage, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonDatetimeButton, IonHeader, IonIcon, IonLabel, IonMenuButton, IonNavLink, IonPage, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
@@ -25,9 +25,9 @@ const Page: React.FC = () => {
         <IonButtons>
           <IonDatetime></IonDatetime>
         </IonButtons>
-        <IonButtons>
-          <IonButton>compose</IonButton>
-        </IonButtons>
+
+        <IonButton>compose</IonButton>
+
       </IonContent>
     </IonPage>
   );
