@@ -22,6 +22,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import NoteListPage from './pages/NoteListPage';
 
 setupIonicReact();
 
@@ -37,7 +38,8 @@ const App: React.FC = () => {
             <Route path="/page/:name" exact={true}>
               <Page />
             </Route>
-            <Route path="/text/:date" exact={true} component={NotePage} />
+            <Route path="/note/:date" exact={true} component={NotePage} />
+            <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
