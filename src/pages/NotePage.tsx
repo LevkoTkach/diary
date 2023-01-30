@@ -20,7 +20,7 @@ class NotePage extends Component<RouteComponentProps<AddProps>> {
       console.log('save', newValue);
     }
     const titleDate: string = this.props.match.params.date + ' notaition';
-    
+
     return (
       <IonPage>
         <IonHeader>
@@ -34,15 +34,14 @@ class NotePage extends Component<RouteComponentProps<AddProps>> {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
+
         <IonContent fullscreen>
-          <IonTitle>
-            <TextEditor
-              value={"Title"}
-              onChange={save}
-            />
-          </IonTitle>
           <TextEditor
-            value={""}
+            value={"title"}
+            onChange={save}
+          />
+          <TextEditor
+            value={"note"}
             onChange={save}
           />
         </IonContent>
@@ -56,7 +55,7 @@ class NotePage extends Component<RouteComponentProps<AddProps>> {
             <IonRadio></IonRadio>
             <IonRadio></IonRadio>
             <IonRadio></IonRadio>
-          </IonRadioGroup>          
+          </IonRadioGroup>
         </IonToolbar>
         <IonButton>done</IonButton>
       </IonPage>
