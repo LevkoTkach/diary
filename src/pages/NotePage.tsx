@@ -13,7 +13,7 @@ interface AddStates {
 
 }
 
-class TextPage extends Component<RouteComponentProps<AddProps>> {
+class NotePage extends Component<RouteComponentProps<AddProps>> {
 
   render() {
     const save = (newValue: string) => {
@@ -64,4 +64,4 @@ class TextPage extends Component<RouteComponentProps<AddProps>> {
   }
 }
 
-export default TextPage;
+export default NotePage;

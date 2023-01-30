@@ -2,7 +2,7 @@ import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/r
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Page from './pages/Page';
-import TextPage from './pages/TextPage';
+import NotePage from './pages/NotePage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,7 +37,7 @@ const App: React.FC = () => {
             <Route path="/page/:name" exact={true}>
               <Page />
             </Route>
-            <Route path="/text/:date" exact={true} component={TextPage} />
+            <Route path="/text/:date" exact={true} component={NotePage} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
