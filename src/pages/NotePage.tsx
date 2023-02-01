@@ -23,42 +23,39 @@ class NotePage extends Component<RouteComponentProps<AddProps>> {
     const titleDate: string = this.props.match.params.date;
 
     return (
-      <IonPage className="page">
-        <IonHeader className="ion-no-border header">
-
-          <IonButton shape="round" fill="clear" className="back-button">
-            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
-            Back
-          </IonButton>
-          <IonButton fill="clear" className="title-date">
-            <IonLabel>{titleDate}</IonLabel>
-          </IonButton>
-          <IonButton shape="round" fill="clear" className="save-button">
-            Save
-          </IonButton>
-        </IonHeader>
-        <IonContent fullscreen>
-          <IonTextarea
-            className="title-textarea ion-no-padding"
-            placeholder="  Title"
-          ></IonTextarea>
-          <IonTextarea
-            className="custom-textarea "
-            placeholder="Write your message in here.."
-          ></IonTextarea>
-          <IonLabel className="color_label">
-            Choose a color
-          </IonLabel>
-          <IonRadioGroup className="radio-group" value="custom-checked">
-            <IonRadio className="green-radio" value="custom-checked"></IonRadio>
-            <IonRadio className="blue-radio"></IonRadio>
-            <IonRadio className="purple-radio"></IonRadio>
-            <IonRadio className="red-radio"></IonRadio>
-            <IonRadio className="yellow-radio"></IonRadio>
-            <IonRadio className="brown-radio"></IonRadio>
-          </IonRadioGroup>
-        </IonContent>
-        <IonButton>Gogle Ads</IonButton>
+      <IonPage >
+        <IonPage className="page">          
+          <IonHeader className="ion-no-border header">
+            <IonButton shape="round" fill="clear" className="back-button">
+              <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
+              Back
+            </IonButton>
+            <IonLabel className="title-date">{titleDate}</IonLabel>
+            <IonButton shape="round" fill="clear" className="save-button">
+              Save
+            </IonButton>
+          </IonHeader>          
+            <IonTextarea
+              className="title-textarea ion-no-padding"
+              placeholder="  Title"
+            ></IonTextarea>
+            <IonTextarea
+              className="custom-textarea "
+              placeholder="Write your message in here.."
+            ></IonTextarea>
+            <IonLabel className="color_label">
+              Choose a color
+            </IonLabel>
+            <IonRadioGroup className="radio-group" value="custom-checked">
+              <IonRadio className="green-radio" value="custom-checked"></IonRadio>
+              <IonRadio className="blue-radio"></IonRadio>
+              <IonRadio className="purple-radio"></IonRadio>
+              <IonRadio className="red-radio"></IonRadio>
+              <IonRadio className="yellow-radio"></IonRadio>
+              <IonRadio className="brown-radio"></IonRadio>
+            </IonRadioGroup>          
+        </IonPage>
+        <IonButton className="google-ads-area" >Google Ads</IonButton>
       </IonPage>
     );
   }
