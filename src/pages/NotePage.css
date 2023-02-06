@@ -19,6 +19,9 @@ Dark Mode/Text Primary 1 - Dark #E1E1E1
 Dark Mode/Text Primary 2 - Dark #1F1F1F 
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
 :root {
   --background-main: #FAFAFA;
   --background-textarea: #F8F4E9;
@@ -28,7 +31,7 @@ Dark Mode/Text Primary 2 - Dark #1F1F1F
   --save-buton: #C1292E;
 
   --font-size-textarea: 14px;
-  --font:'Nunito';
+  --font: 'Nunito', sans-serif;
 }
 
 .ion-page {
@@ -62,7 +65,6 @@ ion-header {
   width: 60px;
   text-transform: none;
   font-family: var(--font);
-  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
