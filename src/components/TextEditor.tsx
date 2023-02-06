@@ -1,24 +1,32 @@
-import { Component, FormEvent, FormEventHandler } from 'react';
+import React from 'react';
+import { FormEvent, FormEventHandler } from 'react';
 import { IonTextarea, TextareaChangeEventDetail } from '@ionic/react';
+import { RouteComponentProps, useParams } from 'react-router';
 
-
-interface AddProps {
+interface addProps {
   value: string;
-  onChange: (value: string) => void
+  className: string;
+  placeholder: string;
+  onChange: (e: string) => void;
+  // onBlur: (e: string) => void;
 }
 
-class TextEditor extends Component<AddProps> {
-  onChange(e: CustomEvent) {
-    this.props.onChange(e.detail.value);
+const TextEditor: React.FC<addProps> = (props) => { 
+
+  const textChange = (e: CustomEvent) => {
+    props.onChange(e.detail.value as string);
   }
-  render() {
-    return (
-      <IonTextarea
-        placeholder="Type something here"
-        value={this.props.value}
-        onIonChange={(e) => this.onChange(e)}
-      ></IonTextarea>
-    );
-  }
+  
+
+  return (
+    <IonTextarea
+      // onIonBlur={(e) => textChange(e) }
+      value={props.value}
+      onIonChange={(e) => textChange(e)}
+      className={props.className}
+      placeholder={props.placeholder}
+    ></IonTextarea>
+  );
 }
+
 export default TextEditor;

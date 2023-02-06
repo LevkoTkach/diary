@@ -1,21 +1,17 @@
 import React from "react";
-import { Component } from "react";
-import { IonButton, IonCard, IonCardContent, IonCardTitle, IonCol, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonRouterLink, IonText, IonTitle, IonToolbar } from "@ionic/react";
-
-import { RouteComponentProps } from "react-router";
+import { IonButton,  IonCol, IonContent, IonHeader, IonIcon,  IonPage,  IonText, IonTitle, IonToolbar } from "@ionic/react";
+import { useParams } from "react-router";
 
 
-interface AddProps {
-  date: string;
-}
 
-class NoteListPage extends Component<RouteComponentProps<AddProps>> {
+const NoteListPage: React.FC = () => {
+  const { date } = useParams<{ date: string; }>();
 
-  render() {
-    const save = (newValue: string) => {
+      const save = (newValue: string) => {
       console.log('save', newValue);
-    }
-    const titleDate: string = this.props.match.params.date + ' notaition';
+  }
+  
+    const titleDate: string = date + ' notaition';
 
     return (
       <IonPage>
@@ -38,7 +34,7 @@ class NoteListPage extends Component<RouteComponentProps<AddProps>> {
               <IonText> note text </IonText>
             </IonCol>
             <IonIcon>
-              dfghdfgh
+              icon
             </IonIcon>
           </IonButton>
 
@@ -47,6 +43,6 @@ class NoteListPage extends Component<RouteComponentProps<AddProps>> {
       </IonPage>
     );
   }
-}
+
 
 export default NoteListPage;
