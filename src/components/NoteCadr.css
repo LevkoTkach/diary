@@ -1,0 +1,29 @@
+.icon-in-card {
+
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  right: 20px;
+  top: 37px;
+}
+
+.header-in-card {
+  height: 22px;
+  font-size: 16px;
+  margin: 10px 16px 0;
+  padding: 0;
+  color: var(--light-text);
+}
+
+.header-in-card>ion-card-title{
+  color: var(--light-text);
+}
+
+.content-in-card {
+  height: 38px;
+  line-height: 22px;
+  width: fit-content;
+  font-size: 14px;
+  margin: 10px 70px 0 16px;
+  padding: 0;
+}
