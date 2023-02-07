@@ -1,0 +1,165 @@
+/* Light mode/Background - Light #FAFAFA 
+Light mode/Main 1 - Light #C1292E 
+Light mode/Main 2 - Light #F2DCA6 
+Light mode/Main 2 Shade 1 - Light #F8F4E9 
+Light mode/Main 2 Shade 2 - Light #A5946A 
+Light mode/Text Primary - Light #2F2713 
+Light mode/Text Secondary 1 - Light #A7A7A7 
+Light mode/Text Secondary 2 - Light #7E7E7E 
+Light mode/Text White - Light #FFFFFF */
+
+/* 
+Dark Mode/Background 1 - Dark #292929 
+Dark Mode/Background 2 - Dark #1F1F1F
+Dark Mode/Gray 1 - Dark #4A4A4A
+Dark Mode/Gray 2 - Dark #828282 
+Dark Mode/Main - 1 Dark #FF6065 
+Dark Mode/Main 2 - Dark #F2DCA6 
+Dark Mode/Text Primary 1 - Dark #E1E1E1 
+Dark Mode/Text Primary 2 - Dark #1F1F1F 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
+:root {
+  --background-main: #FAFAFA;
+  --background-textarea: #F8F4E9;
+  --main-text: #2F2713;
+  --light-text: #ffffff;
+  --textarea-placeholder: #7E7E7E;
+  --save-buton: #C1292E;
+
+  --font-size-textarea: 14px;
+  --font: 'Nunito', sans-serif;
+}
+
+.ion-page {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-main);
+}
+
+.page {
+  margin: 0 16px;
+  color: var(--background-main);
+  background-color: var(--background-main);
+}
+
+
+ion-header {
+  margin: 64px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  height: 29px;
+  width: 60px;
+  text-transform: none;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  --color: var(--main-text);
+}
+
+.back-button>.arrow-icon {
+  margin: 0 4px 0 0;
+  width: 16px;
+  height: 16px;
+  font-family: var(--font);
+}
+
+
+
+.back-date-button {
+  position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 42px;
+    left: 48px;
+    width: 74px;
+    height: 36px;
+
+      --padding-left: 0px;
+      --padding-right: 0px;
+      --padding-top: 0px;
+      --padding-bottom: 0px;
+}
+
+.title-date_list-page {
+  position: relative;
+  margin: 0 auto;
+  
+  
+  top: 50px;
+  text-align: center;
+  text-transform: none;
+
+  width: 124px;
+  height: 22px;
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--main-text);
+
+}
+.forward-date-button {
+  position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 42px;
+    right: 45px;
+    width: 74px;
+    height: 36px;
+    --padding-end: 0;
+    --padding-start: 0;
+    --padding-left: 0px;
+    --padding-right: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+  
+}
+
+.note-card {
+  margin: 0;
+  position: relative;
+  height: 90px;
+  top: -450px;
+  --background: red;
+  --color:var(--light-text);
+  border-radius: 16px;
+
+}
+
+.compose-button {
+  margin: 0;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  text-transform: none;
+  --background: var(--save-buton);
+  --color:var(--light-text);
+}
+
+
+.google-ads-area {
+  z-index: 200;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  --border-radius: 0;
+}
