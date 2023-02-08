@@ -17,17 +17,17 @@ const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
   const titleDate: string = date;
 
-  
+
   const saveTitle = (newValue: string) => {
     const key: string = 'title' + date;
     localStorage.setItem(key, newValue);
     console.log('s', newValue);
-    
+
   }
   const saveNote = (newValue: string) => {
     const key: string = 'note' + date;
     localStorage.setItem(key, newValue);
-    console.log('s',newValue); 
+    console.log('s', newValue);
     return newValue;
   }
 
@@ -42,11 +42,15 @@ const NotePage: React.FC<addProps> = () => {
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
           <IonButton
-
+            href=""
             shape="round"
             fill="clear"
             className="back-button">
-            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
+            <IonIcon
+              className="arrow-icon"
+              slot="start"
+              icon={arrowBackOutline}>
+            </IonIcon>
             Back
           </IonButton>
           <IonLabel className="title-date">{titleDate}</IonLabel>
@@ -85,7 +89,8 @@ const NotePage: React.FC<addProps> = () => {
           <IonRadio className="brown-radio"></IonRadio>
         </IonRadioGroup>
       </IonPage>
-      <IonButton className="google-ads-area" >Google Ads</IonButton>
+      <IonButton
+        className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
   );
 }

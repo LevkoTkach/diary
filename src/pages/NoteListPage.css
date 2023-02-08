@@ -132,9 +132,11 @@ ion-header {
 
 .note-card {
   margin: 0;
-  position: relative;
+  position: absolute;
   height: 90px;
-  top: -450px;
+  left: 0;
+  right: 0;
+  top: 183px;
   --background: red;
   --color:var(--light-text);
   border-radius: 16px;
@@ -142,13 +144,14 @@ ion-header {
 }
 
 .compose-button {
-  margin: 0;
+  margin: 0 16px;
   position: absolute;
   bottom: 100px;
   left: 0;
   right: 0;
   height: 44px;
   text-transform: none;
+  z-index: 250;
   --background: var(--save-selection-buton);
   --color:var(--light-text);
 }
