@@ -1,15 +1,15 @@
 import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage,  IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import './MainPage.css';
 
-const Page: React.FC = () => {
+const MainPage: React.FC = () => {
 
   const { name } = useParams<{ name: string; }>();
 
   return (
-    <IonPage>
-      <IonHeader>
+    <IonPage className='page'>
+      <IonHeader className='main-header'>
         <IonToolbar>
           <IonButtons slot="start">
             <IonButton>
@@ -23,14 +23,18 @@ const Page: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonButtons>
-          <IonDatetime></IonDatetime>
+          <IonDatetime
+            presentation="date"
+            locale="en-GB"
+            firstDayOfWeek={1}
+          ></IonDatetime>
         </IonButtons>
 
-        <IonButton>compose</IonButton>
+        <IonButton shape='round' className='compose-button'>compose</IonButton>
 
       </IonContent>
     </IonPage>
   );
 };
 
-export default Page;
+export default MainPage;
