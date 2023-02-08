@@ -28,7 +28,7 @@ Dark Mode/Text Primary 2 - Dark #1F1F1F
   --main-text: #2F2713;
   --light-text: #ffffff;
   --textarea-placeholder: #7E7E7E;
-  --save-buton: #C1292E;
+  --save-selection-buton: #C1292E;
 
   --font-size-textarea: 14px;
   --font: 'Nunito', sans-serif;
@@ -149,7 +149,7 @@ ion-header {
   right: 0;
   height: 44px;
   text-transform: none;
-  --background: var(--save-buton);
+  --background: var(--save-selection-buton);
   --color:var(--light-text);
 }
 

@@ -1,4 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage,  IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './MainPage.css';
@@ -8,31 +9,40 @@ const MainPage: React.FC = () => {
   const { name } = useParams<{ name: string; }>();
 
   return (
-    <IonPage className='page'>
-      <IonHeader className='main-header'>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonButton>
-              Settings<IonIcon></IonIcon>
-            </IonButton>
-          </IonButtons>
-          <IonTitle>{name}</IonTitle>
-          <IonTitle>Select a day compose</IonTitle>
-          <IonLabel>header 2</IonLabel>
-        </IonToolbar>
+    <IonPage >
+      <IonHeader        
+        className='main-header'>
+        <IonButton
+          shape='round'
+          fill='clear'
+          className='settings-button'>
+          Settings
+          <IonIcon
+            color='primary'
+            slot="end"
+            icon={settingsSharp}></IonIcon>
+        </IonButton>
+        <IonTitle className='main-header-title'>Select a day to compose</IonTitle>
+        <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonButtons>
-          <IonDatetime
-            presentation="date"
-            locale="en-GB"
-            firstDayOfWeek={1}
-          ></IonDatetime>
-        </IonButtons>
 
-        <IonButton shape='round' className='compose-button'>compose</IonButton>
+      <IonDatetime
+        presentation="date"
+        locale="en-GB"
+        firstDayOfWeek={1}
+      ></IonDatetime>
 
-      </IonContent>
+      <IonButton
+        className="compose-button"
+        shape="round">
+        <IonIcon
+          className="pen-icon"
+          slot="start"
+          icon={pencilSharp}>
+        </IonIcon>
+        Compose
+      </IonButton>
+      <IonButton className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
   );
 };

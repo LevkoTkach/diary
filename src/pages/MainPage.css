@@ -1,3 +1,77 @@
-.main-header{
-  height: 70px;
+.main-header {
+  margin: 0;
+  height: 191px;
+  background-color: #F2DCA6;
+  border-radius: 0px 0px 80px 0px;
+
+}
+.header-md::after {
+  content: none;
+}
+.settings-button {
+  position: absolute;
+  width: 140px;
+  height: 24px;
+  right: 0px;
+  top: 62px;  
+  color: var(--main-text);
+  text-transform: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  --ion-color-primary:#A5946A
+  
+}
+
+.main-header-title {
+  position: absolute;
+  left: 0;
+  top: 116px;
+  margin: 0;
+  padding: 0 16px 0;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+
+  color: var(--main-text);
+}
+
+.main-header-label {
+  position: absolute;
+  left: 0;
+  top: 152px;
+  margin: 0;
+  padding: 0 16px 0;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: var(--main-text);
+
+}
+
+.calendar-day {
+  border: 2px solid #8a2b2b;
+
+  padding-top: 0 !important;
+}
+
+:host .calendar-day {
+  padding-top: 0 !important;
+
+  border: 2px solid #8a2b2b;
+  border-radius: 3px importent !;
+}
+
+:host .calendar-day::after {
+  padding-top: 0 !important;
+  border: 2px solid #8a2b2b;
+  background: var(--save-selection-buton);
 }
