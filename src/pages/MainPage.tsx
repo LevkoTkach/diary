@@ -16,7 +16,7 @@ const MainPage: React.FC = () => {
         <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
 
-      <IonDatetime>
+      <IonDatetime presentation='date'>
       </IonDatetime>
 
       <IonButton className="compose-button" shape="round">
