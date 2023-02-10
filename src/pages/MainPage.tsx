@@ -1,7 +1,6 @@
 import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
 import './MainPage.css';
 
 const MainPage: React.FC = () => {
