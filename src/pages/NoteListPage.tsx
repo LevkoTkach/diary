@@ -5,7 +5,7 @@ import { IonButton, IonCardContent, IonHeader, IonIcon, IonItemGroup, IonLabel, 
 import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencil, pencilSharp } from "ionicons/icons";
 import './NoteListPage.css';
 import { useParams } from "react-router";
-import NoteCard from "../components/NoteCadr";
+import NoteCard from "../components/NoteCard";
 
 
 // const store = new Storage();
