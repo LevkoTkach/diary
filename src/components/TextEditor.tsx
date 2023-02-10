@@ -8,7 +8,7 @@ interface addProps {
   className: string;
   placeholder: string;
   onChange: (e: string) => void;
-  // onBlur: (e: string) => void;
+  
 }
 
 const TextEditor: React.FC<addProps> = (props) => { 
@@ -19,13 +19,8 @@ const TextEditor: React.FC<addProps> = (props) => {
   
 
   return (
-    <IonTextarea
-      // onIonBlur={(e) => textChange(e) }
-      value={props.value}
-      onIonChange={(e) => textChange(e)}
-      className={props.className}
-      placeholder={props.placeholder}
-    ></IonTextarea>
+    <IonTextarea value={props.value} onIonChange={(e) => textChange(e)}
+      className={props.className} placeholder={props.placeholder} ></IonTextarea>
   );
 }
 
