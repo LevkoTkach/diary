@@ -5,7 +5,7 @@ import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
-
+import { format, parseISO } from 'date-fns';
 
 // const store = new Storage();
 // await store.create();
@@ -13,10 +13,12 @@ interface addProps {
   date: string;
 }
 
+
 const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
-  const titleDate: string = date;
+  const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
+  
 
   const saveTitle = (newValue: string) => {
     const key: string = 'title' + date;
@@ -42,7 +44,7 @@ const NotePage: React.FC<addProps> = () => {
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
           <IonButton
-            href=""
+            routerLink={`/page/${date}`}
             shape="round"
             fill="clear"
             className="back-button">
@@ -55,6 +57,7 @@ const NotePage: React.FC<addProps> = () => {
           </IonButton>
           <IonLabel className="title-date">{titleDate}</IonLabel>
           <IonButton
+            routerLink={`/note-list/${date}`}
             shape="round"
             fill="clear"
             className="save-button">

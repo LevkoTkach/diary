@@ -82,29 +82,27 @@ ion-header {
 
 .back-date-button {
   position: absolute;
-    margin: 0;
-    padding: 0;
-    top: 42px;
-    left: 48px;
-    width: 74px;
-    height: 36px;
+  margin: 0;
+  padding: 0;
+  top: 42px;
+  left: 48px;
+  width: 74px;
+  height: 36px;
 
-      --padding-left: 0px;
-      --padding-right: 0px;
-      --padding-top: 0px;
-      --padding-bottom: 0px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
 }
 
 .title-date_list-page {
   position: relative;
   margin: 0 auto;
-  
-  
   top: 50px;
   text-align: center;
   text-transform: none;
 
-  width: 124px;
+  width: fit-content;
   height: 22px;
   font-family: var(--font);
   font-style: normal;
@@ -113,21 +111,22 @@ ion-header {
   color: var(--main-text);
 
 }
+
 .forward-date-button {
   position: absolute;
-    margin: 0;
-    padding: 0;
-    top: 42px;
-    right: 45px;
-    width: 74px;
-    height: 36px;
-    --padding-end: 0;
-    --padding-start: 0;
-    --padding-left: 0px;
-    --padding-right: 0px;
-    --padding-top: 0px;
-    --padding-bottom: 0px;
-  
+  margin: 0;
+  padding: 0;
+  top: 42px;
+  right: 45px;
+  width: 74px;
+  height: 36px;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+
 }
 
 .note-card {
@@ -138,7 +137,7 @@ ion-header {
   right: 0;
   top: 183px;
   --background: red;
-  --color:var(--light-text);
+  --color: var(--light-text);
   border-radius: 16px;
 
 }
@@ -153,7 +152,7 @@ ion-header {
   text-transform: none;
   z-index: 250;
   --background: var(--save-selection-buton);
-  --color:var(--light-text);
+  --color: var(--light-text);
 }
 
 

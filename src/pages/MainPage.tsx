@@ -1,16 +1,23 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonRouterLink, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
-import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
+import { Router, useParams } from 'react-router';
+import { Route } from 'workbox-routing';
+import { format, parseISO } from 'date-fns';
+
+
 import './MainPage.css';
 
-const MainPage: React.FC = () => {
+const MainPage: React.FC<{}> = () => {
 
-  const { name } = useParams<{ name: string; }>();
-
+  let date: string = new Date().toISOString();
+  
+  const dateSetter = (e: CustomEvent) => {
+    console.log((e.detail.value).slice(0, 10)); 
+  };
+  
   return (
     <IonPage >
-      <IonHeader        
+      <IonHeader
         className='main-header'>
         <IonButton
           shape='round'
@@ -26,10 +33,17 @@ const MainPage: React.FC = () => {
         <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
 
-      <IonDatetime>
-      </IonDatetime>
+      <IonDatetime
+        onIonChange={ dateSetter }
+        size="cover"
+        className='calendar'
+        presentation="date"
+        locale="en-GB"
+        firstDayOfWeek={1}
+      ></IonDatetime>
 
       <IonButton
+        routerLink={`/note/${format(parseISO(date), 'yyyy-MM-dd')}`}
         className="compose-button"
         shape="round">
         <IonIcon
