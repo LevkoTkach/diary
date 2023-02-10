@@ -22,10 +22,7 @@ const NoteListPage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="back-button">
+          <IonButton shape="round" fill="clear" className="back-button">
             <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
             Back
           </IonButton>
