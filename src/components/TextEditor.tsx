@@ -1,7 +1,5 @@
 import React from 'react';
-import { FormEvent, FormEventHandler } from 'react';
-import { IonTextarea, TextareaChangeEventDetail } from '@ionic/react';
-import { RouteComponentProps, useParams } from 'react-router';
+import { IonTextarea } from '@ionic/react';
 
 interface addProps {
   value: string;
