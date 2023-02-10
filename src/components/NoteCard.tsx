@@ -20,7 +20,7 @@ const NoteCard: React.FC<addProps> = (props) => {
 
   return (
     <IonCard className={props.className} button={true}>
-      <IonCardHeader className='header-in-card'>
+      <IonCardHeader>
         <IonCardTitle>{getTitle}</IonCardTitle>
       </IonCardHeader>
 
