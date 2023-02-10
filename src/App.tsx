@@ -35,9 +35,9 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/main" />
+              <Redirect to="/main" />
             </Route>
-            <Route path="/page/:name" exact={true} component={MainPage} />
+            <Route path="/main" exact={true} component={MainPage} />
             <Route path="/note/:date" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>
