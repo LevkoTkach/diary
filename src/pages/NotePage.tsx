@@ -41,41 +41,21 @@ const NotePage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton
-            href=""
-            shape="round"
-            fill="clear"
-            className="back-button">
-            <IonIcon
-              className="arrow-icon"
-              slot="start"
-              icon={arrowBackOutline}>
+          <IonButton shape="round" fill="clear" className="back-button">
+            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline}>
             </IonIcon>
             Back
           </IonButton>
           <IonLabel className="title-date">{titleDate}</IonLabel>
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="save-button">
+          <IonButton shape="round" fill="clear" className="save-button">
             Save
           </IonButton>
         </IonHeader>
-
-        <TextEditor
-          // onBlur={saveNote}
-          value={getTitle}
-          className="title-textarea ion-no-padding"
-          placeholder=" Title"
-          onChange={saveTitle}
-        ></TextEditor>
-        <TextEditor
-          // onBlur={saveNote}
-          value={getNote}
-          className="custom-textarea "
-          placeholder="Write your message in here.."
-          onChange={saveNote}
-        />
+        
+        <TextEditor value={getTitle} className="title-textarea ion-no-padding"
+          placeholder=" Title" onChange={saveTitle}></TextEditor>
+        <TextEditor value={getNote} className="custom-textarea "
+          placeholder="Write your message in here.." onChange={saveNote}/>
 
         <IonLabel className="color_label">
           Choose a color

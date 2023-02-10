@@ -1,15 +1,9 @@
-
 import React from "react";
-
 import { IonButton, IonCardContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonToolbar } from "@ionic/react";
 import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencil, pencilSharp } from "ionicons/icons";
 import './NoteListPage.css';
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
-
-
-// const store = new Storage();
-// await store.create();
 interface addProps {
   date: string;
 }
@@ -17,7 +11,6 @@ interface addProps {
 const NoteListPage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
   const titleDate: string = date;
-
 
   const setting = (id: string) => {
     return localStorage.getItem(id + date)!;
@@ -37,35 +30,22 @@ const NoteListPage: React.FC<addProps> = () => {
             Back
           </IonButton>
 
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="back-date-button">
+          <IonButton shape="round" fill="clear" className="back-date-button">
             <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} ></IonIcon>
           </IonButton>
           <IonLabel className="title-date_list-page">{titleDate}</IonLabel>
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="forward-date-button">
-            <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} >
-            </IonIcon>
-          </IonButton>          
+          <IonButton shape="round" fill="clear" className="forward-date-button">
+            <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline}></IonIcon>
+          </IonButton>
         </IonHeader>
 
-        <IonItemGroup>          
+        <IonItemGroup>
           <NoteCard className="note-card" />
         </IonItemGroup>
-            
-      </IonPage>       
-      <IonButton
-        className="compose-button"
-        shape="round">
-        <IonIcon
-          className="pen-icon"
-          slot="start"
-          icon={pencilSharp}>
-        </IonIcon>
+
+      </IonPage>
+      <IonButton className="compose-button" shape="round">
+        <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>
         Compose
       </IonButton>
       <IonButton className="google-ads-area" >Google Ads</IonButton>
