@@ -37,9 +37,7 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/page/main" />
             </Route>
-            <Route path="/page/:name" exact={true} component={MainPage}>
-              <MainPage />
-            </Route>
+            <Route path="/page/:name" exact={true} component={MainPage} />
             <Route path="/note/:date" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>
