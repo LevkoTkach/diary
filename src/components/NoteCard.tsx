@@ -3,7 +3,7 @@ import { FormEvent, FormEventHandler } from 'react';
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, } from '@ionic/react';
 import { RouteComponentProps, useParams } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
-import './NoteCadr.css';
+import './NoteCard.css';
 
 interface addProps {
   className: string;
