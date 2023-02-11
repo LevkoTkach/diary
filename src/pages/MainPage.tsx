@@ -1,18 +1,22 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonRouterLink, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
+import { useState } from 'react';
 import { Router, useParams } from 'react-router';
 import { Route } from 'workbox-routing';
 import { format, parseISO } from 'date-fns';
 
 
 import './MainPage.css';
+import { string } from 'yargs';
 
 const MainPage: React.FC<{}> = () => {
-
-  let date: string = new Date().toISOString();
+  const [date, setDate] = useState(new Date().toISOString());
   
-  const dateSetter = (e: CustomEvent) => {
-    console.log((e.detail.value).slice(0, 10)); 
+  
+  let dateSetter = (e: CustomEvent) => {
+    console.log((e.detail.value).slice(0, 10));
+    const newDate:string = e.detail.value;
+    setDate(newDate);    
   };
   
   return (
@@ -34,6 +38,7 @@ const MainPage: React.FC<{}> = () => {
       </IonHeader>
 
       <IonDatetime
+        value={date}
         onIonChange={ dateSetter }
         size="cover"
         className='calendar'
