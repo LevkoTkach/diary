@@ -5,14 +5,17 @@ import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
+import { format, parseISO } from 'date-fns';
 
 interface addProps {
   date: string;
 }
 
+
 const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
-  const titleDate: string = date;
+  const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
+
 
 
   const saveTitle = (newValue: string) => {
@@ -38,20 +41,35 @@ const NotePage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton shape="round" fill="clear" className="back-button">
-            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline}>
+
+          <IonButton
+            routerLink={`/page/${date}`}
+            shape="round"
+            fill="clear"
+            className="back-button">
+            <IonIcon
+              className="arrow-icon"
+              slot="start"
+              icon={arrowBackOutline}>
             </IonIcon>
             Back
           </IonButton>
+          
           <IonLabel className="title-date">{titleDate}</IonLabel>
-          <IonButton shape="round" fill="clear" className="save-button">
+
+          <IonButton
+            routerLink={`/note-list/${date}`}
+            shape="round"
+            fill="clear"
+            className="save-button">
             Save
           </IonButton>
-        </IonHeader>        
+
+        </IonHeader>
         <TextEditor value={getTitle} className="title-textarea ion-no-padding"
           placeholder=" Title" onChange={saveTitle}></TextEditor>
         <TextEditor value={getNote} className="custom-textarea "
-          placeholder="Write your message in here.." onChange={saveNote}/>
+          placeholder="Write your message in here.." onChange={saveNote} />
         <IonLabel className="color_label">
           Choose a color
         </IonLabel>

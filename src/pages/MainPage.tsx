@@ -6,7 +6,7 @@ const MainPage: React.FC = () => {
 
   return (
     <IonPage >
-      <IonHeader        
+      <IonHeader
         className='main-header'>
         <IonButton shape='round' fill='clear' className='settings-button'>
           Settings
@@ -16,11 +16,23 @@ const MainPage: React.FC = () => {
         <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
 
-      <IonDatetime presentation='date'>
-      </IonDatetime>
+      <IonDatetime
+        
+        size="cover"
+        className='calendar'
+        presentation="date"
+        locale="en-GB"
+        firstDayOfWeek={1}
+      ></IonDatetime>
 
-      <IonButton className="compose-button" shape="round">
-        <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>
+      <IonButton
+        className="compose-button"
+        shape="round">
+        <IonIcon
+          className="pen-icon"
+          slot="start"
+          icon={pencilSharp}>
+        </IonIcon>
         Compose
       </IonButton>
       <IonButton className="google-ads-area" >Google Ads</IonButton>
