@@ -7,8 +7,6 @@ import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 
-// const store = new Storage();
-// await store.create();
 interface addProps {
   date: string;
 }
@@ -18,7 +16,7 @@ const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
-  
+
 
   const saveTitle = (newValue: string) => {
     const key: string = 'title' + date;
@@ -43,6 +41,7 @@ const NotePage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
+
           <IonButton
             routerLink={`/page/${date}`}
             shape="round"
@@ -55,7 +54,9 @@ const NotePage: React.FC<addProps> = () => {
             </IonIcon>
             Back
           </IonButton>
+          
           <IonLabel className="title-date">{titleDate}</IonLabel>
+
           <IonButton
             routerLink={`/note-list/${date}`}
             shape="round"
@@ -63,23 +64,12 @@ const NotePage: React.FC<addProps> = () => {
             className="save-button">
             Save
           </IonButton>
+
         </IonHeader>
-
-        <TextEditor
-          // onBlur={saveNote}
-          value={getTitle}
-          className="title-textarea ion-no-padding"
-          placeholder=" Title"
-          onChange={saveTitle}
-        ></TextEditor>
-        <TextEditor
-          // onBlur={saveNote}
-          value={getNote}
-          className="custom-textarea "
-          placeholder="Write your message in here.."
-          onChange={saveNote}
-        />
-
+        <TextEditor value={getTitle} className="title-textarea ion-no-padding"
+          placeholder=" Title" onChange={saveTitle}></TextEditor>
+        <TextEditor value={getNote} className="custom-textarea "
+          placeholder="Write your message in here.." onChange={saveNote} />
         <IonLabel className="color_label">
           Choose a color
         </IonLabel>
@@ -97,6 +87,5 @@ const NotePage: React.FC<addProps> = () => {
     </IonPage>
   );
 }
-
 
 export default NotePage;

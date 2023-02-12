@@ -1,24 +1,3 @@
-.ion {
-  background: #292929;
-  background: #1F1F1F;
-  background: #4A4A4A;
-  background: #828282;
-  background: #FF6065;
-  background: #F2DCA6;
-  background: #E1E1E1;
-  background: #1F1F1F;
-}
-
-/* 
-Dark Mode/Background 1 - Dark #292929 
-Dark Mode/Background 2 - Dark #1F1F1F
-Dark Mode/Gray 1 - Dark #4A4A4A
-Dark Mode/Gray 2 - Dark #828282 
-Dark Mode/Main - 1 Dark #FF6065 
-Dark Mode/Main 2 - Dark #F2DCA6 
-Dark Mode/Text Primary 1 - Dark #E1E1E1 
-Dark Mode/Text Primary 2 - Dark #1F1F1F  */
-
 
   :root {
   --background-main: #292929;

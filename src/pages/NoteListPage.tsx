@@ -1,22 +1,17 @@
-
 import React from "react";
-import { IonButton, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, } from "@ionic/react";
-import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
+import { IonButton, IonCardContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonToolbar } from "@ionic/react";
+import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencil, pencilSharp } from "ionicons/icons";
 import './NoteListPage.css';
 import { useParams } from "react-router";
-import NoteCard from "../components/NoteCadr";
-import { format, parseISO } from 'date-fns';
+import NoteCard from "../components/NoteCard";
+import { format, parseISO } from "date-fns";
 
-// const store = new Storage();
-// await store.create();
 interface addProps {
   date: string;
 }
 
 const NoteListPage: React.FC<addProps> = () => {
-  const { date } = useParams<{ date: string; }>();
-  
-
+  const { date } = useParams<{ date: string; }>();  
 
   const setting = (id: string) => {
     return localStorage.getItem(id + date)!;
@@ -28,31 +23,18 @@ const NoteListPage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton
-            routerLink={`/note/${date}`}
-            shape="round"
-            fill="clear"
-            className="back-button">
-            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
+          <IonButton shape="round" fill="clear" className="back-button">
+            <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
             Back
           </IonButton>
-
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="back-date-button">
-            <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} ></IonIcon>
+          <IonButton shape="round" fill="clear" className="back-date-button">
+            <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
           </IonButton>
-          <IonLabel
-            className="title-date_list-page">
+          <IonLabel className="title-date_list-page">
             {format(parseISO(date), 'd MMMM yyyy')}
           </IonLabel>
-          <IonButton
-            shape="round"
-            fill="clear"
-            className="forward-date-button">
-            <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} >
-            </IonIcon>
+          <IonButton shape="round" fill="clear" className="forward-date-button">
+            <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
           </IonButton>
         </IonHeader>
 
@@ -61,15 +43,8 @@ const NoteListPage: React.FC<addProps> = () => {
         </IonItemGroup>
 
       </IonPage>
-      <IonButton
-        routerLink={`/note/${date}`}
-        className="compose-button"
-        shape="round">
-        <IonIcon
-          className="pen-icon"
-          slot="start"
-          icon={pencilSharp}>
-        </IonIcon>
+      <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
+        <IonIcon className="pen-icon" slot="start" icon={pencilSharp}/>
         Compose
       </IonButton>
       <IonButton className="google-ads-area" >Google Ads</IonButton>
