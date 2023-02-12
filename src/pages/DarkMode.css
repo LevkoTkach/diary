@@ -1,0 +1,46 @@
+
+  :root {
+  --background-main: #292929;
+  --background-textarea: #1F1F1F;
+  --main-text: #E1E1E1;
+  --light-text: #1F1F1F;
+  --textarea-placeholder: #A7A7A7;
+  --save-buton: #FF6065;
+} 
+
+.green-radio {
+  background-color: #8BC34A;
+  --color: #8BC34A;
+  border: 5px solid #8BC34A;
+}
+
+.blue-radio {
+  background-color: #2196F3;
+  --color: #2196F3;
+  border: 5px solid #2196F3;
+}
+
+.purple-radio {
+  background-color: #9575CD;
+  --color: #9575CD;
+  border: 5px solid #9575CD;
+}
+
+.red-radio {
+  background-color: #FF6065;
+  --color: #FF6065;
+  border: 5px solid #FF6065;
+}
+
+.yellow-radio {
+  background-color: #FFCA28;
+  --color: #FFCA28;
+  border: 5px solid #FFCA28;
+
+}
+
+.brown-radio {
+  background-color: #8D6E63;
+  --color: #8D6E63;
+  border: 5px solid #8D6E63;
+}
