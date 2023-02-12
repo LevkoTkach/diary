@@ -77,7 +77,7 @@ ion-header {
   height: 29px;
   text-transform: none;
   font-weight: 600;
-  background: var(--save-selection-buton);
+  background: var(--background-button);
   border-radius: 100px;
   --color: var(--light-text);
 

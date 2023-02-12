@@ -2,10 +2,8 @@ import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import { useState } from 'react';
 import { Router, useParams } from 'react-router';
-import { Route } from 'workbox-routing';
 import { format, parseISO } from 'date-fns';
 import './MainPage.css';
-
 
 const MainPage: React.FC<{}> = () => {
   const [date, setDate] = useState(new Date().toISOString());

@@ -1,10 +1,11 @@
 import React from "react";
-import { IonButton, IonCardContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonToolbar } from "@ionic/react";
-import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencil, pencilSharp } from "ionicons/icons";
+import { IonButton, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage } from "@ionic/react";
+import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
 import './NoteListPage.css';
+
 interface addProps {
   date: string;
 }
