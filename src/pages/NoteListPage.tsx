@@ -1,11 +1,10 @@
 import React from "react";
 import { IonButton, IonCardContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonToolbar } from "@ionic/react";
 import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencil, pencilSharp } from "ionicons/icons";
-import './NoteListPage.css';
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
-
+import './NoteListPage.css';
 interface addProps {
   date: string;
 }
@@ -23,7 +22,7 @@ const NoteListPage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton shape="round" fill="clear" className="back-button">
+          <IonButton routerLink={`/note/${date}`} shape="round" fill="clear" className="back-button">
             <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
             Back
           </IonButton>

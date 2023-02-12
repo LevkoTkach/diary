@@ -4,21 +4,19 @@ import { useState } from 'react';
 import { Router, useParams } from 'react-router';
 import { Route } from 'workbox-routing';
 import { format, parseISO } from 'date-fns';
-
-
 import './MainPage.css';
-import { string } from 'yargs';
+
 
 const MainPage: React.FC<{}> = () => {
   const [date, setDate] = useState(new Date().toISOString());
-  
-  
+
+
   let dateSetter = (e: CustomEvent) => {
     console.log((e.detail.value).slice(0, 10));
-    const newDate:string = e.detail.value;
-    setDate(newDate);    
+    const newDate: string = e.detail.value;
+    setDate(newDate);
   };
-  
+
   return (
     <IonPage >
       <IonHeader
@@ -33,7 +31,7 @@ const MainPage: React.FC<{}> = () => {
 
       <IonDatetime
         value={date}
-        onIonChange={ dateSetter }
+        onIonChange={dateSetter}
         size="cover"
         className='calendar'
         presentation="date"
@@ -42,6 +40,7 @@ const MainPage: React.FC<{}> = () => {
       ></IonDatetime>
 
       <IonButton
+        routerLink={`/note/${date.slice(0, 10)}`}
         className="compose-button"
         shape="round">
         <IonIcon

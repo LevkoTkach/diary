@@ -43,7 +43,7 @@ const NotePage: React.FC<addProps> = () => {
         <IonHeader className="ion-no-border header">
 
           <IonButton
-            routerLink={`/page/${date}`}
+            routerLink='/main'
             shape="round"
             fill="clear"
             className="back-button">
