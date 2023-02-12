@@ -6,9 +6,6 @@ import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 
-
-// const store = new Storage();
-// await store.create();
 interface addProps {
   date: string;
 }
@@ -74,6 +71,5 @@ const NotePage: React.FC<addProps> = () => {
     </IonPage>
   );
 }
-
 
 export default NotePage;
