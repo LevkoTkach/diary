@@ -1,18 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
-
-
-:root {
-  --background-main: #FAFAFA;
-  --background-textarea: #F8F4E9;
-  --main-text: #2F2713;
-  --light-text: #ffffff;
-  --textarea-placeholder: #7E7E7E;
-  --save-selection-buton: #C1292E;
-
-  --font-size-textarea: 14px;
-  --font: 'Nunito', sans-serif;
-}
-
 .ion-page {
   margin: 0;
   padding: 0;

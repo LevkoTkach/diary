@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import './MainPage.css';
 

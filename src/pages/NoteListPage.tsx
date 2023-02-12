@@ -26,7 +26,6 @@ const NoteListPage: React.FC<addProps> = () => {
             <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} ></IonIcon>
             Back
           </IonButton>
-
           <IonButton shape="round" fill="clear" className="back-date-button">
             <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} ></IonIcon>
           </IonButton>
@@ -35,11 +34,9 @@ const NoteListPage: React.FC<addProps> = () => {
             <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline}></IonIcon>
           </IonButton>
         </IonHeader>
-
         <IonItemGroup>
           <NoteCard className="note-card" />
         </IonItemGroup>
-
       </IonPage>
       <IonButton className="compose-button" shape="round">
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>

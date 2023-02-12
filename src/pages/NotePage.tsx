@@ -47,13 +47,11 @@ const NotePage: React.FC<addProps> = () => {
           <IonButton shape="round" fill="clear" className="save-button">
             Save
           </IonButton>
-        </IonHeader>
-        
+        </IonHeader>        
         <TextEditor value={getTitle} className="title-textarea ion-no-padding"
           placeholder=" Title" onChange={saveTitle}></TextEditor>
         <TextEditor value={getNote} className="custom-textarea "
           placeholder="Write your message in here.." onChange={saveNote}/>
-
         <IonLabel className="color_label">
           Choose a color
         </IonLabel>

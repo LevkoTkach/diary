@@ -18,7 +18,7 @@ const TextEditor: React.FC<addProps> = (props) => {
 
   return (
     <IonTextarea value={props.value} onIonChange={(e) => textChange(e)}
-      className={props.className} placeholder={props.placeholder} ></IonTextarea>
+      className={props.className} placeholder={props.placeholder} />
   );
 }
 
