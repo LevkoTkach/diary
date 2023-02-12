@@ -3,6 +3,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import NotePage from './pages/NotePage';
+import NoteListPage from './pages/NoteListPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,8 +23,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import './theme/calendar.css';
-import NoteListPage from './pages/NoteListPage';
+
 
 
 setupIonicReact();
@@ -35,9 +35,9 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/main" />
+              <Redirect to="/main" />
             </Route>
-            <Route path="/page/:name" exact={true} component={MainPage} />
+            <Route path="/main" exact={true} component={MainPage} />
             <Route path="/note/:date" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>

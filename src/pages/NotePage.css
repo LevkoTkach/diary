@@ -1,38 +1,3 @@
-/* Light mode/Background - Light #FAFAFA 
-Light mode/Main 1 - Light #C1292E 
-Light mode/Main 2 - Light #F2DCA6 
-Light mode/Main 2 Shade 1 - Light #F8F4E9 
-Light mode/Main 2 Shade 2 - Light #A5946A 
-Light mode/Text Primary - Light #2F2713 
-Light mode/Text Secondary 1 - Light #A7A7A7 
-Light mode/Text Secondary 2 - Light #7E7E7E 
-Light mode/Text White - Light #FFFFFF */
-
-/* 
-Dark Mode/Background 1 - Dark #292929 
-Dark Mode/Background 2 - Dark #1F1F1F
-Dark Mode/Gray 1 - Dark #4A4A4A
-Dark Mode/Gray 2 - Dark #828282 
-Dark Mode/Main - 1 Dark #FF6065 
-Dark Mode/Main 2 - Dark #F2DCA6 
-Dark Mode/Text Primary 1 - Dark #E1E1E1 
-Dark Mode/Text Primary 2 - Dark #1F1F1F 
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
-
-
-:root {
-  --background-main: #FAFAFA;
-  --background-textarea: #F8F4E9;
-  --main-text: #2F2713;
-  --light-text: #ffffff;
-  --textarea-placeholder: #7E7E7E;
-  --save-buton: #C1292E;
-
-  --font-size-textarea: 14px;
-  --font: 'Nunito', sans-serif;
-}
 
 .ion-page {
   margin: 0;

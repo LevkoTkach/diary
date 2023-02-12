@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --background-main: #FAFAFA;
+  --background-textarea: #F8F4E9;
+  --main-text: #2F2713;
+  --light-text: #ffffff;
+  --textarea-placeholder: #7E7E7E;
+  --save-buton: #C1292E;
+  
+  --font-size-textarea: 14px;
+  --font: 'Nunito', sans-serif;
+}
+
+* {
+  font-family: var(--font);
+}
+
 .main-header {
   margin: 0;
   height: 191px;
   background-color: #F2DCA6;
   border-radius: 0px 0px 80px 0px;
-  font-family: 'Nunito';
 }
 
 .header-md::after {
@@ -18,7 +35,6 @@
   top: 62px;
   color: var(--main-text);
   text-transform: none;
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -31,13 +47,10 @@
   top: 116px;
   margin: 0;
   padding: 0 16px 0;
-
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 33px;
-
   color: var(--main-text);
 }
 
@@ -47,50 +60,22 @@
   top: 152px;
   margin: 0;
   padding: 0 16px 0;
-
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-
   color: var(--main-text);
-
 }
 
-  .calendar {
+ion-datetime {
   position: absolute;
   top: 211px;
   left: 0;
   right: 0;
   background-color: var(--background-main);
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 9px;
-  
-}
-.calendar button{
-  border: 2px solid #8a2b2b;
-}
-ion-datetime .calendar-day {
-  border: 2px solid #8a2b2b;
 
-
-  font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px !important;
-    line-height: 9px;
-  
-
-  border: 2px solid #8a2b2b;
-  border-radius: 3px importent !;
-}
-
-.calendar-day::after {
-  
-  border: 2px solid #8a2b2b;
-  background: var(--save-selection-buton);
 }
