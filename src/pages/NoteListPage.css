@@ -115,7 +115,7 @@ ion-header {
   height: 44px;
   text-transform: none;
   z-index: 250;
-  --background: var(--background-button);
+  --background: var(--secondary-button-background);
   --color: var(--light-text);
 }
 
