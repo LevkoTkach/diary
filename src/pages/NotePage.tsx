@@ -26,12 +26,16 @@ const NotePage: React.FC<addProps> = () => {
   const getNote = !localId ? '' : service.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
-    if (!localId) { localId = service.create(date, 'green', '', '') };
+    if (!localId) {
+      localId = service.create(date, 'green', '', '')
+    };
     service.setTitle(localId, newValue);
     console.log('s', newValue);
   }
   const saveNote = (newValue: string) => {
-    if (!localId) { localId = service.create(date, 'green', '', '') };
+    if (!localId) {
+      localId = service.create(date, 'green', '', '')
+    };
     service.setText(localId, newValue);
     console.log('s', newValue);
   }
