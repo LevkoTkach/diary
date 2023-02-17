@@ -28,7 +28,7 @@ export class NoteService {
 
   create(date: string, color: noteBackground, title: string, text: string) { 
     if (!date) {
-      throw new Error ('[NoteServise] date invalid ');
+      throw new Error ('[NoteService] date invalid ');
       return;
     }
     const id = Date.now();
@@ -80,7 +80,7 @@ export class NoteService {
   }
   private byId(id:number){
     const record = this.data.find(d => d.id === id);
-    if (!record) throw Error('[Noteservise] record not found');
+    if (!record) throw Error('[Noteservice] record not found');
     return record;
   }
   
