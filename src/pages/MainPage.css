@@ -7,17 +7,13 @@
   --light-text: #ffffff;
   --textarea-placeholder: #7E7E7E;
   --secondary-button-background: #C1292E;
-  
+
   --font-size-textarea: 14px;
   --font: 'Nunito', sans-serif;
 }
 
 * {
   font-family: var(--font);
-}
-
-.ion-page-invisible{
-  opacity: 1 !important;
 }
 
 .main-header {

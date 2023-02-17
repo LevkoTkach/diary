@@ -15,11 +15,11 @@ const service = NoteService.getInstance();
 
 const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
-  const { id } = useParams<{ id: string ; }>();
+  const { id } = useParams<{ id: string; }>();
   console.log(id);
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
-  
-  let localId: number | undefined = id === undefined ? undefined : +id ;
+
+  let localId: number | undefined = id === undefined ? undefined : +id;
   console.log(localId);
 
   const getTitle = !localId ? '' : service.getById(localId).title;
@@ -37,55 +37,54 @@ const NotePage: React.FC<addProps> = () => {
   }
 
   return (
-    <IonPage >
-      <IonPage className="page">
-        <IonHeader className="ion-no-border header">
 
-          <IonButton
-            routerLink='/main'
-            shape="round"
-            fill="clear"
-            className="back-button">
-            <IonIcon
-              className="arrow-icon"
-              slot="start"
-              icon={arrowBackOutline}>
-            </IonIcon>
-            Back
-          </IonButton>
+    <IonPage className="page">
+      <IonHeader className="ion-no-border header">
 
-          <IonLabel className="title-date">{titleDate}</IonLabel>
+        <IonButton
+          routerLink='/main'
+          shape="round"
+          fill="clear"
+          className="back-button">
+          <IonIcon
+            className="arrow-icon"
+            slot="start"
+            icon={arrowBackOutline}>
+          </IonIcon>
+          Back
+        </IonButton>
 
-          <IonButton
-            routerLink={`/note-list/${date}`}
-            shape="round"
-            fill="clear"
-            className="save-button">
-            Save
-          </IonButton>
-        </IonHeader>
-        <TextEditor
-          value={getTitle}
-          className="title-textarea ion-no-padding"
-          placeholder=" Title"
-          onChange={saveTitle} />
-        <TextEditor
-          value={getNote}
-          className="custom-textarea "
-          placeholder="Write your message in here.."
-          onChange={saveNote} />
-        <IonLabel className="color_label">
-          Choose a color
-        </IonLabel>
-        <IonRadioGroup className="radio-group" value="custom-checked">
-          <IonRadio className="green-radio" value="custom-checked"></IonRadio>
-          <IonRadio className="blue-radio"></IonRadio>
-          <IonRadio className="purple-radio"></IonRadio>
-          <IonRadio className="red-radio"></IonRadio>
-          <IonRadio className="yellow-radio"></IonRadio>
-          <IonRadio className="brown-radio"></IonRadio>
-        </IonRadioGroup>
-      </IonPage>
+        <IonLabel className="title-date">{titleDate}</IonLabel>
+
+        <IonButton
+          routerLink={`/note-list/${date}`}
+          shape="round"
+          fill="clear"
+          className="save-button">
+          Save
+        </IonButton>
+      </IonHeader>
+      <TextEditor
+        value={getTitle}
+        className="title-textarea ion-no-padding"
+        placeholder=" Title"
+        onChange={saveTitle} />
+      <TextEditor
+        value={getNote}
+        className="custom-textarea "
+        placeholder="Write your message in here.."
+        onChange={saveNote} />
+      <IonLabel className="color_label">
+        Choose a color
+      </IonLabel>
+      <IonRadioGroup className="radio-group" value="custom-checked">
+        <IonRadio className="green-radio" value="custom-checked"></IonRadio>
+        <IonRadio className="blue-radio"></IonRadio>
+        <IonRadio className="purple-radio"></IonRadio>
+        <IonRadio className="red-radio"></IonRadio>
+        <IonRadio className="yellow-radio"></IonRadio>
+        <IonRadio className="brown-radio"></IonRadio>
+      </IonRadioGroup>
       <IonButton
         className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
