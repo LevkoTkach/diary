@@ -42,7 +42,7 @@ const MainPage: React.FC<{}> = () => {
       </IonButton>
 
       <IonButton
-        routerLink={`/note/${date.slice(0, 10)}/0`}
+        routerLink={`/note/${date.slice(0, 10)}`}
         className="compose-button"
         shape="round">
         <IonIcon

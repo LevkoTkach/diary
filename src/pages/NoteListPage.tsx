@@ -15,7 +15,7 @@ const service = NoteService.getInstance();
 const NoteListPage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
 
-  service.clearAmptyNotes();
+  service.clearEmptyNotes();
 
   const notes = service.findByDate(date);
   console.log(notes);
@@ -24,7 +24,7 @@ const NoteListPage: React.FC<addProps> = () => {
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton routerLink={`/note/${date}/0`} shape="round" fill="clear" className="back-button">
+          <IonButton routerLink={`/note/${date}`} shape="round" fill="clear" className="back-button">
             <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
             Back
           </IonButton>
@@ -47,7 +47,7 @@ const NoteListPage: React.FC<addProps> = () => {
           })}
         </IonItemGroup>
       </IonPage>
-      <IonButton routerLink={`/note/${date}/0`} className="compose-button" shape="round">
+      <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
