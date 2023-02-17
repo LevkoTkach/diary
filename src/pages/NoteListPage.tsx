@@ -40,7 +40,8 @@ const NoteListPage: React.FC<addProps> = () => {
         </IonHeader>
         <IonItemGroup>
           {notes.map(note => {
-            return <NoteCard className={`note-card ${note.color}`}
+            return <NoteCard key={note.id}
+              className={`note-card ${note.color}`}
               routerLink={`/note/${date}/${note.id}`}
               title={`${note.title}`}
               text={`${note.text}`} />;

@@ -15,23 +15,23 @@ const service = NoteService.getInstance();
 
 const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
-  const { id } = useParams<{ id: string; }>();
-
+  const { id } = useParams<{ id: string ; }>();
+  console.log(id);
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
-
-  let localId: number = !+id ? 0 : +id;
+  
+  let localId: number | undefined = id === undefined ? undefined : +id ;
   console.log(localId);
 
   const getTitle = !localId ? '' : service.getById(localId).title;
   const getNote = !localId ? '' : service.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
-    localId = !localId ? service.create(date, 'greenBG', '', '')! : localId;
+    if (!localId) { localId = service.create(date, 'green', '', '') };
     service.setTitle(localId, newValue);
     console.log('s', newValue);
   }
   const saveNote = (newValue: string) => {
-
+    if (!localId) { localId = service.create(date, 'green', '', '') };
     service.setText(localId, newValue);
     console.log('s', newValue);
   }
