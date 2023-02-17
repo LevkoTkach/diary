@@ -80,7 +80,7 @@ export class NoteService {
   }
   private byId(id:number){
     const record = this.data.find(d => d.id === id);
-    if (!record) throw Error('[Noteservice] record not found');
+    if (!record) throw new Error('[Noteservice] record not found');
     return record;
   }
   
