@@ -4,20 +4,20 @@ import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilShar
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
-import { NoteServise } from "../NoteServise";
+import { NoteService } from "../NoteService";
 import './NoteListPage.css';
 
 interface addProps {
   date: string;
 }
-const servise = NoteServise.getInstance();
+const service = NoteService.getInstance();
 
 const NoteListPage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
 
-  servise.clearAmptyNotes();
+  service.clearAmptyNotes();
 
-  const notes = servise.findByDate(date);
+  const notes = service.findByDate(date);
   console.log(notes);
 
   return (

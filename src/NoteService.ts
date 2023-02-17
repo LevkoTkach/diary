@@ -8,16 +8,16 @@ export interface NoteModel {
   text: string;
 }
 
-export class NoteServise {
+export class NoteService {
   
   private  data: NoteModel[] = [];
   private readonly key = 'notes';
 
-  private static instance: NoteServise;
+  private static instance: NoteService;
   
   static getInstance(){
     if (!this.instance) {
-      this.instance = new NoteServise();
+      this.instance = new NoteService();
     }
     return this.instance;
   }

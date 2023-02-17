@@ -5,13 +5,13 @@ import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
-import { NoteServise } from "../NoteServise";
+import { NoteService } from "../NoteService";
 
 interface addProps {
   date: string;
 }
 
-const servise = NoteServise.getInstance();
+const service = NoteService.getInstance();
 
 const NotePage: React.FC<addProps> = () => { 
   const { date } = useParams<{ date: string; }>();
@@ -19,17 +19,17 @@ const NotePage: React.FC<addProps> = () => {
 
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
-  const localId: number = !+id ? servise.create(date, 'greenBG', '', '')! : +id;
+  const localId: number = !+id ? service.create(date, 'greenBG', '', '')! : +id;
   console.log(localId);
-  const getTitle = servise.getById(localId).title;
-  const getNote = servise.getById(localId).text;
+  const getTitle = service.getById(localId).title;
+  const getNote = service.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
-    servise.setTitle(localId, newValue);
+    service.setTitle(localId, newValue);
     console.log('s', newValue);
   }
   const saveNote = (newValue: string) => {
-    servise.setText(localId, newValue);
+    service.setText(localId, newValue);
     console.log('s', newValue);
   }
 
