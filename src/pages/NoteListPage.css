@@ -133,21 +133,21 @@ ion-item-group{
   --border-radius: 0;
 }
 
-.green {
+.note-color-green {
   background-color: #4CAF50;
 }
-.blue {
+.note-color-blue {
   background-color: #03A9F4;
 }
-.purple {
+.note-color-purple {
   background-color: #673AB7;
 }
-.redBG {
+.note-color-red {
   background-color: #C1292E;
 }
-.yellow {
+.note-color-yellow {
   background-color: #FF9800;
 }
-.brown {
+.note-color-brown {
   background-color: #795548;
 }
