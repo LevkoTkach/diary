@@ -1,36 +1,27 @@
 import React from 'react';
-import { FormEvent, FormEventHandler } from 'react';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, } from '@ionic/react';
-import { RouteComponentProps, useParams } from 'react-router';
+import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
 import './NoteCard.css';
 
 interface addProps {
-  className: string;
+  className: string;  
+  title: string;
+  text: string;
+  routerLink: string;
 }
 
 const NoteCard: React.FC<addProps> = (props) => {
-  const { date } = useParams<{ date: string; }>();
-
-  const setting = (id: string) => {
-    return localStorage.getItem(id + date)!;
-  }
-  const getTitle = setting('title');
-  const getNote = setting('note');
 
   return (
-    <IonCard className={props.className} button={true}>
+    <IonCard className={props.className} button={true} routerLink={props.routerLink}>
       <IonCardHeader>
-        <IonCardTitle>{getTitle}</IonCardTitle>
+        <IonCardTitle>{props.title}</IonCardTitle>
       </IonCardHeader>
-
       <IonCardContent className='content-in-card'>
-        {getNote}
+        {props.text}
       </IonCardContent>
-
       <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
       </IonIcon>
-
     </IonCard>
   );
 }

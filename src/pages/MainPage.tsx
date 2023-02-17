@@ -1,13 +1,10 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import { useState } from 'react';
-import { Router, useParams } from 'react-router';
-import { format, parseISO } from 'date-fns';
 import './MainPage.css';
 
 const MainPage: React.FC<{}> = () => {
   const [date, setDate] = useState(new Date().toISOString());
-
 
   let dateSetter = (e: CustomEvent) => {
     console.log((e.detail.value).slice(0, 10));
@@ -26,7 +23,7 @@ const MainPage: React.FC<{}> = () => {
         <IonTitle className='main-header-title'>Select a day to compose</IonTitle>
         <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
-
+      
       <IonDatetime
         value={date}
         onIonChange={dateSetter}
@@ -35,10 +32,17 @@ const MainPage: React.FC<{}> = () => {
         presentation="date"
         locale="en-GB"
         firstDayOfWeek={1}
-      ></IonDatetime>
+      />
 
       <IonButton
-        routerLink={`/note/${date.slice(0, 10)}`}
+        routerLink={`/note-list/${date.slice(0, 10)}`}
+        className="compose-button"
+        shape="round">
+        to route
+      </IonButton>
+
+      <IonButton
+        routerLink={`/note/${date.slice(0, 10)}/0`}
         className="compose-button"
         shape="round">
         <IonIcon

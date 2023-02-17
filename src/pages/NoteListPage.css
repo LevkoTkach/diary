@@ -92,18 +92,21 @@ ion-header {
   --padding-bottom: 0px;
 
 }
-
-.note-card {
-  margin: 0;
+ion-item-group{
   position: absolute;
+  top: 183px;
+  width: 100%;
+  bottom: 160px;
+  max-height: 100%;
+}
+.note-card {
+  position: relative;
+  margin: 0 0 8px 0;  
   height: 90px;
   left: 0;
   right: 0;
-  top: 183px;
-  --background: red;
   --color: var(--light-text);
   border-radius: 16px;
-
 }
 
 .compose-button {
@@ -128,4 +131,23 @@ ion-header {
   bottom: 0;
   height: 70px;
   --border-radius: 0;
+}
+
+.greenBG {
+  background-color: #4CAF50;
+}
+.blueBG {
+  background-color: #03A9F4;
+}
+.purpleBG {
+  background-color: #673AB7;
+}
+.redBG {
+  background-color: #C1292E;
+}
+.yellowBG {
+  background-color: #FF9800;
+}
+.brownGN {
+  background-color: #795548;
 }

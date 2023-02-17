@@ -1,41 +1,38 @@
-import React from "react";
-import { FormEvent, FormEventHandler } from 'react';
+import React, { useState } from "react";
 import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
+import { NoteServise } from "../NoteServise";
 
 interface addProps {
   date: string;
 }
 
+const servise = NoteServise.getInstance();
 
-const NotePage: React.FC<addProps> = () => {
+const NotePage: React.FC<addProps> = () => { 
   const { date } = useParams<{ date: string; }>();
+  const { id } = useParams<{ id: string; }>();
+
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
-
+  const localId: number = !+id ? servise.create(date, 'greenBG', '', '')! : +id;
+  console.log(localId);
+  const getTitle = servise.getById(localId).title;
+  const getNote = servise.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
-    const key: string = 'title' + date;
-    localStorage.setItem(key, newValue);
+    servise.setTitle(localId, newValue);
     console.log('s', newValue);
-
   }
   const saveNote = (newValue: string) => {
-    const key: string = 'note' + date;
-    localStorage.setItem(key, newValue);
+    servise.setText(localId, newValue);
     console.log('s', newValue);
-    return newValue;
   }
 
-  const setting = (id: string) => {
-    return localStorage.getItem(id + date)!;
-  }
-  const getTitle = setting('title');
-  const getNote = setting('note');
 
   return (
     <IonPage >
@@ -54,7 +51,7 @@ const NotePage: React.FC<addProps> = () => {
             </IonIcon>
             Back
           </IonButton>
-          
+
           <IonLabel className="title-date">{titleDate}</IonLabel>
 
           <IonButton
@@ -64,12 +61,17 @@ const NotePage: React.FC<addProps> = () => {
             className="save-button">
             Save
           </IonButton>
-
         </IonHeader>
-        <TextEditor value={getTitle} className="title-textarea ion-no-padding"
-          placeholder=" Title" onChange={saveTitle}></TextEditor>
-        <TextEditor value={getNote} className="custom-textarea "
-          placeholder="Write your message in here.." onChange={saveNote} />
+        <TextEditor
+          value={getTitle}
+          className="title-textarea ion-no-padding"
+          placeholder=" Title"
+          onChange={saveTitle} />
+        <TextEditor
+          value={getNote}
+          className="custom-textarea "
+          placeholder="Write your message in here.."
+          onChange={saveNote} />
         <IonLabel className="color_label">
           Choose a color
         </IonLabel>

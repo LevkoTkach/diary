@@ -4,26 +4,27 @@ import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilShar
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
+import { NoteServise } from "../NoteServise";
 import './NoteListPage.css';
 
 interface addProps {
   date: string;
 }
+const servise = NoteServise.getInstance();
 
 const NoteListPage: React.FC<addProps> = () => {
-  const { date } = useParams<{ date: string; }>();  
+  const { date } = useParams<{ date: string; }>();
 
-  const setting = (id: string) => {
-    return localStorage.getItem(id + date)!;
-  }
-  const getTitle = setting('title');
-  const getNote = setting('note');
+  servise.clearAmptyNotes();
+
+  const notes = servise.findByDate(date);
+  console.log(notes);
 
   return (
     <IonPage >
       <IonPage className="page">
         <IonHeader className="ion-no-border header">
-          <IonButton routerLink={`/note/${date}`} shape="round" fill="clear" className="back-button">
+          <IonButton routerLink={`/note/${date}/0`} shape="round" fill="clear" className="back-button">
             <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
             Back
           </IonButton>
@@ -37,14 +38,17 @@ const NoteListPage: React.FC<addProps> = () => {
             <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
           </IonButton>
         </IonHeader>
-
         <IonItemGroup>
-          <NoteCard className="note-card" />
+          {notes.map(note => {
+            return <NoteCard className={`note-card ${note.color}`}
+            routerLink={`/note/${date}/${note.id}`}
+            title={`${note.title}`}
+            text={`${note.text}`} />;
+          })}
         </IonItemGroup>
-
       </IonPage>
-      <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
-        <IonIcon className="pen-icon" slot="start" icon={pencilSharp}/>
+      <IonButton routerLink={`/note/${date}/0`} className="compose-button" shape="round">
+        <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
       <IonButton className="google-ads-area" >Google Ads</IonButton>

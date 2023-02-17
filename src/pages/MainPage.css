@@ -16,6 +16,10 @@
   font-family: var(--font);
 }
 
+.ion-page-invisible{
+  opacity: 1 !important;
+}
+
 .main-header {
   margin: 0;
   height: 191px;

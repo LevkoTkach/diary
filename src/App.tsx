@@ -24,11 +24,10 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-
-
 setupIonicReact();
 
 const App: React.FC = () => {
+
   return (
     <IonApp>
       <IonReactRouter>
@@ -38,7 +37,7 @@ const App: React.FC = () => {
               <Redirect to="/main" />
             </Route>
             <Route path="/main" exact={true} component={MainPage} />
-            <Route path="/note/:date" exact={true} component={NotePage} />
+            <Route path="/note/:date/:id" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>
         </IonSplitPane>
