@@ -70,7 +70,7 @@ export class NoteService {
   }
 
   clearEmptyNotes() {
-    this.data = this.data.filter(d => d.title! || d.text!);
+    this.data = this.data.filter(d => !d.title || !d.text);
     this.save();
   }
   
