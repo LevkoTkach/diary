@@ -13,26 +13,28 @@ interface addProps {
 
 const service = NoteService.getInstance();
 
-const NotePage: React.FC<addProps> = () => { 
+const NotePage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
   const { id } = useParams<{ id: string; }>();
 
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
-  const localId: number = !+id ? service.create(date, 'greenBG', '', '')! : +id;
+  let localId: number = !+id ? 0 : +id;
   console.log(localId);
-  const getTitle = service.getById(localId).title;
-  const getNote = service.getById(localId).text;
+
+  const getTitle = !localId ? '' : service.getById(localId).title;
+  const getNote = !localId ? '' : service.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
+    localId = !localId ? service.create(date, 'greenBG', '', '')! : localId;
     service.setTitle(localId, newValue);
     console.log('s', newValue);
   }
   const saveNote = (newValue: string) => {
+
     service.setText(localId, newValue);
     console.log('s', newValue);
   }
-
 
   return (
     <IonPage >
