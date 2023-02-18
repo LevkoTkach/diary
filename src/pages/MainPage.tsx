@@ -15,8 +15,6 @@ const MainPage: React.FC<{}> = () => {
     setDate(newDate.slice(0, 10));
   };
 
-  const buttonLink = service.findByDate(date).length ? `/note-list/${date}` : `/note/${date}`;
-  const buttonName = service.findByDate(date).length ? 'View Notes' : 'Compose';
 
   return (
     <IonPage >
@@ -47,17 +45,28 @@ const MainPage: React.FC<{}> = () => {
         to route
       </IonButton>
 
-      <IonButton
-        routerLink={buttonLink}
-        className="compose-button"
-        shape="round">
-        <IonIcon
-          className="pen-icon"
-          slot="start"
-          icon={pencilSharp}>
-        </IonIcon>
-        {buttonName}
-      </IonButton>
+      {(function () {
+        if (service.findByDate(date).length) {
+          return <IonButton
+            routerLink={`/note-list/${date}`}
+            className="compose-button"
+            shape="round">
+            View Notes
+          </IonButton>
+        };
+        return <IonButton
+          routerLink={`/note/${date}`}
+          className="compose-button"
+          shape="round">
+          <IonIcon
+            className="pen-icon"
+            slot="start"
+            icon={pencilSharp}>
+          </IonIcon>
+          Compose
+        </IonButton>
+      })()}
+
       <IonButton className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
   );
