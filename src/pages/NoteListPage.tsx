@@ -15,7 +15,7 @@ const service = NoteService.getInstance();
 const NoteListPage: React.FC<addProps> = () => {
   const { date } = useParams<{ date: string; }>();
 
-  // service.clearEmptyNotes();
+  service.clearEmptyNotes();
 
   const notes = service.findByDate(date);
   console.log(notes);

@@ -1,21 +1,21 @@
-type noteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
+type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
 
 export interface NoteModel {
   id: number;
-  date:string;
-  color: noteColor;
+  date: string;
+  color: NoteColor;
   title: string;
   text: string;
 }
 
 export class NoteService {
-  
-  private  data: NoteModel[] = [];
+
+  private data: NoteModel[] = [];
   private readonly key = 'notes';
 
   private static instance: NoteService;
-  
-  static getInstance(){
+
+  static getInstance() {
     if (!this.instance) {
       this.instance = new NoteService();
     }
@@ -26,9 +26,9 @@ export class NoteService {
     this.load();
   }
 
-  create(date: string, color: noteColor, title: string, text: string) { 
+  create(date: string, color: NoteColor, title: string, text: string) {
     if (!date) {
-      throw new Error ('[NoteService] date invalid ');
+      throw new Error('[NoteService] date invalid ');
     }
     const id = Date.now();
     this.data.push({
@@ -40,23 +40,23 @@ export class NoteService {
     })
     this.save();
     return id;
-  }  
+  }
   setDate(id: number, date: string) {
     const record = this.byId(id);
     record.date = date;
     this.save();
   }
-  setColor(id: number, color: noteColor) {
+  setColor(id: number, color: NoteColor) {
     const record = this.byId(id);
     record.color = color;
     this.save();
   }
-  setTitle(id: number, title:string) { 
+  setTitle(id: number, title: string) {
     const record = this.byId(id);
     record.title = title;
     this.save();
   }
-  setText(id: number, text:string) { 
+  setText(id: number, text: string) {
     const record = this.byId(id);
     record.text = text;
     this.save();
@@ -72,22 +72,22 @@ export class NoteService {
     this.data = this.data.filter(d => d.title || d.text);
     this.save();
   }
-  
-  getById(id:number) {
+
+  getById(id: number) {
     const record = this.byId(id);
     return { ...record };
   }
-  private byId(id:number){
+  private byId(id: number) {
     const record = this.data.find(d => d.id === id);
     if (!record) throw new Error('[NoteService] record not found');
     return record;
   }
-  
-  private save() { 
+
+  private save() {
     localStorage.setItem(this.key, JSON.stringify(this.data))
   }
   private load() {
     this.data = !localStorage.getItem(this.key) ? [] : JSON.parse(localStorage.getItem(this.key)!);
   }
-    
+
 }

@@ -1,16 +1,20 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import { useState } from 'react';
+import { NoteService } from '../NoteService';
 import './MainPage.css';
 
+const service = NoteService.getInstance();
+
 const MainPage: React.FC<{}> = () => {
-  const [date, setDate] = useState(new Date().toISOString());
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
   let dateSetter = (e: CustomEvent) => {
     console.log((e.detail.value).slice(0, 10));
     const newDate: string = e.detail.value;
-    setDate(newDate);
+    setDate(newDate.slice(0, 10));
   };
+
 
   return (
     <IonPage >
@@ -23,7 +27,7 @@ const MainPage: React.FC<{}> = () => {
         <IonTitle className='main-header-title'>Select a day to compose</IonTitle>
         <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
       </IonHeader>
-      
+
       <IonDatetime
         value={date}
         onIonChange={dateSetter}
@@ -41,17 +45,28 @@ const MainPage: React.FC<{}> = () => {
         to route
       </IonButton>
 
-      <IonButton
-        routerLink={`/note/${date.slice(0, 10)}`}
-        className="compose-button"
-        shape="round">
-        <IonIcon
-          className="pen-icon"
-          slot="start"
-          icon={pencilSharp}>
-        </IonIcon>
-        Compose
-      </IonButton>
+      {(function () {
+        if (service.findByDate(date).length) {
+          return <IonButton
+            routerLink={`/note-list/${date}`}
+            className="compose-button"
+            shape="round">
+            View Notes
+          </IonButton>
+        };
+        return <IonButton
+          routerLink={`/note/${date}`}
+          className="compose-button"
+          shape="round">
+          <IonIcon
+            className="pen-icon"
+            slot="start"
+            icon={pencilSharp}>
+          </IonIcon>
+          Compose
+        </IonButton>
+      })()}
+
       <IonButton className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
   );
