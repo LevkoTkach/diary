@@ -8,10 +8,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 
-import avatar1 from '../LoginPage/girl1.png'
-import avatar2 from '../LoginPage/girl2.png'
-import BG from '../LoginPage/backgrond-lite.png'
-import GoogleIcon from "../LoginPage/logos_google-icon.svg";
+import Avatar1 from '../LoginPage/girl1.png'
+import Avatar2 from '../LoginPage/girl2.png'
+import BG from '../LoginPage/background-light.png'
+import GoogleIcon from "../LoginPage/logos-google-icon.svg";
 
 const LoginPage: React.FC<{}> = () => {
 
@@ -26,7 +26,7 @@ const LoginPage: React.FC<{}> = () => {
           onSlideChange={() => console.log('slide change')}>
 
           <SwiperSlide className="slide">
-            <IonImg className="avatar1" src={avatar1}></IonImg>
+            <IonImg className="avatar1" src={Avatar1}></IonImg>
             <IonLabel>
               <h2>Extension for your<br></br>thoughts and feelings </h2>
               <p>
@@ -38,7 +38,7 @@ const LoginPage: React.FC<{}> = () => {
           </SwiperSlide>
 
           <SwiperSlide className="slide2">
-            <IonImg className="avatar2" src={avatar2}></IonImg>
+            <IonImg src={Avatar2} className="avatar2"></IonImg>
             <IonLabel>
               <h2 >
                 Compose your<br></br>
