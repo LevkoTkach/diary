@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import NotePage from './pages/NotePage';
 import NoteListPage from './pages/NoteListPage';
-
+import LoginPage from './pages/LoginPage/LoginPage';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -36,6 +36,7 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/main" />
             </Route>
+            <Route path="/login" exact={true} component={LoginPage} />
             <Route path="/main" exact={true} component={MainPage} />
             <Route path="/note/:date/:id?" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
