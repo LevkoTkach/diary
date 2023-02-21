@@ -55,6 +55,6 @@ const NoteListPage: React.FC<addProps> = () => {
 }
 
 
-export default NoteListPage;
+export default React.memo(NoteListPage);
 
 

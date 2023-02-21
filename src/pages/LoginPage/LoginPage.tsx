@@ -1,3 +1,4 @@
+import React from "react";
 import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon } from "@ionic/react";
 import '../LoginPage/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,7 +7,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
 
 import Avatar1 from '../LoginPage/girl1.png'
 import Avatar2 from '../LoginPage/girl2.png'
@@ -69,4 +69,4 @@ const LoginPage: React.FC<{}> = () => {
   );
 };
 
-export default LoginPage;
+export default React.memo(LoginPage);

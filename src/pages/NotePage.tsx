@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
@@ -10,35 +10,38 @@ import { NoteService } from "../NoteService";
 interface addProps {
   date: string;
 }
-
 const service = NoteService.getInstance();
 
+
 const NotePage: React.FC<addProps> = () => {
+
   const { date } = useParams<{ date: string; }>();
   const { id } = useParams<{ id: string; }>();
-  console.log(id);
+  
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
-  let localId: number | undefined = id === undefined ? undefined : +id;
+  let localId: number | undefined = (id === undefined) ? undefined : +id;
   console.log(localId);
-
+  
   const getTitle = !localId ? '' : service.getById(localId).title;
   const getNote = !localId ? '' : service.getById(localId).text;
 
   const saveTitle = (newValue: string) => {
     if (!localId) {
-      localId = service.create(date, 'green', '', '')
+      localId = service.create(date, 'green', '', '');
     };
     service.setTitle(localId, newValue);
-    console.log('s', newValue);
   }
   const saveNote = (newValue: string) => {
     if (!localId) {
-      localId = service.create(date, 'green', '', '')
+      localId = service.create(date, 'green', '', '');
     };
     service.setText(localId, newValue);
-    console.log('s', newValue);
   }
+
+  const handleChange = (event: any) => {
+    service.setColor(localId!, event.detail.value);
+    };
 
   return (
 
@@ -81,13 +84,13 @@ const NotePage: React.FC<addProps> = () => {
       <IonLabel className="color_label">
         Choose a color
       </IonLabel>
-      <IonRadioGroup className="radio-group" value="custom-checked">
-        <IonRadio className="green-radio" value="custom-checked"></IonRadio>
-        <IonRadio className="blue-radio"></IonRadio>
-        <IonRadio className="purple-radio"></IonRadio>
-        <IonRadio className="red-radio"></IonRadio>
-        <IonRadio className="yellow-radio"></IonRadio>
-        <IonRadio className="brown-radio"></IonRadio>
+      <IonRadioGroup className="radio-group" onIonChange={handleChange}>
+        <IonRadio className="green-radio" value="green" ></IonRadio>
+        <IonRadio className="blue-radio" value="blue"></IonRadio>
+        <IonRadio className="purple-radio" value="purple"></IonRadio>
+        <IonRadio className="red-radio" value="red"></IonRadio>
+        <IonRadio className="yellow-radio" value="yellow"></IonRadio>
+        <IonRadio className="brown-radio" value="brown"></IonRadio>
       </IonRadioGroup>
       <IonButton
         className="google-ads-area" >Google Ads</IonButton>
@@ -95,4 +98,4 @@ const NotePage: React.FC<addProps> = () => {
   );
 }
 
-export default NotePage;
+export default React.memo(NotePage);
