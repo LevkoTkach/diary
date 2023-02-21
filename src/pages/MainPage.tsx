@@ -1,5 +1,6 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
+import React from 'react';
 import { useState } from 'react';
 import { NoteService } from '../NoteService';
 import './MainPage.css';
@@ -10,7 +11,6 @@ const MainPage: React.FC<{}> = () => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
   let dateSetter = (e: CustomEvent) => {
-    console.log((e.detail.value).slice(0, 10));
     const newDate: string = e.detail.value;
     setDate(newDate.slice(0, 10));
   };
@@ -72,4 +72,4 @@ const MainPage: React.FC<{}> = () => {
   );
 };
 
-export default MainPage;
+export default React.memo(MainPage);
