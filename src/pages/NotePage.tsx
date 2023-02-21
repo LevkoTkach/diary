@@ -85,7 +85,7 @@ const NotePage: React.FC<addProps> = () => {
         Choose a color
       </IonLabel>
       <IonRadioGroup className="radio-group" onIonChange={handleChange}>
-        <IonRadio className="green-radio" value="green" aria-checked={true} ></IonRadio>
+        <IonRadio className="green-radio" value="green" ></IonRadio>
         <IonRadio className="blue-radio" value="blue"></IonRadio>
         <IonRadio className="purple-radio" value="purple"></IonRadio>
         <IonRadio className="red-radio" value="red"></IonRadio>
