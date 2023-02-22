@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
@@ -17,12 +17,13 @@ const NotePage: React.FC<addProps> = () => {
 
   const { date } = useParams<{ date: string; }>();
   const { id } = useParams<{ id: string; }>();
-  
+  const [noteColor, setnoteColor] = useState('green');
+
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
   let localId: number | undefined = (id === undefined) ? undefined : +id;
   console.log(localId);
-  
+
   const getTitle = !localId ? '' : service.getById(localId).title;
   const getNote = !localId ? '' : service.getById(localId).text;
 
@@ -40,9 +41,10 @@ const NotePage: React.FC<addProps> = () => {
   }
 
   const handleChange = (event: any) => {
-    service.setColor(localId!, event.detail.value);
-    };
-
+    setnoteColor(event.detail.value);
+    service.setColor(localId!, noteColor);    
+  }; 
+  
   return (
 
     <IonPage className="page">
@@ -84,7 +86,7 @@ const NotePage: React.FC<addProps> = () => {
       <IonLabel className="color_label">
         Choose a color
       </IonLabel>
-      <IonRadioGroup className="radio-group" onIonChange={handleChange}>
+      <IonRadioGroup className="radio-group" value={noteColor} onIonChange={handleChange}>
         <IonRadio className="green-radio" value="green" ></IonRadio>
         <IonRadio className="blue-radio" value="blue"></IonRadio>
         <IonRadio className="purple-radio" value="purple"></IonRadio>

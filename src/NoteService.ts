@@ -3,7 +3,7 @@ type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
 export interface NoteModel {
   id: number;
   date: string;
-  color: NoteColor;
+  color: string;
   title: string;
   text: string;
 }
@@ -26,7 +26,7 @@ export class NoteService {
     this.load();
   }
 
-  create(date: string, color: NoteColor, title: string, text: string) {
+  create(date: string, color: string, title: string, text: string) {
     if (!date) {
       throw new Error('[NoteService] date invalid ');
     }
@@ -46,7 +46,7 @@ export class NoteService {
     record.date = date;
     this.save();
   }
-  setColor(id: number, color: NoteColor) {
+  setColor(id: number, color: string) {
     const record = this.byId(id);
     record.color = color;
     this.save();

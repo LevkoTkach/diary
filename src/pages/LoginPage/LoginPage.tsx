@@ -56,7 +56,7 @@ const LoginPage: React.FC<{}> = () => {
         </Swiper>
 
         <IonButton
-          routerLink={''}
+          routerLink='/main'
           className="login-button"
           shape="round">
           <IonIcon size="small" slot="start" icon={GoogleIcon}></IonIcon>
