@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup } from "@ionic/react";
+import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTextarea } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
 import { useParams } from "react-router";
-import TextEditor from "../components/TextEditor";
+// import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteService } from "../NoteService";
 
@@ -17,34 +17,48 @@ const NotePage: React.FC<addProps> = () => {
 
   const { date } = useParams<{ date: string; }>();
   const { id } = useParams<{ id: string; }>();
-  const [noteColor, setnoteColor] = useState('green');
 
   const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
 
   let localId: number | undefined = (id === undefined) ? undefined : +id;
   console.log(localId);
 
-  const getTitle = !localId ? '' : service.getById(localId).title;
-  const getNote = !localId ? '' : service.getById(localId).text;
+  let title: string = !localId ? '' : service.getById(localId).title;
+  let text: string = !localId ? '' : service.getById(localId).text;
+  let color: string = 'green';
 
-  const saveTitle = (newValue: string) => {
+  const handleColor = (event: CustomEvent) => {
+    color = event.detail.value;
+  };
+  const saveColor = () => {
+    if (!localId) {
+      localId = service.create(date, 'green', '', '');
+    }
+    service.setColor(localId, color);
+  };
+
+  const handleTitle = (event: CustomEvent) => {
+    title = (event.detail.value);
+  };
+  const saveTitle = () => {
     if (!localId) {
       localId = service.create(date, 'green', '', '');
     };
-    service.setTitle(localId, newValue);
-  }
-  const saveNote = (newValue: string) => {
+    service.setTitle(localId, title);
+    console.log('save', title);
+  };
+
+  const handleText = (event: CustomEvent) => {
+    text = (event.detail.value);
+  };
+  const saveText = () => {
     if (!localId) {
       localId = service.create(date, 'green', '', '');
     };
-    service.setText(localId, newValue);
-  }
+    service.setText(localId, text);
+    console.log('save', text);
+  };
 
-  const handleChange = (event: any) => {
-    setnoteColor(event.detail.value);
-    service.setColor(localId!, noteColor);    
-  }; 
-  
   return (
 
     <IonPage className="page">
@@ -73,20 +87,26 @@ const NotePage: React.FC<addProps> = () => {
           Save
         </IonButton>
       </IonHeader>
-      <TextEditor
-        value={getTitle}
+
+      <IonTextarea
         className="title-textarea ion-no-padding"
         placeholder=" Title"
-        onChange={saveTitle} />
-      <TextEditor
-        value={getNote}
+        value={title}
+        onIonChange={handleTitle}
+        onIonBlur={saveTitle}
+      />
+      <IonTextarea
         className="custom-textarea "
         placeholder="Write your message in here.."
-        onChange={saveNote} />
+        value={text}
+        onIonChange={handleText}
+        onIonBlur={saveText}
+      />
+
       <IonLabel className="color_label">
         Choose a color
       </IonLabel>
-      <IonRadioGroup className="radio-group" value={noteColor} onIonChange={handleChange}>
+      <IonRadioGroup className="radio-group" value={color} onIonChange={handleColor} onBlur={saveColor}>
         <IonRadio className="green-radio" value="green" ></IonRadio>
         <IonRadio className="blue-radio" value="blue"></IonRadio>
         <IonRadio className="purple-radio" value="purple"></IonRadio>
@@ -100,4 +120,4 @@ const NotePage: React.FC<addProps> = () => {
   );
 }
 
-export default React.memo(NotePage);
+export default NotePage;
