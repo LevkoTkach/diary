@@ -8,10 +8,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import Avatar1 from '../LoginPage/girl1.png'
-import Avatar2 from '../LoginPage/girl2.png'
-import BG from '../LoginPage/background-light.png'
-import GoogleIcon from "../LoginPage/logos-google-icon.svg";
+import Avatar1 from '../pages/girl1.png'
+import Avatar2 from '../pages/girl2.png'
+import BG from '../pages/background-light.png'
+import GoogleIcon from "../pages/logos-google-icon.svg";
 
 const LoginPage: React.FC<{}> = () => {
 
