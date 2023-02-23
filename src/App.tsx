@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import NotePage from './pages/NotePage';
 import NoteListPage from './pages/NoteListPage';
-import LoginPage from './pages/LoginPage/LoginPage';
+import LoginPage from './pages/LoginPage';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon } from "@ionic/react";
-import '../LoginPage/LoginPage.css'
+import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper';
 import 'swiper/css';
@@ -69,4 +69,4 @@ const LoginPage: React.FC<{}> = () => {
   );
 };
 
-export default React.memo(LoginPage);
+export default LoginPage;
