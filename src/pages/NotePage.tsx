@@ -15,11 +15,14 @@ const service = NoteService.getInstance();
 
 const NotePage: React.FC<AddProps> = () => {
   const params = useParams<AddProps>();
-  const [date] = useState<string>(() => params.date.toString());
+  const [date, setDate] = useState<string>(()=>params.date.toString());
   const [title, setTitle] = useState<string>();
   const [text, setText] = useState<string>();
   const [color, setColor] = useState<NoteColor>();
-
+  if (date !== params.date.toString()) {
+    setDate(params.date.toString());
+  }
+  
   useEffect(() => {
     if (params.id) {
       const note = service.getById(+params.id);
