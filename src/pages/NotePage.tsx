@@ -1,63 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTextarea } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import './NotePage.css';
 import { useParams } from "react-router";
-// import TextEditor from "../components/TextEditor";
+import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
-import { NoteService } from "../NoteService";
+import { NoteColor, NoteService } from "../NoteService";
 
-interface addProps {
+interface AddProps {
+  id: string;
   date: string;
 }
 const service = NoteService.getInstance();
 
+const NotePage: React.FC<AddProps> = () => {
+  const params = useParams<AddProps>();
+  const [date] = useState<string>(() => params.date.toString());
+  const [title, setTitle] = useState<string>();
+  const [text, setText] = useState<string>();
+  const [color, setColor] = useState<NoteColor>();
 
-const NotePage: React.FC<addProps> = () => {
-
-  const { date } = useParams<{ date: string; }>();
-  const { id } = useParams<{ id: string; }>();
-
-  const titleDate: string = format(parseISO(date), 'd ccc / MMM yyyy');
-
-  let localId: number | undefined = (id === undefined) ? undefined : +id;
-  console.log(localId);
-
-  let title: string = !localId ? '' : service.getById(localId).title;
-  let text: string = !localId ? '' : service.getById(localId).text;
-  let color: string = 'green';
-
-  const handleColor = (event: CustomEvent) => {
-    color = event.detail.value;
-  };
-  const saveColor = () => {
-    if (!localId) {
-      localId = service.create(date, 'green', '', '');
+  useEffect(() => {
+    if (params.id) {
+      const note = service.getById(+params.id);
+      setTitle(note.title);
+      setText(note.text);
+      setColor(note.color);
+    } else {
+      setTitle('');
+      setText('');
+      setColor('green');
     }
-    service.setColor(localId, color);
-  };
+  }, [params.id])
 
-  const handleTitle = (event: CustomEvent) => {
-    title = (event.detail.value);
-  };
-  const saveTitle = () => {
-    if (!localId) {
-      localId = service.create(date, 'green', '', '');
-    };
-    service.setTitle(localId, title);
-    console.log('save', title);
-  };
+  useEffect(() => {
+    if (!title && !text) {
+      return;
+    }
+    if (!params.id) {
+      const newId = service.create(date, color!, title!, text!);
+      params.id = newId.toString();
+    } else {
+      service.update(+params.id, color!, title!, text!);
+    }    
+  }, [title, text, color]);
 
-  const handleText = (event: CustomEvent) => {
-    text = (event.detail.value);
-  };
-  const saveText = () => {
-    if (!localId) {
-      localId = service.create(date, 'green', '', '');
-    };
-    service.setText(localId, text);
-    console.log('save', text);
-  };
+
 
   return (
 
@@ -77,7 +65,7 @@ const NotePage: React.FC<addProps> = () => {
           Back
         </IonButton>
 
-        <IonLabel className="title-date">{titleDate}</IonLabel>
+        <IonLabel className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonLabel>
 
         <IonButton
           routerLink={`/note-list/${date}`}
@@ -88,25 +76,23 @@ const NotePage: React.FC<addProps> = () => {
         </IonButton>
       </IonHeader>
 
-      <IonTextarea
+      <TextEditor
+        value={title!}
         className="title-textarea ion-no-padding"
         placeholder=" Title"
-        value={title}
-        onIonChange={handleTitle}
-        onIonBlur={saveTitle}
+        onChange={setTitle}        
       />
-      <IonTextarea
+      <TextEditor
+        value={text!}
         className="custom-textarea "
         placeholder="Write your message in here.."
-        value={text}
-        onIonChange={handleText}
-        onIonBlur={saveText}
+        onChange={setText}
       />
 
       <IonLabel className="color_label">
         Choose a color
       </IonLabel>
-      <IonRadioGroup className="radio-group" value={color} onIonChange={handleColor} onBlur={saveColor}>
+      <IonRadioGroup className="radio-group" value={color} onIonChange={e=>setColor(e.detail.value)} >
         <IonRadio className="green-radio" value="green" ></IonRadio>
         <IonRadio className="blue-radio" value="blue"></IonRadio>
         <IonRadio className="purple-radio" value="purple"></IonRadio>
@@ -120,4 +106,4 @@ const NotePage: React.FC<addProps> = () => {
   );
 }
 
-export default NotePage;
+export default React.memo(NotePage);
