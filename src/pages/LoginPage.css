@@ -4,7 +4,7 @@
   
 }
 .swiper .slide2{
-  background-image: url(/src/pages/LoginPage/background-girl2.png);
+  background-image: url(../pages/background-girl2.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

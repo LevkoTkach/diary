@@ -1,4 +1,6 @@
-type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
+import { useEffect } from "react";
+
+export type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
 
 export interface NoteModel {
   id: number;
@@ -41,6 +43,14 @@ export class NoteService {
     this.save();
     return id;
   }
+  update(id: number, color: NoteColor, title: string, text: string) {
+    const record = this.byId(id);
+    record.color = color;
+    record.title = title;
+    record.text = text;
+    this.save();
+  }
+  
   setDate(id: number, date: string) {
     const record = this.byId(id);
     record.date = date;
@@ -83,7 +93,7 @@ export class NoteService {
     return record;
   }
 
-  private save() {
+  private save() { 
     localStorage.setItem(this.key, JSON.stringify(this.data))
   }
   private load() {

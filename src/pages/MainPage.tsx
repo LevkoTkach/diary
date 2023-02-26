@@ -72,4 +72,4 @@ const MainPage: React.FC<{}> = () => {
   );
 };
 
-export default React.memo(MainPage);
+export default MainPage;

@@ -1,6 +1,6 @@
 import React from "react";
 import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon } from "@ionic/react";
-import '../LoginPage/LoginPage.css'
+import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper';
 import 'swiper/css';
@@ -8,10 +8,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import Avatar1 from '../LoginPage/girl1.png'
-import Avatar2 from '../LoginPage/girl2.png'
-import BG from '../LoginPage/background-light.png'
-import GoogleIcon from "../LoginPage/logos-google-icon.svg";
+import Avatar1 from '../pages/girl1.png'
+import Avatar2 from '../pages/girl2.png'
+import BG from '../pages/background-light.png'
+import GoogleIcon from "../pages/logos-google-icon.svg";
 
 const LoginPage: React.FC<{}> = () => {
 
@@ -56,7 +56,7 @@ const LoginPage: React.FC<{}> = () => {
         </Swiper>
 
         <IonButton
-          routerLink={''}
+          routerLink='/main'
           className="login-button"
           shape="round">
           <IonIcon size="small" slot="start" icon={GoogleIcon}></IonIcon>
@@ -69,4 +69,4 @@ const LoginPage: React.FC<{}> = () => {
   );
 };
 
-export default React.memo(LoginPage);
+export default LoginPage;
