@@ -23,17 +23,12 @@ const NoteListPage: React.FC<AddProps> = () => {
 
   useEffect(() => {
     setNotes(service.findByDate(date));
-  });
+  }, [date]);
 
-  const decDay = () => {
+  const conutDate = (n: number) => {
     const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() - 1);
-    setDate(newDate.toISOString().slice(0, 10));
-  };
-  const incDay = () => {
-    const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() + 1);
-    setDate(newDate.toISOString().slice(0, 10));
+    newDate.setDate(newDate.getDate() + n);
+    return newDate.toISOString().slice(0, 10);
   };
 
   return (
@@ -43,13 +38,13 @@ const NoteListPage: React.FC<AddProps> = () => {
           <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
           Back
         </IonButton>
-        <IonButton onClick={decDay} shape="round" fill="clear" className="back-date-button">
+        <IonButton routerLink={`/note-list/${conutDate(-1)}`} shape="round" fill="clear" className="back-date-button">
           <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
         </IonButton>
         <IonLabel className="title-date_list-page">
           {format(parseISO(date), 'd MMMM yyyy')}
         </IonLabel>
-        <IonButton onClick={incDay} shape="round" fill="clear" className="forward-date-button">
+        <IonButton routerLink={`/note-list/${conutDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
           <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
         </IonButton>
       </IonHeader>
