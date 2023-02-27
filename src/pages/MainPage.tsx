@@ -38,14 +38,7 @@ const MainPage: React.FC<{}> = () => {
         firstDayOfWeek={1}
       />
 
-      <IonButton
-        routerLink={`/note-list/${date.slice(0, 10)}`}
-        className="compose-button"
-        shape="round">
-        to route
-      </IonButton>
-
-      {(function () {
+        {(function () {
         if (service.findByDate(date).length) {
           return <IonButton
             routerLink={`/note-list/${date}`}
@@ -67,7 +60,7 @@ const MainPage: React.FC<{}> = () => {
         </IonButton>
       })()}
 
-      <IonButton className="google-ads-area" >Google Ads</IonButton>
+    
     </IonPage>
   );
 };
