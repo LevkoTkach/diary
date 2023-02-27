@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonTabBar, IonToolbar } from "@ionic/react";
-import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
-import { Redirect, useParams } from "react-router";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonToolbar } from "@ionic/react";
+import { chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
+import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
@@ -38,10 +38,10 @@ const NoteListPage: React.FC<AddProps> = () => {
 
   return (
     <IonPage>
-      <IonHeader className="ion-no-border">
-        <IonToolbar>
+      <IonHeader className="list-ion-header ion-no-border">
+        <IonToolbar className=".button-ion-toolbar">
           <IonButtons slot="start"> 
-              <IonBackButton></IonBackButton>Back            
+            <IonBackButton text="Back"></IonBackButton>            
           </IonButtons>
         </IonToolbar>
         <IonToolbar className="date-toolbar">
@@ -59,10 +59,8 @@ const NoteListPage: React.FC<AddProps> = () => {
             </IonButton>
           </IonButtons>
         </IonToolbar>
-
-
-
       </IonHeader>
+
       <IonContent className="content">
         <IonItemGroup>
           {notes.map(note => {
@@ -79,9 +77,7 @@ const NoteListPage: React.FC<AddProps> = () => {
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
-
-
-
+      
     </IonPage>
   );
 }

@@ -52,14 +52,15 @@ const NotePage: React.FC<AddProps> = () => {
   return (
 
     <IonPage>
-      <IonHeader className="ion-no-border">
-        <IonToolbar>
+      <IonHeader className="ion-no-border note-ion-header">
+        <IonToolbar className="note-ion-toolbar">
           <IonButtons slot="start">
-            <IonBackButton></IonBackButton>Back
+            <IonBackButton text="Back"></IonBackButton>
           </IonButtons>
           <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
           <IonButtons slot="end">
             <IonButton
+              slot="end"
               routerLink={`/note-list/${date}`}
               className="save-button">
               Save

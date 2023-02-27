@@ -1,7 +1,21 @@
+.list-ion-header {
+  height: 152px;
+  padding-top: 55px;
+}
+
+.button-ion-toolbar {
+  --min-height: none;
+}
 
 .date-toolbar {
   margin: 0 auto;
   width: fit-content;
+  --min-height: none;
+  height: 36px;
+}
+
+ion-back-button {
+  text-transform: none;
 }
 
 .title-date_list-page {
@@ -10,11 +24,8 @@
   color: var(--main-text);
 }
 
-ion-content {
-  position: relative;
-  top: 0;
+.content {
   border-radius: 16px;
-
 }
 
 ion-item-group {

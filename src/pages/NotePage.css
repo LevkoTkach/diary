@@ -1,9 +1,14 @@
-ion-header {
-  padding-top: 60px;
+.note-ion-header {
+  height: 116px;
+  padding-top: 55px;
+}
+
+.note-ion-toolbar {
+  width: 97%;  
 }
 
 .title-date {
-  font-size: 1rem;  
+  font-size: 1rem;
   text-transform: none;
   font-weight: 600;
 }
@@ -20,14 +25,15 @@ ion-header {
   font-weight: 700;
   font-size: 1.6rem;
   height: 2rem;
+  --max-height: 2rem;
   --placeholder-color: var(--textarea-placeholder);
   --color: var(--main-text);
 }
 
-.custom-textarea {  
-  padding: 15 0;
+.custom-textarea {
+  resize: none;
+  height: 65vh;
   border-radius: 16px;
-  height: 100%;
   --background: var(--background-textarea);
   --color: var(--main-text);
   --padding-end: 10px;
@@ -36,6 +42,7 @@ ion-header {
 }
 
 .color_label {
+  margin: 20px 0 15px ;
   display: block;
   font-weight: 400;
   font-size: 16px;
@@ -43,10 +50,7 @@ ion-header {
 }
 
 .radio-group {
-  
   bottom: 70;
-  padding: 20px 0 20px;
-  
 }
 
 ion-radio {
@@ -103,4 +107,3 @@ ion-radio.radio-checked::part(mark) {
   --color: #795548;
   border: 5px solid #795548;
 }
-
