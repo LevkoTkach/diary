@@ -30,7 +30,7 @@ setupIonicReact();
 const App: React.FC = () => {
   const [root, setRoot] = useState("/main")
   useEffect(() => {
-    if (!localStorage.getItem("getStart")) {
+    if (!localStorage.getItem("getStarted")) {
       setRoot("/login")
     }
   })

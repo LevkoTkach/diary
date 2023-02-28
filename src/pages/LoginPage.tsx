@@ -16,7 +16,7 @@ import GoogleIcon from "../pages/logos-google-icon.svg";
 const LoginPage: React.FC<{}> = () => {
 
   useEffect(() => {
-    return () => localStorage.setItem("getStart", "true");
+    return () => localStorage.setItem("getStarted", "true");
   });
     
   return (
@@ -64,7 +64,7 @@ const LoginPage: React.FC<{}> = () => {
           className="login-button"
           shape="round">
           <IonIcon size="small" slot="start" icon={GoogleIcon}></IonIcon>
-          Get Start
+          Get Started
         </IonButton>
 
       </IonContent>    
