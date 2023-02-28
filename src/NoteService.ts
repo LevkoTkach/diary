@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
 
 export interface NoteModel {

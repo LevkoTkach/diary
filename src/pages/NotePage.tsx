@@ -7,14 +7,14 @@ import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
 
-interface AddProps {
+interface Params {
   id: string;
   date: string;
 }
 const service = NoteService.getInstance();
 
-const NotePage: React.FC<AddProps> = () => {
-  const params = useParams<AddProps>();
+const NotePage: React.FC<Params> = () => {
+  const params = useParams<Params>();
   const [date] = useState<string>(() => params.date.toString());
   const [title, setTitle] = useState<string>();
   const [text, setText] = useState<string>();
@@ -42,7 +42,7 @@ const NotePage: React.FC<AddProps> = () => {
       params.id = newId.toString();
     } else {
       service.update(+params.id, color!, title!, text!);
-    }    
+    }
   }, [title, text, color]);
 
 
@@ -80,7 +80,7 @@ const NotePage: React.FC<AddProps> = () => {
         value={title!}
         className="title-textarea ion-no-padding"
         placeholder=" Title"
-        onChange={setTitle}        
+        onChange={setTitle}
       />
       <TextEditor
         value={text!}
@@ -92,7 +92,7 @@ const NotePage: React.FC<AddProps> = () => {
       <IonLabel className="color_label">
         Choose a color
       </IonLabel>
-      <IonRadioGroup className="radio-group" value={color} onIonChange={e=>setColor(e.detail.value)} >
+      <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
         <IonRadio className="green-radio" value="green" ></IonRadio>
         <IonRadio className="blue-radio" value="blue"></IonRadio>
         <IonRadio className="purple-radio" value="purple"></IonRadio>
