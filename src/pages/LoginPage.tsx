@@ -64,7 +64,7 @@ const LoginPage: React.FC<{}> = () => {
         </IonButton>
 
       </IonContent>
-      <IonButton className="google-ads-area" >Google Ads</IonButton>
+    
     </IonPage>
   );
 };
