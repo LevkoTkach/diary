@@ -41,7 +41,7 @@
   --placeholder-color: var(--textarea-placeholder);
 }
 
-.color_label {
+.color-label {
   margin: 20px 0 15px ;
   display: block;
   font-weight: 400;

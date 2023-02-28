@@ -32,7 +32,8 @@ const App: React.FC = () => {
   useEffect(() => {
     if (!localStorage.getItem("getStart")) {
       setRoot("/login")
-    }})
+    }
+  })
   return (
     <IonApp>
       <IonReactRouter>

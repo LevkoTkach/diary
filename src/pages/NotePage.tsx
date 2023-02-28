@@ -81,7 +81,7 @@ const NotePage: React.FC<Params> = () => {
           />
         </IonItemGroup>
         <IonItemGroup>
-          <IonLabel className="color_label">
+          <IonLabel className="color-label">
             Choose a color
           </IonLabel>
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
