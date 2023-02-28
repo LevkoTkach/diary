@@ -7,13 +7,13 @@ import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
 import './NoteListPage.css';
 
-interface AddProps {
+interface Params {
   date: string;
 }
 const service = NoteService.getInstance();
 
-const NoteListPage: React.FC<AddProps> = () => {
-  const params = useParams<AddProps>();
+const NoteListPage: React.FC<Params> = () => {
+  const params = useParams<Params>();
   const [date, setDate] = useState(params.date.toString());
   const [notes, setNotes] = useState<NoteModel[]>([]);
 
@@ -25,15 +25,10 @@ const NoteListPage: React.FC<AddProps> = () => {
     setNotes(service.findByDate(date));
   }, [date, params]);
 
-  const decDay = () => {
+  const countDate = (n: number) => {
     const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() - 1);
-    setDate(newDate.toISOString().slice(0, 10));
-  };
-  const incDay = () => {
-    const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() + 1);
-    setDate(newDate.toISOString().slice(0, 10));
+    newDate.setDate(newDate.getDate() + n);
+    return newDate.toISOString().slice(0, 10);
   };
 
   return (
@@ -46,7 +41,7 @@ const NoteListPage: React.FC<AddProps> = () => {
         </IonToolbar>
         <IonToolbar className="date-toolbar">
           <IonButtons slot="start">
-            <IonButton onClick={decDay} shape="round" fill="clear" >
+            <IonButton routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" >
               <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
             </IonButton>
           </IonButtons>
@@ -54,7 +49,7 @@ const NoteListPage: React.FC<AddProps> = () => {
             {format(parseISO(date), 'd MMMM yyyy')}
           </IonLabel>
           <IonButtons slot="end">
-            <IonButton onClick={incDay} shape="round" fill="clear" className="forward-date-button">
+            <IonButton routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
               <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
             </IonButton>
           </IonButtons>
