@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon } from "@ionic/react";
 import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +15,10 @@ import GoogleIcon from "../pages/logos-google-icon.svg";
 
 const LoginPage: React.FC<{}> = () => {
 
+  useEffect(() => {
+    return () => localStorage.setItem("getStart", "true");
+  });
+    
   return (
     <IonPage>
       <IonContent>
@@ -60,11 +64,10 @@ const LoginPage: React.FC<{}> = () => {
           className="login-button"
           shape="round">
           <IonIcon size="small" slot="start" icon={GoogleIcon}></IonIcon>
-          Login with Google account
+          Get Start
         </IonButton>
 
-      </IonContent>
-    
+      </IonContent>    
     </IonPage>
   );
 };
