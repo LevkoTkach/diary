@@ -23,18 +23,24 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { useEffect, useState } from 'react';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-
+  const [root, setRoot] = useState("/main")
+  useEffect(() => {
+    if (!localStorage.getItem("getStarted")) {
+      setRoot("/login")
+    }
+  })
   return (
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/login" />
+              <Redirect to={root} />
             </Route>
             <Route path="/login" exact={true} component={LoginPage} />
             <Route path="/main" exact={true} component={MainPage} />

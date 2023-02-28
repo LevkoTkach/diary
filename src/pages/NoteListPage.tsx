@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage } from "@ionic/react";
-import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
-import { Redirect, useParams } from "react-router";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonToolbar } from "@ionic/react";
+import { chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
+import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
@@ -23,7 +23,7 @@ const NoteListPage: React.FC<Params> = () => {
 
   useEffect(() => {
     setNotes(service.findByDate(date));
-  }, [date]);
+  }, [date, params]);
 
   const countDate = (n: number) => {
     const newDate = new Date(date);
@@ -32,37 +32,47 @@ const NoteListPage: React.FC<Params> = () => {
   };
 
   return (
-    <IonPage className="page">
-      <IonHeader className="ion-no-border header">
-        <IonButton routerLink={`/note/${date}`} shape="round" fill="clear" className="back-button">
-          <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
-          Back
-        </IonButton>
-        <IonButton routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" className="back-date-button">
-          <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
-        </IonButton>
-        <IonLabel className="title-date_list-page">
-          {format(parseISO(date), 'd MMMM yyyy')}
-        </IonLabel>
-        <IonButton routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
-          <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
-        </IonButton>
+    <IonPage>
+      <IonHeader className="list-ion-header ion-no-border">
+        <IonToolbar className=".button-ion-toolbar">
+          <IonButtons slot="start"> 
+            <IonBackButton text="Back"></IonBackButton>            
+          </IonButtons>
+        </IonToolbar>
+        <IonToolbar className="date-toolbar">
+          <IonButtons slot="start">
+            <IonButton routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" >
+              <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
+            </IonButton>
+          </IonButtons>
+          <IonLabel className="title-date_list-page">
+            {format(parseISO(date), 'd MMMM yyyy')}
+          </IonLabel>
+          <IonButtons slot="end">
+            <IonButton routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
+              <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
       </IonHeader>
-      <IonItemGroup>
-        {notes.map(note => {
-          return <NoteCard key={note.id}
-            className={`note-card note-color-${note.color}`}
-            routerLink={`/note/${date}/${note.id}`}
-            title={`${note.title}`}
-            text={`${note.text}`} />;
-        })}
-      </IonItemGroup>
+
+      <IonContent className="content">
+        <IonItemGroup>
+          {notes.map(note => {
+            return <NoteCard key={note.id}
+              className={`note-card note-color-${note.color}`}
+              routerLink={`/note/${date}/${note.id}`}
+              title={`${note.title}`}
+              text={`${note.text}`} />;
+          })}
+        </IonItemGroup>
+      </IonContent >
 
       <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
-      <IonButton className="google-ads-area" >Google Ads</IonButton>
+      
     </IonPage>
   );
 }

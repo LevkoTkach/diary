@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonHeader, IonIcon, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTextarea } from "@ionic/react";
-import { arrowBackOutline } from "ionicons/icons";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
@@ -49,59 +48,53 @@ const NotePage: React.FC<Params> = () => {
 
   return (
 
-    <IonPage className="page">
-      <IonHeader className="ion-no-border header">
-
-        <IonButton
-          routerLink='/main'
-          shape="round"
-          fill="clear"
-          className="back-button">
-          <IonIcon
-            className="arrow-icon"
-            slot="start"
-            icon={arrowBackOutline}>
-          </IonIcon>
-          Back
-        </IonButton>
-
-        <IonLabel className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonLabel>
-
-        <IonButton
-          routerLink={`/note-list/${date}`}
-          shape="round"
-          fill="clear"
-          className="save-button">
-          Save
-        </IonButton>
+    <IonPage>
+      <IonHeader className="ion-no-border note-ion-header">
+        <IonToolbar className="note-ion-toolbar">
+          <IonButtons slot="start">
+            <IonBackButton text="Back"></IonBackButton>
+          </IonButtons>
+          <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton
+              slot="end"
+              routerLink={`/note-list/${date}`}
+              className="save-button">
+              Save
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
       </IonHeader>
+      <IonContent fullscreen>
+        <IonItemGroup>
+          <TextEditor
+            value={title!}
+            className="title-textarea ion-no-padding"
+            placeholder=" Title"
+            onChange={setTitle}
+          />
+          <TextEditor
+            value={text!}
+            className="custom-textarea "
+            placeholder="Write your message in here.."
+            onChange={setText}
+          />
+        </IonItemGroup>
+        <IonItemGroup>
+          <IonLabel className="color-label">
+            Choose a color
+          </IonLabel>
+          <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
+            <IonRadio className="green-radio" value="green" ></IonRadio>
+            <IonRadio className="blue-radio" value="blue"></IonRadio>
+            <IonRadio className="purple-radio" value="purple"></IonRadio>
+            <IonRadio className="red-radio" value="red"></IonRadio>
+            <IonRadio className="yellow-radio" value="yellow"></IonRadio>
+            <IonRadio className="brown-radio" value="brown"></IonRadio>
+          </IonRadioGroup>
+        </IonItemGroup>
+      </IonContent>
 
-      <TextEditor
-        value={title!}
-        className="title-textarea ion-no-padding"
-        placeholder=" Title"
-        onChange={setTitle}
-      />
-      <TextEditor
-        value={text!}
-        className="custom-textarea "
-        placeholder="Write your message in here.."
-        onChange={setText}
-      />
-
-      <IonLabel className="color_label">
-        Choose a color
-      </IonLabel>
-      <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
-        <IonRadio className="green-radio" value="green" ></IonRadio>
-        <IonRadio className="blue-radio" value="blue"></IonRadio>
-        <IonRadio className="purple-radio" value="purple"></IonRadio>
-        <IonRadio className="red-radio" value="red"></IonRadio>
-        <IonRadio className="yellow-radio" value="yellow"></IonRadio>
-        <IonRadio className="brown-radio" value="brown"></IonRadio>
-      </IonRadioGroup>
-      <IonButton
-        className="google-ads-area" >Google Ads</IonButton>
     </IonPage>
   );
 }

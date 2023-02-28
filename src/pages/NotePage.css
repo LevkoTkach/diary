@@ -1,119 +1,38 @@
-
-.ion-page {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-main);
+.note-ion-header {
+  height: 116px;
+  padding-top: 55px;
 }
 
-.page {
-  margin: 0 16px;
-  color: var(--background-main);
-  background-color: var(--background-main);
-}
-
-
-ion-header {
-  margin: 64px 0 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-
-.back-button {
-  position: absolute;
-  left: 0;
-  margin: 0;
-  --padding-end: 0;
-  --padding-start: 0;
-  height: 29px;
-  width: 60px;
-  text-transform: none;
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 19px;
-  --color: var(--main-text);
-}
-
-.back-button>.arrow-icon {
-  margin: 0 4px 0 0;
-  width: 16px;
-  height: 16px;
-  font-family: var(--font);
+.note-ion-toolbar {
+  width: 97%;  
 }
 
 .title-date {
+  font-size: 1rem;
   text-transform: none;
-  position: relative;
-  text-align: center;
-  margin: 4px auto 0;
-  width: fit-content;
-  height: 29px;
-  font-family: var(--font);
-  font-style: normal;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 19px;
-  color: var(--main-text);
-
-}
-
-
-@media (max-width: 300px) {
-  .title-date {
-    font-size: 12px;
-  }
 }
 
 .save-button {
-  position: absolute;
-  top: -6px;
-  right: 0px;
-  padding: 0;
-  font-size: 14px;
-  font-family: var(--font);
   width: 79px;
-  height: 29px;
   text-transform: none;
-  font-weight: 600;
-  background: var(--secondary-button-background);
-  border-radius: 100px;
-  --color: var(--light-text);
-
+  border-radius: 16px;
+  background: red;
 }
 
 .title-textarea {
-  position: absolute;
-  top: 116px;
-  left: 0;
   text-decoration: none;
-  font-family: var(--font);
-  font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  height: 33px;
-  margin: 0;
+  font-size: 1.6rem;
+  height: 2rem;
+  --max-height: 2rem;
   --placeholder-color: var(--textarea-placeholder);
   --color: var(--main-text);
 }
 
-.title-textarea>.sc-ion-textarea-md {
-  height: 98%;
-}
-
-.title-textarea>.sc-ion-textarea-ios {
-  height: 98%
-}
-
 .custom-textarea {
-  padding: 15 0;
-  margin: 0;
-  font-size: var(--font-size-textarea);
-  font-family: var(--font);
-  position: absolute;
-  top: 169px;
-  bottom: 167px;
+  resize: none;
+  height: 65vh;
   border-radius: 16px;
   --background: var(--background-textarea);
   --color: var(--main-text);
@@ -122,32 +41,17 @@ ion-header {
   --placeholder-color: var(--textarea-placeholder);
 }
 
-.custom-textarea>.sc-ion-textarea-md,
-.custom-textarea>.sc-ion-textarea-ios {
-  height: 98%
-}
-
-.color_label {
-  position: absolute;
-  left: 0;
-  bottom: 125px;
-  font-family: var(--font);
-  font-style: normal;
+.color-label {
+  margin: 20px 0 15px ;
+  display: block;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  color: var(--main-text);
-
 }
 
 .radio-group {
-  position: absolute;
-  left: 0;
-  bottom: 70px;
-  padding: 20px 0 20px;
-
+  bottom: 70;
 }
-
 
 ion-radio {
   border-radius: 50%;
@@ -202,14 +106,4 @@ ion-radio.radio-checked::part(mark) {
   background-color: #795548;
   --color: #795548;
   border: 5px solid #795548;
-}
-
-.google-ads-area {
-  z-index: 200;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 70px;
-  --border-radius: 0;
 }
