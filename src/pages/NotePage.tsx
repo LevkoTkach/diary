@@ -7,14 +7,14 @@ import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
 
-interface AddProps {
+interface Params {
   id: string;
   date: string;
 }
 const service = NoteService.getInstance();
 
-const NotePage: React.FC<AddProps> = () => {
-  const params = useParams<AddProps>();
+const NotePage: React.FC<Params> = () => {
+  const params = useParams<Params>();
   const [date] = useState<string>(() => params.date.toString());
   const [title, setTitle] = useState<string>();
   const [text, setText] = useState<string>();

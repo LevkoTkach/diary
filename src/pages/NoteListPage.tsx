@@ -7,13 +7,13 @@ import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
 import './NoteListPage.css';
 
-interface AddProps {
+interface Params {
   date: string;
 }
 const service = NoteService.getInstance();
 
-const NoteListPage: React.FC<AddProps> = () => {
-  const params = useParams<AddProps>();
+const NoteListPage: React.FC<Params> = () => {
+  const params = useParams<Params>();
   const [date, setDate] = useState(params.date.toString());
   const [notes, setNotes] = useState<NoteModel[]>([]);
 
@@ -25,7 +25,7 @@ const NoteListPage: React.FC<AddProps> = () => {
     setNotes(service.findByDate(date));
   }, [date]);
 
-  const conutDate = (n: number) => {
+  const countDate = (n: number) => {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + n);
     return newDate.toISOString().slice(0, 10);
@@ -38,13 +38,13 @@ const NoteListPage: React.FC<AddProps> = () => {
           <IonIcon className="arrow-icon" slot="start" icon={arrowBackOutline} />
           Back
         </IonButton>
-        <IonButton routerLink={`/note-list/${conutDate(-1)}`} shape="round" fill="clear" className="back-date-button">
+        <IonButton routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" className="back-date-button">
           <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
         </IonButton>
         <IonLabel className="title-date_list-page">
           {format(parseISO(date), 'd MMMM yyyy')}
         </IonLabel>
-        <IonButton routerLink={`/note-list/${conutDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
+        <IonButton routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
           <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
         </IonButton>
       </IonHeader>
