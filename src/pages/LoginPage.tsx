@@ -63,7 +63,6 @@ const LoginPage: React.FC<{}> = () => {
           routerLink='/main'
           className="login-button"
           shape="round">
-          <IonIcon size="small" slot="start" icon={GoogleIcon}></IonIcon>
           Get Started
         </IonButton>
 
