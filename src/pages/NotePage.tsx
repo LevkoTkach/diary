@@ -55,15 +55,7 @@ const NotePage: React.FC<Params> = () => {
             <IonBackButton text="Back"></IonBackButton>
           </IonButtons>
           <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
-          <IonButtons slot="end">
-            <IonButton
-              slot="end"
-              routerLink={`/note-list/${date}`}
-              className="save-button">
-              Save
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
+          </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonItemGroup>

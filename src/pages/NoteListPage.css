@@ -7,6 +7,15 @@
   --min-height: none;
 }
 
+.list-back-button {
+  text-transform: none;
+}
+
+.back-button-icon {
+  font-size: 1.6rem;
+  margin-right: 3px;
+}
+
 .date-toolbar {
   margin: 0 auto;
   width: fit-content;
