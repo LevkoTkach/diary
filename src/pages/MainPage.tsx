@@ -1,6 +1,6 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { NoteService } from '../NoteService';
@@ -12,19 +12,18 @@ interface Params {
 }
 const MainPage: React.FC<Params> = () => {
   const params = useParams<Params>();
+  const [paramsDate, setparamsDate] = useState(params.date);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  useEffect(() => { 
-    if (params.date) {
-      setDate(params.date)
-    };
-  }, [params])
-  
+
+  if (params.date !== paramsDate) {
+    setparamsDate(params.date);
+    setDate(params.date);
+  };
 
   let dateSetter = (e: CustomEvent) => {
     const newDate: string = e.detail.value;
     setDate(newDate.slice(0, 10));
   };
-
 
   return (
     <IonPage >
@@ -48,7 +47,7 @@ const MainPage: React.FC<Params> = () => {
         firstDayOfWeek={1}
       />
 
-        {(function () {
+      {(function () {
         if (service.findByDate(date).length) {
           return <IonButton
             routerLink={`/note-list/${date}`}
@@ -70,7 +69,7 @@ const MainPage: React.FC<Params> = () => {
         </IonButton>
       })()}
 
-    
+
     </IonPage>
   );
 };
