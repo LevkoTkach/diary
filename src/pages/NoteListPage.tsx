@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonToolbar } from "@ionic/react";
-import { chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
+import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
 import './NoteListPage.css';
+import { Icon } from "ionicons/dist/types/components/icon/icon";
 
 interface Params {
   date: string;
@@ -34,9 +35,11 @@ const NoteListPage: React.FC<Params> = () => {
   return (
     <IonPage>
       <IonHeader className="list-ion-header ion-no-border">
-        <IonToolbar className=".button-ion-toolbar">
+        <IonToolbar className="button-ion-toolbar">
           <IonButtons slot="start"> 
-            <IonBackButton text="Back"></IonBackButton>            
+            <IonButton className="list-back-button" routerLink={`/main/${date}`}>
+              <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+              Back</IonButton>            
           </IonButtons>
         </IonToolbar>
         <IonToolbar className="date-toolbar">

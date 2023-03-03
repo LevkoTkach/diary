@@ -1,20 +1,29 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 import { NoteService } from '../NoteService';
 import './MainPage.css';
 
 const service = NoteService.getInstance();
-
-const MainPage: React.FC<{}> = () => {
+interface Params {
+  date: string;
+}
+const MainPage: React.FC<Params> = () => {
+  const params = useParams<Params>();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-
+  
+  useEffect(() => { 
+    if (params.date) {
+      setDate(params.date)
+    };
+  }, [params])
+  
   let dateSetter = (e: CustomEvent) => {
     const newDate: string = e.detail.value;
     setDate(newDate.slice(0, 10));
   };
-
 
   return (
     <IonPage >

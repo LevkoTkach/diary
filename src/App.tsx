@@ -28,12 +28,8 @@ import { useEffect, useState } from 'react';
 setupIonicReact();
 
 const App: React.FC = () => {
-  const [root, setRoot] = useState("/main")
-  useEffect(() => {
-    if (!localStorage.getItem("getStarted")) {
-      setRoot("/login")
-    }
-  })
+  const [root] = useState(() => localStorage.getItem("getStarted") ? ("/main") : ("/login"));
+
   return (
     <IonApp>
       <IonReactRouter>
@@ -43,7 +39,7 @@ const App: React.FC = () => {
               <Redirect to={root} />
             </Route>
             <Route path="/login" exact={true} component={LoginPage} />
-            <Route path="/main" exact={true} component={MainPage} />
+            <Route path="/main/:date?" exact={true} component={MainPage} />
             <Route path="/note/:date/:id?" exact={true} component={NotePage} />
             <Route path="/note-list/:date" exact={true} component={NoteListPage} />
           </IonRouterOutlet>
