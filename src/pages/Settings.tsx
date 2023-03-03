@@ -1,22 +1,13 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
-import React, { useEffect, useState } from "react";
+import React, {} from "react";
 import './Settings.css';
 
 const Settings: React.FC<{}> = () => {
-  // const [font, setFont] = useState("nunito");
-  // console.log(font);
-
-  const changeFont = (className: string)=>{
+  const changeFont = (className: string) => {
     document.body.classList.remove("nunito", "aclonica", "tilt-neon", "gotisch", "josefin-sans");
     document.body.classList.add(className);
   }
-
-
-  // useEffect(() => {
-  //     document.body.classList.remove("nunito","aclonica","tilt-neon","gotisch","josefin-sans");
-  //     document.body.classList.add(font);
-  // }, [font])
 
   return (
     <IonPage>
