@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import Avatar1 from '../pages/girl1.png'
 import Avatar2 from '../pages/girl2.png'
 import BG from '../pages/background-light.png'
-import GoogleIcon from "../pages/logos-google-icon.svg";
+
 
 const LoginPage: React.FC<{}> = () => {
 
