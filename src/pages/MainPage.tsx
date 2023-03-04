@@ -19,6 +19,9 @@ const MainPage: React.FC<Params> = () => {
     };
   }, [params])
   
+  useEffect(() => {
+    document.body.classList.add(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
+  }, []);
 
   let dateSetter = (e: CustomEvent) => {
     const newDate: string = e.detail.value;

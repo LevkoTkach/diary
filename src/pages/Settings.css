@@ -1,35 +1,36 @@
 
-ion-list{
+.settings-ion-header {
+  height: 116px;
+  padding-top: 55px;
 }
-item-native{
-  border: white solid 3px;
-}
-.item-select{
-text-decoration: none;
 
+.item-select {
+  text-decoration: none;
 }
-.select{
+
+.select {
   width: 100%;
-background-color: aqua;
-border-radius: 32px;
-padding: 16px 12px;
+  background-color: --background-textarea;
+  border-radius: 32px;
+  padding: 16px 12px;
 }
 
-.nunito{
-  --font:'Nunito', sans-serif;
+.nunito {
+  --font: 'Nunito', sans-serif;
 }
-.aclonica{
-  --font:'Aclonica',
-    sans-serif;
+
+.aclonica {
+  --font: 'Aclonica', sans-serif;
 }
-.tilt-neon{
-  --font:'Tilt Neon',
-    cursive;
+
+.tilt-neon {
+  --font: 'Tilt Neon', cursive;
 }
-.gotisch{
-  --font:'Grenze Gotisch', cursive;
+
+.gotisch {
+  --font: 'Grenze Gotisch', cursive;
 }
-.josefin-sans{
-  --font:'Josefin Sans',
-    sans-serif;
+
+.josefin-sans {
+  --font: 'Josefin Sans', sans-serif;
 }
