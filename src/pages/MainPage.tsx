@@ -13,6 +13,7 @@ interface Params {
 const MainPage: React.FC<Params> = () => {
   const params = useParams<Params>();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  
   useEffect(() => { 
     if (params.date ) {
       setDate(params.date)
@@ -27,7 +28,6 @@ const MainPage: React.FC<Params> = () => {
     const newDate: string = e.detail.value;
     setDate(newDate.slice(0, 10));
   };
-
 
   return (
     <IonPage >
