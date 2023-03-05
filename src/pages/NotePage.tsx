@@ -55,10 +55,10 @@ const NotePage: React.FC<Params> = () => {
             <IonBackButton text="Back"></IonBackButton>
           </IonButtons>
           <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
-          </IonToolbar>
+        </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonItemGroup>
+        <IonItemGroup className="left-right-margin-16px" >
           <TextEditor
             value={title!}
             className="title-textarea ion-no-padding"
@@ -71,8 +71,6 @@ const NotePage: React.FC<Params> = () => {
             placeholder="Write your message in here.."
             onChange={setText}
           />
-        </IonItemGroup>
-        <IonItemGroup>
           <IonLabel className="color-label">
             Choose a color
           </IonLabel>

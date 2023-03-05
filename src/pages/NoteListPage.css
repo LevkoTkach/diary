@@ -33,31 +33,16 @@ ion-back-button {
   color: var(--main-text);
 }
 
-.content {
-  border-radius: 16px;
-}
-
-ion-item-group {
-  position: relative;
-  margin: 0 16px;
-}
-
-.note-card {
-  position: relative;
-  margin: 0 0 8px 0;
-  height: 90px;
-  left: 0;
-  right: 0;
-  --color: var(--light-text);
-  border-radius: 16px;
-}
-
 .compose-button {
   margin: 10px 16px 100px;
   height: 44px;
   text-transform: none;
   --background: var(--secondary-button-background);
   --color: var(--light-text);
+}
+
+ion-item-option{
+  width: 30%;
 }
 
 .note-color-green {

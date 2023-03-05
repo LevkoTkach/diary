@@ -1,3 +1,19 @@
+
+ion-item{
+  width:100vw;
+}
+
+ion-card {
+  position: relative;
+  margin: 0 0 8px 0;
+  height: 90px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  --color: var(--light-text);
+  border-radius: 16px;
+}
+
 .icon-in-card {
   position: absolute;
   height: 16px;

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonToolbar } from "@ionic/react";
-import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp } from "ionicons/icons";
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonPage, IonToolbar } from "@ionic/react";
+import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp, trash } from "ionicons/icons";
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
 import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
 import './NoteListPage.css';
-import { Icon } from "ionicons/dist/types/components/icon/icon";
 
 interface Params {
   date: string;
@@ -17,6 +16,7 @@ const NoteListPage: React.FC<Params> = () => {
   const params = useParams<Params>();
   const [date, setDate] = useState(params.date.toString());
   const [notes, setNotes] = useState<NoteModel[]>([]);
+  const [del, setDel] = useState(false);
 
   useEffect(() => {
     setDate(params.date.toString());
@@ -24,7 +24,10 @@ const NoteListPage: React.FC<Params> = () => {
 
   useEffect(() => {
     setNotes(service.findByDate(date));
-  }, [date, params]);
+    if (del === true) {
+      setDel(false);
+    }
+  }, [date, params, del]);
 
   const countDate = (n: number) => {
     const newDate = new Date(date);
@@ -36,10 +39,10 @@ const NoteListPage: React.FC<Params> = () => {
     <IonPage>
       <IonHeader className="list-ion-header ion-no-border">
         <IonToolbar className="button-ion-toolbar">
-          <IonButtons slot="start"> 
+          <IonButtons slot="start">
             <IonButton className="list-back-button" routerLink={`/main/${date}`}>
               <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
-              Back</IonButton>            
+              Back</IonButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar className="date-toolbar">
@@ -61,21 +64,36 @@ const NoteListPage: React.FC<Params> = () => {
 
       <IonContent className="content">
         <IonItemGroup>
-          {notes.map(note => {
-            return <NoteCard key={note.id}
-              className={`note-card note-color-${note.color}`}
-              routerLink={`/note/${date}/${note.id}`}
-              title={`${note.title}`}
-              text={`${note.text}`} />;
-          })}
+          <IonList>
+
+            {notes.map(note => {
+              return (
+                <IonItemSliding>
+                  <NoteCard
+                    key={note.id}
+                    className={`note-color-${note.color}`}
+                    routerLink={`/note/${date}/${note.id}`}
+                    title={`${note.title}`}
+                    text={`${note.text}`} />
+                  <IonItemOptions onIonSwipe={() =>{ setDel(true); service.deleteNotes(note.id);}} side="end">
+                    <IonItemOption color="danger">
+                      Delete
+                    </IonItemOption>
+                  </IonItemOptions>
+                </IonItemSliding >
+              );
+            })}
+
+          </IonList>
         </IonItemGroup>
+
       </IonContent >
 
       <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
-      
+
     </IonPage>
   );
 }
