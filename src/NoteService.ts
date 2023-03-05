@@ -76,7 +76,7 @@ export class NoteService {
     return record;
   }
 
-  deleteNotes(id: number) {
+  delete(id: number) {
     this.data = this.data.filter(d => d.id !== id);
     this.save();
   }

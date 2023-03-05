@@ -16,7 +16,7 @@ const NoteListPage: React.FC<Params> = () => {
   const params = useParams<Params>();
   const [date, setDate] = useState(params.date.toString());
   const [notes, setNotes] = useState<NoteModel[]>([]);
-  const [del, setDel] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     setDate(params.date.toString());
@@ -24,10 +24,10 @@ const NoteListPage: React.FC<Params> = () => {
 
   useEffect(() => {
     setNotes(service.findByDate(date));
-    if (del === true) {
-      setDel(false);
+    if (refresh === true) {
+      setRefresh(false);
     }
-  }, [date, params, del]);
+  }, [date, params, refresh]);
 
   const countDate = (n: number) => {
     const newDate = new Date(date);
@@ -42,7 +42,8 @@ const NoteListPage: React.FC<Params> = () => {
           <IonButtons slot="start">
             <IonButton className="list-back-button" routerLink={`/main/${date}`}>
               <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
-              Back</IonButton>
+              Back
+            </IonButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar className="date-toolbar">
@@ -75,7 +76,7 @@ const NoteListPage: React.FC<Params> = () => {
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}
                     text={`${note.text}`} />
-                  <IonItemOptions onIonSwipe={() =>{ setDel(true); service.deleteNotes(note.id);}} side="end">
+                  <IonItemOptions onIonSwipe={() =>{ setRefresh(true); service.delete(note.id);}} side="end">
                     <IonItemOption color="danger">
                       Delete
                     </IonItemOption>
