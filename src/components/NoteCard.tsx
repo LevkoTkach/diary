@@ -1,28 +1,30 @@
 import React from 'react';
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, IonItem, } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
 import './NoteCard.css';
 
-interface addProps {
-  className: string;  
+interface Params {
+  className: string;
   title: string;
   text: string;
   routerLink: string;
 }
 
-const NoteCard: React.FC<addProps> = (props) => {
+const NoteCard: React.FC<Params> = (params) => {
 
-  return (
-    <IonCard className={props.className} button={true} routerLink={props.routerLink}>
-      <IonCardHeader>
-        <IonCardTitle>{props.title}</IonCardTitle>
-      </IonCardHeader>
-      <IonCardContent className='content-in-card'>
-        {props.text}
-      </IonCardContent>
-      <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
-      </IonIcon>
-    </IonCard>
+  return (    
+      <IonItem>
+        <IonCard className={params.className} button={true} routerLink={params.routerLink}>
+          <IonCardHeader>
+            <IonCardTitle>{params.title}</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent className='content-in-card'>
+            {params.text}
+          </IonCardContent>
+          <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
+          </IonIcon>
+        </IonCard>
+      </IonItem >
   );
 }
 

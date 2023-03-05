@@ -1,4 +1,5 @@
 import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
+import { format, parseISO } from 'date-fns';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -37,8 +38,8 @@ const MainPage: React.FC<Params> = () => {
           Settings
           <IonIcon color='primary' slot="end" icon={settingsSharp}></IonIcon>
         </IonButton>
-        <IonTitle className='main-header-title'>Select a day to compose</IonTitle>
-        <IonLabel className='main-header-label'>Keep your diary updated</IonLabel>
+        <IonTitle className='main-header-title'>Compose now</IonTitle>
+        <IonLabel className='main-header-label'>{format(parseISO(date!), 'd MMMM')} selected</IonLabel>
       </IonHeader>
 
       <IonDatetime

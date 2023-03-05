@@ -48,7 +48,7 @@ export class NoteService {
     record.text = text;
     this.save();
   }
-  
+
   setDate(id: number, date: string) {
     const record = this.byId(id);
     record.date = date;
@@ -76,8 +76,8 @@ export class NoteService {
     return record;
   }
 
-  clearEmptyNotes() {
-    this.data = this.data.filter(d => d.title || d.text);
+  delete(id: number) {
+    this.data = this.data.filter(d => d.id !== id);
     this.save();
   }
 
@@ -91,11 +91,10 @@ export class NoteService {
     return record;
   }
 
-  private save() { 
+  private save() {
     localStorage.setItem(this.key, JSON.stringify(this.data))
   }
   private load() {
     this.data = !localStorage.getItem(this.key) ? [] : JSON.parse(localStorage.getItem(this.key)!);
   }
-
 }
