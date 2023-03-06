@@ -1,16 +1,13 @@
-
-.settings-ion-header {
-  height: 125px;
-  padding-top: 62px;
-}
-
 .item-select {
   text-decoration: none;
 }
-
+.toolbar ion-title{
+  text-align: center;
+  margin: 0 85px 0 0;
+}
 .select {
   width: 100%;
-  background-color: --background-textarea;
+  background-color: var(--background-textarea);
   border-radius: 32px;
   padding: 16px 12px;
 }

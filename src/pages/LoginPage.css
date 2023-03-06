@@ -27,36 +27,25 @@
   z-index: 0;
   
 }
+.swiper ion-item-group{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 200px;
+  z-index: 10;
+}
 
 .swiper h2 {
-  position: absolute;
-  bottom: 315px;
-  height: 78px;
-  width: 100%;
-  margin: 0 auto;
-  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
+  text-size-adjust: none;
+  font-size: 1.8rem;
   color: #C1292E;
-  z-index: 10;
-
 }
 
 .swiper p {
-  position: absolute;
-  bottom: 238px;
-  width: 100%;
-  height: 57px;
-  margin: 0 auto;  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-  color: #2F2713;
-  z-index: 10;
+  margin: 40px 0 30px;
+  font-size: 0.9rem;
+  color: #2F2713;  
 }
 
 .imgBG {
@@ -73,7 +62,7 @@
 }
 
 .swiper-pagination {
-  margin-bottom: 198px;
+  margin-bottom: 180px;
   --swiper-pagination-bullet-width: 10px;
   --swiper-pagination-bullet-height: 10px;
 }
@@ -84,19 +73,17 @@
 }
 
 .login-button {
-  margin: 0 16px;
   position: absolute;
+  margin: 0 16px;  
   bottom: 100px;
   left: 0;
   right: 0;
   height: 44px;
   --background: none;
   --border-color: #A5946A;
-  --border-style: solid;
-  
-  font-style: normal;
+  --border-style: solid;  
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
   text-transform: none;
   z-index: 30;
   --color: #2F2713;

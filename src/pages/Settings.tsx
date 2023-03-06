@@ -15,10 +15,10 @@ const Settings: React.FC<{}> = () => {
   return (
     <IonPage>
       <IonHeader className="ion-no-border settings-ion-header">
-        <IonToolbar className="button-ion-toolbar">
+        <IonToolbar className="toolbar">
           <IonButtons slot="start">
             <IonButton className="list-back-button" routerLink={`/main`}>
-              <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+              <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back</IonButton>
           </IonButtons>
           <IonTitle>Settings</IonTitle>
@@ -26,7 +26,7 @@ const Settings: React.FC<{}> = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonLabel slot="start">Selected font</IonLabel>
-        <IonList className=" ion-no-border">
+        <IonList className="ion-no-border">
           <IonItem className="item-select ion-no-border">
             <IonSelect className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption value="nunito">Nunito</IonSelectOption>

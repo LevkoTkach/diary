@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon } from "@ionic/react";
+import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon, IonItem, IonItemGroup } from "@ionic/react";
 import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper';
@@ -18,10 +18,10 @@ const LoginPage: React.FC<{}> = () => {
   useEffect(() => {
     return () => localStorage.setItem("getStarted", "true");
   });
-    
+
   return (
     <IonPage>
-      <IonContent>
+      <IonContent fullscreen>
         <Swiper
           modules={[Pagination, A11y]}
           pagination={{ clickable: true }}
@@ -31,19 +31,19 @@ const LoginPage: React.FC<{}> = () => {
 
           <SwiperSlide className="slide">
             <IonImg className="avatar1" src={Avatar1}></IonImg>
-            <IonLabel>
+            <IonItemGroup className="text-group">
               <h2>Extension for your<br></br>thoughts and feelings </h2>
               <p>
                 Diary is a personal document of an individual to<br></br>store his
-                her emotions, thoughts or feelings<br></br>on daily basis.
+                her emotions, thoughts or feelings on<br></br>daily basis.
               </p>
-            </IonLabel>
+            </IonItemGroup>
             <IonImg src={BG} className="imgBG"></IonImg>
           </SwiperSlide>
 
           <SwiperSlide className="slide2">
             <IonImg src={Avatar2} className="avatar2"></IonImg>
-            <IonLabel>
+            <IonItemGroup className="text-group">
               <h2 >
                 Compose your<br></br>
                 ideas and emotions
@@ -53,7 +53,7 @@ const LoginPage: React.FC<{}> = () => {
                 outside judgment or criticism. It should be an<br></br>
                 extension of your mind: safe and free.
               </p>
-            </IonLabel>
+            </IonItemGroup>
             <IonImg src={BG} className="imgBG"></IonImg>
           </SwiperSlide>
 
@@ -66,7 +66,7 @@ const LoginPage: React.FC<{}> = () => {
           Get Started
         </IonButton>
 
-      </IonContent>    
+      </IonContent>
     </IonPage>
   );
 };

@@ -1,10 +1,10 @@
-.note-ion-header {
-  height: 116px;
-  padding-top: 55px;
+.toolbar {
+  margin: 25px 0 0;
+  width: 97%;  
 }
 
-.note-ion-toolbar {
-  width: 97%;  
+ion-back-button {
+  text-transform: none;
 }
 
 .title-date {
@@ -22,14 +22,18 @@
   font-weight: 700;
   font-size: 1.6rem;
   height: 2rem;
-  --max-height: 2rem;
   --placeholder-color: var(--textarea-placeholder);
   --color: var(--main-text);
 }
+.title-textarea .textarea-wrapper{
+height: 2rem;
+}
 
 .custom-textarea {
+  margin-top: 1rem;
   resize: none;
-  height: 65vh;
+  height: 64vh;
+  font-size: 1.1rem;
   border-radius: 16px;
   --background: var(--background-textarea);
   --color: var(--main-text);
@@ -37,13 +41,18 @@
   --padding-start: 10px;
   --placeholder-color: var(--textarea-placeholder);
 }
+.custom-textarea .textarea-wrapper{
+  resize: none;
+  height: 64vh;
+}
 
 .color-label {
-  margin: 20px 0 15px ;
+  margin: 1rem 0;
   display: block;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  font-family: var(--font);
 }
 
 .radio-group {
@@ -56,7 +65,6 @@ ion-radio {
   height: 20px;
   margin-right: 20px;
   --color-checked: #FFFFFF;
-
 }
 
 ion-radio.radio-checked::part(mark) {
@@ -64,9 +72,7 @@ ion-radio.radio-checked::part(mark) {
   height: 10px;
   border-radius: 50%;
   border-width: 0;
-  border-style: solid;
-  border-color: transparent;
-
+  border-style: solid;  
 }
 
 .green-radio {

@@ -12,19 +12,19 @@ interface Params {
 
 const NoteCard: React.FC<Params> = (params) => {
 
-  return (    
-      <IonItem>
-        <IonCard className={params.className} button={true} routerLink={params.routerLink}>
-          <IonCardHeader>
-            <IonCardTitle>{params.title}</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent className='content-in-card'>
-            {params.text}
-          </IonCardContent>
-          <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
-          </IonIcon>
-        </IonCard>
-      </IonItem >
+  return (
+    <IonItem>
+      <IonCard className={params.className} button={true} routerLink={params.routerLink}>
+        <IonCardHeader>
+          <IonCardTitle>{params.title}</IonCardTitle>
+        </IonCardHeader>
+        <IonCardContent >
+          {params.text}
+        </IonCardContent>
+        <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
+        </IonIcon>
+      </IonCard>
+    </IonItem >
   );
 }
 

@@ -1,14 +1,6 @@
-.list-ion-header {
-  height: 152px;
-  padding-top: 55px;
-}
-
-.button-ion-toolbar {
-  --min-height: none;
-}
-
 .list-back-button {
   text-transform: none;
+  font-weight: 600;
 }
 
 .back-button-icon {
@@ -17,28 +9,16 @@
 }
 
 .date-toolbar {
-  margin: 0 auto;
+  margin: 0 auto 10px;
   width: fit-content;
   --min-height: none;
   height: 36px;
-}
-
-ion-back-button {
-  text-transform: none;
 }
 
 .title-date_list-page {
   font-weight: 700;
   font-size: 1rem;
   color: var(--main-text);
-}
-
-.compose-button {
-  margin: 10px 16px 100px;
-  height: 44px;
-  text-transform: none;
-  --background: var(--secondary-button-background);
-  --color: var(--light-text);
 }
 
 ion-item-option{
