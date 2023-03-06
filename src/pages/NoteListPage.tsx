@@ -65,20 +65,24 @@ const NoteListPage: React.FC<Params> = () => {
 
       <IonContent>
         <IonItemGroup>
-          <IonList>
+          <IonList lines="none">
 
             {notes.map(note => {
               return (
-                <IonItemSliding>
+                <IonItemSliding className="margin-bottom-8px">
                   <NoteCard
                     key={note.id}
                     className={`note-color-${note.color}`}
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}
                     text={`${note.text}`} />
-                  <IonItemOptions onIonSwipe={() =>{ setRefresh(true); service.delete(note.id);}} side="end">
-                    <IonItemOption color="danger">
-                      Delete
+                  <IonItemOptions slot="end" onIonSwipe={() => { setRefresh(true); service.delete(note.id); }}>
+                    <IonItemOption color="danger" >
+                    </IonItemOption>
+                    <IonItemOption color="danger" >
+                    </IonItemOption>
+                    <IonItemOption color="danger" >
+                      <IonIcon slot="icon-only" icon={trash}></IonIcon>
                     </IonItemOption>
                   </IonItemOptions>
                 </IonItemSliding >

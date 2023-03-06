@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Mukta:wght@400;600;700&family=Poppins:wght@400;600;700&family=Prompt:wght@400;600;700&family=Raleway:wght@400;600;700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
 :root {
   --background-main: #FAFAFA;
@@ -65,6 +66,7 @@ ion-datetime {
 .compose-button {
   margin: 10px 16px 100px;
   height: 44px;
+  font-size: 1.3rem;
   text-transform: none;
   --background: var(--secondary-button-background);
   --color: var(--light-text);

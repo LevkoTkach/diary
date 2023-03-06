@@ -1,10 +1,12 @@
 .item-select {
   text-decoration: none;
 }
-.toolbar ion-title{
+
+.toolbar ion-title {
   text-align: center;
   margin: 0 85px 0 0;
 }
+
 .select {
   width: 100%;
   background-color: var(--background-textarea);
@@ -16,8 +18,23 @@
   --font: 'Nunito', sans-serif;
 }
 
-.aclonica {
-  --font: 'Aclonica', sans-serif;
+.montserrat-alternates {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.mukta {
+  font-family: 'Mukta', sans-serif;
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.prompt {
+  font-family: 'Prompt', sans-serif;
+}
+.raleway{
+  font-family: 'Raleway', sans-serif;
 }
 
 .tilt-neon {
