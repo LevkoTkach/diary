@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Mukta:wght@400;600;700&family=Poppins:wght@400;600;700&family=Prompt:wght@400;600;700&family=Raleway:wght@400;600;700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
 :root {
   --background-main: #FAFAFA;
@@ -22,64 +23,51 @@
 
 .main-header {
   margin: 0;
-  height: 191px;
   background-color: #F2DCA6;
-  border-radius: 0px 0px 80px 0px;
+  border-radius: 0 0 80px;
 }
 
 .header-md::after {
   content: none;
 }
 
+.main-tollbar{
+  --background:inherit;
+  margin: 25px 0 15px;
+}
 .settings-button {
-  position: absolute;
-  width: 140px;
-  height: 24px;
-  right: 0px;
-  top: 62px;
+  width: fit-content;
   color: var(--main-text);
   text-transform: none;
   font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 1rem;
   --ion-color-primary: #A5946A
 }
 
 .main-header-title {
-  position: absolute;
-  left: 0;
-  top: 116px;
-  margin: 0;
-  padding: 0 16px 0;
-  font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
+  font-size: 1.8rem;  
   color: var(--main-text);
 }
 
-.main-header-label {
-  position: absolute;
-  left: 0;
-  top: 152px;
-  margin: 0;
-  padding: 0 16px 0;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
+.main-header-date-title {
+  padding: 1rem;  
+  font-size: 1.2rem;  
   color: var(--main-text);
 }
 
 ion-datetime {
-  position: absolute;
-  top: 211px;
   left: 0;
   right: 0;
-  background-color: var(--background-main);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 9px;
+  margin-top: 1rem;
+}
 
+.compose-button {
+  margin: 10px 16px 100px;
+  height: 44px;
+  font-size: 1.3rem;
+  text-transform: none;
+  --background: var(--secondary-button-background);
+  --color: var(--light-text);
 }

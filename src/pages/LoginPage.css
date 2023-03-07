@@ -1,9 +1,9 @@
-
 .swiper {
   height: 100%;
-  
+
 }
-.swiper .slide2{
+
+.swiper .slide2 {
   background-image: url(../pages/background-girl2.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -14,7 +14,7 @@
   position: absolute;
   bottom: 440px;
   width: 100%;
-  height: 290px;  
+  height: 290px;
 }
 
 .swiper .avatar2 {
@@ -25,38 +25,30 @@
   height: 417px;
   size-adjust: none;
   z-index: 0;
-  
+
 }
 
-.swiper h2 {
+.swiper ion-item-group {
   position: absolute;
-  bottom: 315px;
-  height: 78px;
   width: 100%;
-  margin: 0 auto;
-  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
   text-align: center;
-  color: #C1292E;
+  margin: 0 auto;
+  bottom: 200px;
   z-index: 10;
+}
 
+.swiper h2 {  
+  text-size-adjust: none;
+  hyphens: manual;
+  font-size: 1.5rem;
+  color: #C1292E;
 }
 
 .swiper p {
-  position: absolute;
-  bottom: 238px;
-  width: 100%;
-  height: 57px;
-  margin: 0 auto;  
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
+  hyphens: manual;
+  margin: 40px 0 30px;
+  font-size: 0.8rem;
   color: #2F2713;
-  z-index: 10;
 }
 
 .imgBG {
@@ -73,7 +65,7 @@
 }
 
 .swiper-pagination {
-  margin-bottom: 198px;
+  margin-bottom: 180px;
   --swiper-pagination-bullet-width: 10px;
   --swiper-pagination-bullet-height: 10px;
 }
@@ -84,8 +76,8 @@
 }
 
 .login-button {
-  margin: 0 16px;
   position: absolute;
+  margin: 0 16px;
   bottom: 100px;
   left: 0;
   right: 0;
@@ -93,10 +85,8 @@
   --background: none;
   --border-color: #A5946A;
   --border-style: solid;
-  
-  font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
   text-transform: none;
   z-index: 30;
   --color: #2F2713;

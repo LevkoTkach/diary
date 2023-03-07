@@ -1,4 +1,4 @@
-import { IonButton, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonDatetime, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { format, parseISO } from 'date-fns';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import React, { useEffect } from 'react';
@@ -14,13 +14,13 @@ interface Params {
 const MainPage: React.FC<Params> = () => {
   const params = useParams<Params>();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  
+
   useEffect(() => { 
     if (params.date ) {
       setDate(params.date)
     };
   }, [params])
-  
+
   useEffect(() => {
     document.body.classList.add(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
   }, []);
@@ -32,27 +32,31 @@ const MainPage: React.FC<Params> = () => {
 
   return (
     <IonPage >
-      <IonHeader
-        className='main-header'>
-        <IonButton routerLink='/settings' shape='round' fill='clear' className='settings-button'>
-          Settings
-          <IonIcon color='primary' slot="end" icon={settingsSharp}></IonIcon>
-        </IonButton>
+      <IonHeader className='main-header'>
+        <IonToolbar className='main-tollbar'>
+          <IonButtons slot="end">
+            <IonButton routerLink='/settings' shape='round' fill='clear' className='settings-button'>
+              Settings
+              <IonIcon color='primary' slot="end" icon={settingsSharp}></IonIcon>
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
+
         <IonTitle className='main-header-title'>Compose now</IonTitle>
-        <IonLabel className='main-header-label'>{format(parseISO(date!), 'd MMMM')} selected</IonLabel>
+        <IonTitle className='main-header-date-title'>{format(parseISO(date!), 'd MMMM')} selected</IonTitle>
       </IonHeader>
-
-      <IonDatetime
-        value={date}
-        onIonChange={dateSetter}
-        size="cover"
-        className='calendar'
-        presentation="date"
-        locale="en-GB"
-        firstDayOfWeek={1}
-      />
-
-        {(function () {
+      <IonContent >
+        <IonDatetime
+          value={date}
+          onIonChange={dateSetter}
+          size="cover"
+          className='calendar'
+          presentation="date"
+          locale="en-GB"
+          firstDayOfWeek={1}
+        />
+      </IonContent>
+      {(function () {
         if (service.findByDate(date).length) {
           return <IonButton
             routerLink={`/note-list/${date}`}
@@ -74,7 +78,7 @@ const MainPage: React.FC<Params> = () => {
         </IonButton>
       })()}
 
-    
+
     </IonPage>
   );
 };

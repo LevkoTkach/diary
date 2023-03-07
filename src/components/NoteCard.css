@@ -1,11 +1,12 @@
 
 ion-item{
   width:100vw;
+  
 }
 
 ion-card {
   position: relative;
-  margin: 0 0 8px 0;
+  margin:0;
   height: 90px;
   width: 100%;
   left: 0;
@@ -14,31 +15,29 @@ ion-card {
   border-radius: 16px;
 }
 
+ion-card-header {
+  height: 20px;  
+  margin: 10px 16px;
+  padding: 0;
+  color: var(--light-text);
+}
+
+ion-card-title{
+  font-size: 1.2rem;
+  color: var(--light-text);
+}
+
+ion-card-content{
+  position: relative;
+  margin: 0 70px 0 0;
+  height: 55px;
+  font-size: 1rem;
+}
+
 .icon-in-card {
   position: absolute;
   height: 16px;
   width: 16px;
   right: 20px;
   top: 37px;
-}
-
-ion-card-header {
-  height: 22px;
-  font-size: 16px;
-  margin: 10px 16px 0;
-  padding: 0;
-  color: var(--light-text);
-}
-
-ion-card-title{
-  color: var(--light-text);
-}
-
-.content-in-card {
-  height: 38px;
-  line-height: 22px;
-  width: fit-content;
-  font-size: 14px;
-  margin: 10px 70px 0 16px;
-  padding: 0;
 }

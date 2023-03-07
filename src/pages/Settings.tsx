@@ -7,7 +7,7 @@ const Settings: React.FC<{}> = () => {
   const [font, setFont] = useState(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
 
   useEffect(() => {
-    document.body.classList.remove("nunito", "aclonica", "tilt-neon", "gotisch", "josefin-sans");
+    document.body.classList.remove("nunito", "montserrat-alternates", "mukta", "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
     document.body.classList.add(font);
     localStorage.setItem('font', font);
   }, [font])
@@ -15,10 +15,10 @@ const Settings: React.FC<{}> = () => {
   return (
     <IonPage>
       <IonHeader className="ion-no-border settings-ion-header">
-        <IonToolbar className="button-ion-toolbar">
+        <IonToolbar className="toolbar">
           <IonButtons slot="start">
             <IonButton className="list-back-button" routerLink={`/main`}>
-              <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+              <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back</IonButton>
           </IonButtons>
           <IonTitle>Settings</IonTitle>
@@ -26,11 +26,15 @@ const Settings: React.FC<{}> = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonLabel slot="start">Selected font</IonLabel>
-        <IonList className=" ion-no-border">
-          <IonItem className="item-select ion-no-border">
+        <IonList lines="none" className="ion-no-border">
+          <IonItem lines="none" className="item-select ion-no-border">
             <IonSelect className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption value="nunito">Nunito</IonSelectOption>
-              <IonSelectOption value="aclonica">Aclonica</IonSelectOption>
+              <IonSelectOption value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
+              <IonSelectOption value="mukta">Mukta</IonSelectOption>
+              <IonSelectOption value="poppins">Poppins</IonSelectOption>
+              <IonSelectOption value="prompt">Prompt</IonSelectOption>
+              <IonSelectOption value="raleway">Raleway</IonSelectOption>
               <IonSelectOption value="tilt-neon">Tilt Neon</IonSelectOption>
               <IonSelectOption value="gotisch">Grenze Gotisch</IonSelectOption>
               <IonSelectOption value="josefin-sans">JosefinSans</IonSelectOption>

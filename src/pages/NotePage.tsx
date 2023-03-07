@@ -50,9 +50,9 @@ const NotePage: React.FC<Params> = () => {
 
     <IonPage>
       <IonHeader className="ion-no-border note-ion-header">
-        <IonToolbar className="note-ion-toolbar">
+        <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonBackButton text="Back"></IonBackButton>
+            <IonBackButton color="primary" text="Back"></IonBackButton>
           </IonButtons>
           <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
         </IonToolbar>
