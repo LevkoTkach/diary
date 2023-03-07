@@ -19,22 +19,22 @@
 }
 
 .montserrat-alternates {
-  font-family: 'Montserrat Alternates', sans-serif;
+  --font: 'Montserrat Alternates', sans-serif;
 }
 
 .mukta {
-  font-family: 'Mukta', sans-serif;
+  --font: 'Mukta', sans-serif;
 }
 
 .poppins {
-  font-family: 'Poppins', sans-serif;
+  --font: 'Poppins', sans-serif;
 }
 
 .prompt {
-  font-family: 'Prompt', sans-serif;
+  --font: 'Prompt', sans-serif;
 }
 .raleway{
-  font-family: 'Raleway', sans-serif;
+  --font: 'Raleway', sans-serif;
 }
 
 .tilt-neon {
