@@ -35,18 +35,24 @@ const MainPage: React.FC<Params> = () => {
       <IonHeader className='main-header'>
         <IonToolbar className='main-tollbar'>
           <IonButtons slot="end">
-            <IonButton routerLink='/settings' shape='round' fill='clear' className='settings-button'>
+            <IonButton
+              color='dark'
+              routerLink='/settings'
+              shape='round'
+              fill='clear'
+              className='settings-button'>
               Settings
-              <IonIcon color='primary' slot="end" icon={settingsSharp}></IonIcon>
+              <IonIcon color='tertiary' slot="end" icon={settingsSharp}></IonIcon>
             </IonButton>
           </IonButtons>
         </IonToolbar>
 
-        <IonTitle className='main-header-title'>Compose now</IonTitle>
-        <IonTitle className='main-header-date-title'>{format(parseISO(date!), 'd MMMM')} selected</IonTitle>
+        <IonTitle color='dark' className='main-header-title'>Compose now</IonTitle>
+        <IonTitle color='dark' className='main-header-date-title'>{format(parseISO(date!), 'd MMMM')} selected</IonTitle>
       </IonHeader>
       <IonContent >
         <IonDatetime
+          color='danger'
           value={date}
           onIonChange={dateSetter}
           size="cover"
@@ -59,6 +65,7 @@ const MainPage: React.FC<Params> = () => {
       {(function () {
         if (service.findByDate(date).length) {
           return <IonButton
+            color="danger"
             routerLink={`/note-list/${date}`}
             className="compose-button"
             shape="round">
@@ -66,6 +73,7 @@ const MainPage: React.FC<Params> = () => {
           </IonButton>
         };
         return <IonButton
+          color="danger"
           routerLink={`/note/${date}`}
           className="compose-button"
           shape="round">

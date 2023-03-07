@@ -17,18 +17,18 @@ const Settings: React.FC<{}> = () => {
       <IonHeader className="ion-no-border settings-ion-header">
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonButton className="list-back-button" routerLink={`/main`}>
+            <IonButton color='dark' className="list-back-button" routerLink={`/main`}>
               <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back</IonButton>
           </IonButtons>
-          <IonTitle>Settings</IonTitle>
+          <IonTitle color='dark'>Settings</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonLabel slot="start">Selected font</IonLabel>
         <IonList lines="none" className="ion-no-border">
           <IonItem lines="none" className="item-select ion-no-border">
-            <IonSelect className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
+            <IonSelect color='dark' className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption value="nunito">Nunito</IonSelectOption>
               <IonSelectOption value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
               <IonSelectOption value="mukta">Mukta</IonSelectOption>

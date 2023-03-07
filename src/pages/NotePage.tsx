@@ -54,7 +54,7 @@ const NotePage: React.FC<Params> = () => {
           <IonButtons slot="start">
             <IonBackButton color="primary" text="Back"></IonBackButton>
           </IonButtons>
-          <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
+          <IonTitle color='dark' className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
