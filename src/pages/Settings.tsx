@@ -1,4 +1,4 @@
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel } from "@ionic/react";
+import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel, IonToggle } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import './Settings.css';
@@ -10,7 +10,16 @@ const Settings: React.FC<{}> = () => {
     document.body.classList.remove("nunito", "montserrat-alternates", "mukta", "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
     document.body.classList.add(font);
     localStorage.setItem('font', font);
-  }, [font])
+  }, [font]);
+
+  const toggleTheme = (event: CustomEvent) => {
+    console.log(event.detail.checked);
+    if (event.detail.checked) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    };
+  }
 
   return (
     <IonPage>
@@ -25,10 +34,11 @@ const Settings: React.FC<{}> = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+
         <IonLabel slot="start">Selected font</IonLabel>
         <IonList lines="none" className="ion-no-border">
           <IonItem lines="none" className="item-select ion-no-border">
-            <IonSelect color='dark' className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
+            <IonSelect className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption value="nunito">Nunito</IonSelectOption>
               <IonSelectOption value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
               <IonSelectOption value="mukta">Mukta</IonSelectOption>
@@ -42,6 +52,10 @@ const Settings: React.FC<{}> = () => {
           </IonItem>
         </IonList>
 
+        <IonItem lines="none">
+          <IonLabel color='dark' className="dark-theme-label" slot="start">Dark theme</IonLabel>
+          <IonToggle className="dark-theme-toggle" slot="end" onIonChange={toggleTheme}></IonToggle>
+        </IonItem>
       </IonContent>
     </IonPage>
   );

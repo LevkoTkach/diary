@@ -47,7 +47,7 @@ const MainPage: React.FC<Params> = () => {
           </IonButtons>
         </IonToolbar>
 
-        <IonTitle color='dark' className='main-header-title'>Compose now</IonTitle>
+        <IonTitle color='warning' className='main-header-title'>Compose now</IonTitle>
         <IonTitle color='dark' className='main-header-date-title'>{format(parseISO(date!), 'd MMMM')} selected</IonTitle>
       </IonHeader>
       <IonContent >

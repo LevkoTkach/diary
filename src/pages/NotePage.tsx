@@ -71,7 +71,7 @@ const NotePage: React.FC<Params> = () => {
             placeholder="Write your message in here.."
             onChange={setText}
           />
-          <IonLabel className="color-label">
+          <IonLabel color='dark' className="color-label">
             Choose a color
           </IonLabel>
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >

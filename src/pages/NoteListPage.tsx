@@ -69,9 +69,9 @@ const NoteListPage: React.FC<Params> = () => {
 
             {notes.map(note => {
               return (
-                <IonItemSliding className="margin-bottom-8px">
+                <IonItemSliding key={note.id} className="margin-bottom-8px">
                   <NoteCard
-                    key={note.id}
+                    
                     className={`note-color-${note.color}`}
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}

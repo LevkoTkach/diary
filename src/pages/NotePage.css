@@ -24,6 +24,7 @@ ion-back-button {
   font-size: 1.6rem;
   height: 2rem;
   --placeholder-color: var(--ion-color-primary);
+  --color: var(--ion-color-dark);
 }
 
 .title-textarea .textarea-wrapper {
@@ -38,6 +39,7 @@ ion-back-button {
   border-radius: 16px;
   --background: var(--ion-color-secondary-shade);
   --placeholder-color: var(--ion-color-medium);
+  --color: var(--ion-color-dark);
   --padding-end: 10px;
   --padding-start: 10px;
 
@@ -65,7 +67,7 @@ ion-radio {
   width: 20px;
   height: 20px;
   margin-right: 20px;
-  --color-checked:var(--ion-color-light);
+  --color-checked:var(--ion-color-light-tint);
 }
 
 ion-radio.radio-checked::part(mark) {
@@ -77,37 +79,37 @@ ion-radio.radio-checked::part(mark) {
 }
 
 .green-radio {
-  background-color: #4CAF50;
-  --color: #4CAF50;
-  border: 5px solid #4CAF50;
+  background-color: var(--note-color-first);
+  --color: var(--note-color-first);
+  border: 5px solid var(--note-color-first);
 }
 
 .blue-radio {
-  background-color: #03A9F4;
-  --color: #03A9F4;
-  border: 5px solid #03A9F4;
+  background-color:var(--note-color-second) ;
+  --color: var(--note-color-second);
+  border: 5px solid var(--note-color-second);
 }
 
 .purple-radio {
-  background-color: #673AB7;
-  --color: #673AB7;
-  border: 5px solid #673AB7;
+  background-color: var(--note-color-third);
+  --color: var(--note-color-third);
+  border: 5px solid var(--note-color-third);
 }
 
 .red-radio {
-  background-color: #C1292E;
-  --color: #C1292E;
-  border: 5px solid #C1292E;
+  background-color: var(--note-color-forth) ;
+  --color: var(--note-color-forth);
+  border: 5px solid var(--note-color-forth);
 }
 
 .yellow-radio {
-  background-color: #FF9800;
-  --color: #FF9800;
-  border: 5px solid #FF9800;
+  background-color: var(--note-color-fifth);
+  --color: var(--note-color-fifth);
+  border: 5px solid var(--note-color-fifth);
 }
 
 .brown-radio {
-  background-color: #795548;
-  --color: #795548;
-  border: 5px solid #795548;
+  background-color:var(--note-color-sixst);
+  --color: var(--note-color-sixst);
+  border: 5px solid var(--note-color-sixst);
 }

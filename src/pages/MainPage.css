@@ -12,13 +12,14 @@
 * {
   font-family: var(--font);
 }
-body{
-  background-color: var(--background-main);
+
+body {
+  --ion-background-color: var(--background-main);
 }
 
 .main-header {
   margin: 0;
-  background-color: Var(--ion-color-secondary);
+  background-color: var(--ion-color-secondary);
   border-radius: 0 0 80px;
 }
 
@@ -26,10 +27,11 @@ body{
   content: none;
 }
 
-.main-tollbar{
-  --background:inherit;
+.main-tollbar {
+  --background: inherit;
   margin: 25px 0 15px;
 }
+
 .settings-button {
   width: fit-content;
   text-transform: none;
@@ -40,18 +42,19 @@ body{
 
 .main-header-title {
   font-weight: 700;
-  font-size: 1.8rem;  
+  font-size: 1.8rem;
 }
 
 .main-header-date-title {
-  padding: 1rem;  
-  font-size: 1.2rem; 
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
 ion-datetime {
   left: 0;
   right: 0;
   margin-top: 1rem;
+  --background:none;
 }
 
 .compose-button {
