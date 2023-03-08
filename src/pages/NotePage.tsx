@@ -84,16 +84,14 @@ const NotePage: React.FC<Params> = () => {
             <IonRadio className="brown-radio" value="brown"></IonRadio>
           </IonRadioGroup>
         </IonItemGroup>
+        <IonButton
+          routerLink={`/note-list/${date}`}
+          className="dode-button"
+          shape="round">
+          <IonIcon icon={checkmarkOutline}></IonIcon>
+          Done
+        </IonButton>
       </IonContent>
-
-      <IonButton 
-        routerLink={`/note-list/${date}`}
-        className="dode-button"
-        shape="round">
-        <IonIcon icon={checkmarkOutline}></IonIcon>
-        Done
-      </IonButton>
-
     </IonPage>
   );
 }

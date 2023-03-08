@@ -115,9 +115,11 @@ ion-radio.radio-checked::part(mark) {
   border: 5px solid var(--note-color-sixst);
 }
 
-.dode-button {
-  margin: 10px 16px 100px;
+.dode-button {  
+  margin: 10px 0 100px;
+  padding: 0 16px;
   height: 44px;
+  width: 100vw;
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: none;
