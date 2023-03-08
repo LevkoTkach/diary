@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
+import { checkmarkOutline } from "ionicons/icons";
 
 interface Params {
   id: string;
@@ -84,6 +85,14 @@ const NotePage: React.FC<Params> = () => {
           </IonRadioGroup>
         </IonItemGroup>
       </IonContent>
+
+      <IonButton 
+        routerLink={`/note-list/${date}`}
+        className="dode-button"
+        shape="round">
+        <IonIcon icon={checkmarkOutline}></IonIcon>
+        Done
+      </IonButton>
 
     </IonPage>
   );

@@ -34,7 +34,7 @@ ion-back-button {
 .custom-textarea {
   margin-top: 1.2rem;
   resize: none;
-  height: 64vh;
+  height: 55vh;
   font-size: 1.1rem;
   border-radius: 16px;
   --background: var(--ion-color-secondary-shade);
@@ -44,9 +44,10 @@ ion-back-button {
   --padding-start: 10px;
 
 }
-.custom-textarea .textarea-wrapper{
+
+.custom-textarea .textarea-wrapper {
   resize: none;
-  height: 64vh;
+  height: 55vh;
 }
 
 .color-label {
@@ -67,7 +68,7 @@ ion-radio {
   width: 20px;
   height: 20px;
   margin-right: 20px;
-  --color-checked:var(--ion-color-light-tint);
+  --color-checked: var(--ion-color-light-tint);
 }
 
 ion-radio.radio-checked::part(mark) {
@@ -75,7 +76,7 @@ ion-radio.radio-checked::part(mark) {
   height: 10px;
   border-radius: 50%;
   border-width: 0;
-  border-style: solid;  
+  border-style: solid;
 }
 
 .green-radio {
@@ -85,7 +86,7 @@ ion-radio.radio-checked::part(mark) {
 }
 
 .blue-radio {
-  background-color:var(--note-color-second) ;
+  background-color: var(--note-color-second);
   --color: var(--note-color-second);
   border: 5px solid var(--note-color-second);
 }
@@ -97,7 +98,7 @@ ion-radio.radio-checked::part(mark) {
 }
 
 .red-radio {
-  background-color: var(--note-color-forth) ;
+  background-color: var(--note-color-forth);
   --color: var(--note-color-forth);
   border: 5px solid var(--note-color-forth);
 }
@@ -109,7 +110,21 @@ ion-radio.radio-checked::part(mark) {
 }
 
 .brown-radio {
-  background-color:var(--note-color-sixst);
+  background-color: var(--note-color-sixst);
   --color: var(--note-color-sixst);
   border: 5px solid var(--note-color-sixst);
+}
+
+.dode-button {
+  margin: 10px 16px 100px;
+  height: 44px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: none;
+  --background: var(--background-main);
+  --color: var(--ion-color-danger);
+  --border-color: var(--ion-color-danger);
+  --border-style: solid;
+  --border-width: 1.5px;  
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); 
 }
