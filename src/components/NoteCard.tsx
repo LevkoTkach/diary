@@ -16,12 +16,12 @@ const NoteCard: React.FC<Params> = (params) => {
     <IonItem>
       <IonCard className={params.className} button={true} routerLink={params.routerLink}>
         <IonCardHeader>
-          <IonCardTitle>{params.title}</IonCardTitle>
+          <IonCardTitle color='light'>{params.title}</IonCardTitle>
         </IonCardHeader>
-        <IonCardContent >
+        <IonCardContent>
           {params.text}
         </IonCardContent>
-        <IonIcon className='icon-in-card' icon={arrowForwardOutline}>
+        <IonIcon color='light' className='icon-in-card' icon={arrowForwardOutline}>
         </IonIcon>
       </IonCard>
     </IonItem >

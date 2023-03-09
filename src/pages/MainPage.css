@@ -6,14 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300;1,400;1,600;1,700&display=swap');
 
 :root {
-  --background-main: #FAFAFA;
-  --background-textarea: #F8F4E9;
-  --main-text: #2F2713;
-  --light-text: #ffffff;
-  --textarea-placeholder: #7E7E7E;
-  --secondary-button-background: #C1292E;
-
-  --font-size-textarea: 14px;
   --font: 'Nunito', sans-serif;
 }
 
@@ -21,9 +13,13 @@
   font-family: var(--font);
 }
 
+body {
+  --ion-background-color: var(--background-main);
+}
+
 .main-header {
   margin: 0;
-  background-color: #F2DCA6;
+  background-color: var(--ion-color-secondary);
   border-radius: 0 0 80px;
 }
 
@@ -31,36 +27,34 @@
   content: none;
 }
 
-.main-tollbar{
-  --background:inherit;
+.main-tollbar {
+  --background: inherit;
   margin: 25px 0 15px;
 }
+
 .settings-button {
   width: fit-content;
-  color: var(--main-text);
   text-transform: none;
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
-  --ion-color-primary: #A5946A
 }
 
 .main-header-title {
   font-weight: 700;
-  font-size: 1.8rem;  
-  color: var(--main-text);
+  font-size: 1.8rem;
 }
 
 .main-header-date-title {
-  padding: 1rem;  
-  font-size: 1.2rem;  
-  color: var(--main-text);
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
 ion-datetime {
   left: 0;
   right: 0;
   margin-top: 1rem;
+  --background:none;
 }
 
 .compose-button {
@@ -68,6 +62,4 @@ ion-datetime {
   height: 44px;
   font-size: 1.3rem;
   text-transform: none;
-  --background: var(--secondary-button-background);
-  --color: var(--light-text);
 }

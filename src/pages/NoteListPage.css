@@ -17,9 +17,9 @@
 
 .title-date_list-page {
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--main-text);
+  font-size: 1rem;  
 }
+
 .margin-bottom-8px{
   margin-bottom: 8px;
 }
@@ -29,25 +29,25 @@ ion-item-option{
 }
 
 .note-color-green {
-  background-color: #4CAF50;
+  background-color: var(--note-color-first);
 }
 
 .note-color-blue {
-  background-color: #03A9F4;
+  background-color: var(--note-color-second);
 }
 
 .note-color-purple {
-  background-color: #673AB7;
+  background-color: var(--note-color-third);
 }
 
 .note-color-red {
-  background-color: #C1292E;
+  background-color: var(--note-color-forth);
 }
 
 .note-color-yellow {
-  background-color: #FF9800;
+  background-color: var(--note-color-fifth);
 }
 
 .note-color-brown {
-  background-color: #795548;
+  background-color: var(--note-color-sixst);
 }

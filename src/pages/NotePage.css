@@ -1,6 +1,6 @@
 .toolbar {
   margin: 25px 0 0;
-  width: 97%;  
+  width: 97%;
 }
 
 ion-back-button {
@@ -14,7 +14,7 @@ ion-back-button {
   font-weight: 600;
 }
 
-.left-right-margin-16px{
+.left-right-margin-16px {
   margin: 0 16px;
 }
 
@@ -23,28 +23,31 @@ ion-back-button {
   font-weight: 700;
   font-size: 1.6rem;
   height: 2rem;
-  --placeholder-color: var(--textarea-placeholder);
-  --color: var(--main-text);
+  --placeholder-color: var(--ion-color-primary);
+  --color: var(--ion-color-dark);
 }
-.title-textarea .textarea-wrapper{
-height: 2rem;
+
+.title-textarea .textarea-wrapper {
+  height: 2rem;
 }
 
 .custom-textarea {
   margin-top: 1.2rem;
   resize: none;
-  height: 64vh;
+  height: 55vh;
   font-size: 1.1rem;
   border-radius: 16px;
-  --background: var(--background-textarea);
-  --color: var(--main-text);
+  --background: var(--ion-color-secondary-shade);
+  --placeholder-color: var(--ion-color-medium);
+  --color: var(--ion-color-dark);
   --padding-end: 10px;
   --padding-start: 10px;
-  --placeholder-color: var(--textarea-placeholder);
+
 }
-.custom-textarea .textarea-wrapper{
+
+.custom-textarea .textarea-wrapper {
   resize: none;
-  height: 64vh;
+  height: 55vh;
 }
 
 .color-label {
@@ -65,7 +68,7 @@ ion-radio {
   width: 20px;
   height: 20px;
   margin-right: 20px;
-  --color-checked: #FFFFFF;
+  --color-checked: var(--ion-color-light-tint);
 }
 
 ion-radio.radio-checked::part(mark) {
@@ -73,41 +76,57 @@ ion-radio.radio-checked::part(mark) {
   height: 10px;
   border-radius: 50%;
   border-width: 0;
-  border-style: solid;  
+  border-style: solid;
 }
 
 .green-radio {
-  background-color: #4CAF50;
-  --color: #4CAF50;
-  border: 5px solid #4CAF50;
+  background-color: var(--note-color-first);
+  --color: var(--note-color-first);
+  border: 5px solid var(--note-color-first);
 }
 
 .blue-radio {
-  background-color: #03A9F4;
-  --color: #03A9F4;
-  border: 5px solid #03A9F4;
+  background-color: var(--note-color-second);
+  --color: var(--note-color-second);
+  border: 5px solid var(--note-color-second);
 }
 
 .purple-radio {
-  background-color: #673AB7;
-  --color: #673AB7;
-  border: 5px solid #673AB7;
+  background-color: var(--note-color-third);
+  --color: var(--note-color-third);
+  border: 5px solid var(--note-color-third);
 }
 
 .red-radio {
-  background-color: #C1292E;
-  --color: #C1292E;
-  border: 5px solid #C1292E;
+  background-color: var(--note-color-forth);
+  --color: var(--note-color-forth);
+  border: 5px solid var(--note-color-forth);
 }
 
 .yellow-radio {
-  background-color: #FF9800;
-  --color: #FF9800;
-  border: 5px solid #FF9800;
+  background-color: var(--note-color-fifth);
+  --color: var(--note-color-fifth);
+  border: 5px solid var(--note-color-fifth);
 }
 
 .brown-radio {
-  background-color: #795548;
-  --color: #795548;
-  border: 5px solid #795548;
+  background-color: var(--note-color-sixst);
+  --color: var(--note-color-sixst);
+  border: 5px solid var(--note-color-sixst);
+}
+
+.dode-button {  
+  margin: 10px 0 100px;
+  padding: 0 16px;
+  height: 44px;
+  width: 100vw;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: none;
+  --background: var(--background-main);
+  --color: var(--ion-color-danger);
+  --border-color: var(--ion-color-danger);
+  --border-style: solid;
+  --border-width: 1.5px;  
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); 
 }

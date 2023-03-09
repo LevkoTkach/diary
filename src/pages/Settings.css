@@ -9,11 +9,18 @@
 
 .select {
   width: 100%;
-  background-color: var(--background-textarea);
+  background-color: var(--ion-color-secondary-shade);
   border-radius: 32px;
   padding: 16px 12px;
 }
 
+.dark-theme-label{
+margin-left: 16px;
+}
+
+.dark-theme-toggle{
+margin-right: 16px;
+}
 .nunito {
   --font: 'Nunito', sans-serif;
 }

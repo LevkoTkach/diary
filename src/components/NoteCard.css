@@ -1,7 +1,5 @@
-
 ion-item{
-  width:100vw;
-  
+  width:100vw;  
 }
 
 ion-card {
@@ -11,20 +9,17 @@ ion-card {
   width: 100%;
   left: 0;
   right: 0;
-  --color: var(--light-text);
   border-radius: 16px;
 }
 
 ion-card-header {
   height: 20px;  
   margin: 10px 16px;
-  padding: 0;
-  color: var(--light-text);
+  padding: 0;  
 }
 
 ion-card-title{
-  font-size: 1.2rem;
-  color: var(--light-text);
+  font-size: 1.2rem;  
 }
 
 ion-card-content{
@@ -32,6 +27,7 @@ ion-card-content{
   margin: 0 70px 0 0;
   height: 55px;
   font-size: 1rem;
+  color: var(--ion-color-light);
 }
 
 .icon-in-card {

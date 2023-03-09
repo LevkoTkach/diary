@@ -40,7 +40,7 @@ const NoteListPage: React.FC<Params> = () => {
       <IonHeader className="list-ion-header ion-no-border">
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonButton shape='round' className="list-back-button" routerLink={`/main/${date}`}>
+            <IonButton color='dark' shape='round' className="list-back-button" routerLink={`/main/${date}`}>
               <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back
             </IonButton>
@@ -48,15 +48,15 @@ const NoteListPage: React.FC<Params> = () => {
         </IonToolbar>
         <IonToolbar className="date-toolbar">
           <IonButtons slot="start">
-            <IonButton routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" >
+            <IonButton color='dark' routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" >
               <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
             </IonButton>
           </IonButtons>
-          <IonLabel className="title-date_list-page">
+          <IonLabel color='dark' className="title-date_list-page">
             {format(parseISO(date), 'd MMMM yyyy')}
           </IonLabel>
           <IonButtons slot="end">
-            <IonButton routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
+            <IonButton color='dark' routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
               <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
             </IonButton>
           </IonButtons>
@@ -69,9 +69,9 @@ const NoteListPage: React.FC<Params> = () => {
 
             {notes.map(note => {
               return (
-                <IonItemSliding className="margin-bottom-8px">
+                <IonItemSliding key={note.id} className="margin-bottom-8px">
                   <NoteCard
-                    key={note.id}
+                    
                     className={`note-color-${note.color}`}
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}
@@ -94,7 +94,10 @@ const NoteListPage: React.FC<Params> = () => {
 
       </IonContent >
 
-      <IonButton routerLink={`/note/${date}`} className="compose-button" shape="round">
+      <IonButton color="danger"
+        routerLink={`/note/${date}`}
+        className="compose-button"
+        shape="round">
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>

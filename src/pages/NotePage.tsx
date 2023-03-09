@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
+import { checkmarkOutline } from "ionicons/icons";
 
 interface Params {
   id: string;
@@ -54,7 +55,7 @@ const NotePage: React.FC<Params> = () => {
           <IonButtons slot="start">
             <IonBackButton color="primary" text="Back"></IonBackButton>
           </IonButtons>
-          <IonTitle className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
+          <IonTitle color='dark' className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -71,7 +72,7 @@ const NotePage: React.FC<Params> = () => {
             placeholder="Write your message in here.."
             onChange={setText}
           />
-          <IonLabel className="color-label">
+          <IonLabel color='dark' className="color-label">
             Choose a color
           </IonLabel>
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
@@ -83,8 +84,14 @@ const NotePage: React.FC<Params> = () => {
             <IonRadio className="brown-radio" value="brown"></IonRadio>
           </IonRadioGroup>
         </IonItemGroup>
+        <IonButton
+          routerLink={`/note-list/${date}`}
+          className="dode-button"
+          shape="round">
+          <IonIcon icon={checkmarkOutline}></IonIcon>
+          Done
+        </IonButton>
       </IonContent>
-
     </IonPage>
   );
 }
