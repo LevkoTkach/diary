@@ -29,7 +29,7 @@ const NotePage: React.FC<Params> = () => {
     } else {
       setTitle('');
       setText('');
-      setColor('green');
+      setColor('first');
     }
   }, [params.id])
 
@@ -76,12 +76,12 @@ const NotePage: React.FC<Params> = () => {
             Choose a color
           </IonLabel>
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
-            <IonRadio className="green-radio" value="green" ></IonRadio>
-            <IonRadio className="blue-radio" value="blue"></IonRadio>
-            <IonRadio className="purple-radio" value="purple"></IonRadio>
-            <IonRadio className="red-radio" value="red"></IonRadio>
-            <IonRadio className="yellow-radio" value="yellow"></IonRadio>
-            <IonRadio className="brown-radio" value="brown"></IonRadio>
+            <IonRadio className="first-radio" value="first" ></IonRadio>
+            <IonRadio className="second-radio" value="second"></IonRadio>
+            <IonRadio className="third-radio" value="third"></IonRadio> 
+            <IonRadio className="forth-radio" value="forth"></IonRadio>
+            <IonRadio className="fifth-radio" value="fifth"></IonRadio>
+            <IonRadio className="sixst-radio" value="sixst"></IonRadio>
           </IonRadioGroup>
         </IonItemGroup>
         <IonButton

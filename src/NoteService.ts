@@ -1,4 +1,4 @@
-export type NoteColor = 'green' | 'blue' | 'purple' | 'red' | 'yellow' | 'brown';
+export type NoteColor = 'first' | 'second' | 'third' | 'forth' | 'fifth' | 'sixst';
 
 export interface NoteModel {
   id: number;

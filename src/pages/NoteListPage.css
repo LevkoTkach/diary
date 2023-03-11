@@ -28,26 +28,26 @@ ion-item-option{
   width:30%;
 }
 
-.note-color-green {
+.note-color-first {
   background-color: var(--note-color-first);
 }
 
-.note-color-blue {
+.note-color-second {
   background-color: var(--note-color-second);
 }
 
-.note-color-purple {
+.note-color-third {
   background-color: var(--note-color-third);
 }
 
-.note-color-red {
+.note-color-forth {
   background-color: var(--note-color-forth);
 }
 
-.note-color-yellow {
+.note-color-fifth {
   background-color: var(--note-color-fifth);
 }
 
-.note-color-brown {
+.note-color-sixst {
   background-color: var(--note-color-sixst);
 }

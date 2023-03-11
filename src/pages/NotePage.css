@@ -79,37 +79,37 @@ ion-radio.radio-checked::part(mark) {
   border-style: solid;
 }
 
-.green-radio {
+.first-radio {
   background-color: var(--note-color-first);
   --color: var(--note-color-first);
   border: 5px solid var(--note-color-first);
 }
 
-.blue-radio {
+.second-radio {
   background-color: var(--note-color-second);
   --color: var(--note-color-second);
   border: 5px solid var(--note-color-second);
 }
 
-.purple-radio {
+.third-radio {
   background-color: var(--note-color-third);
   --color: var(--note-color-third);
   border: 5px solid var(--note-color-third);
 }
 
-.red-radio {
+.forth-radio {
   background-color: var(--note-color-forth);
   --color: var(--note-color-forth);
   border: 5px solid var(--note-color-forth);
 }
 
-.yellow-radio {
+.fifth-radio {
   background-color: var(--note-color-fifth);
   --color: var(--note-color-fifth);
   border: 5px solid var(--note-color-fifth);
 }
 
-.brown-radio {
+.sixst-radio {
   background-color: var(--note-color-sixst);
   --color: var(--note-color-sixst);
   border: 5px solid var(--note-color-sixst);
