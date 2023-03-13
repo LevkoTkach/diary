@@ -58,6 +58,7 @@ body {
   height: 44px;
   font-size: 1.3rem;
   text-transform: none;
+  --box-shadow:none;
 }
 .pen-icon{
   height: 1.3rem;
