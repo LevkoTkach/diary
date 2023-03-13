@@ -1,0 +1,60 @@
+.rdp {
+  margin: 15px 0;
+  background-color: var(--background-main);
+  color: var(--ion-color-dark);
+}
+
+.rdp-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 36px;
+  margin: 0 16px;
+  font-size: 1.3rem;
+}
+
+.rdp-nav_button {
+  background-color: var(--background-main);
+  height: 36px;
+  width: 36px;
+  color: var(--ion-color-dark);
+}
+
+.rdp-caption_label {
+  padding: 10px 0 0;
+}
+
+.rdp-table {
+  margin-top: 10px;
+  width: 100vw;
+
+}
+
+.rdp-head_cell {
+  width: 14vw;
+  font-size: 14px;
+}
+
+.rdp-day {
+  width: 13vw;
+  height: 50px;
+  border-radius: 16px;
+  font-size: 1rem;
+  background-color: var(--background-main);
+  color: var(--ion-color-dark);
+}
+
+.rdp-day_selected {
+  background-color: var(--ion-color-danger);
+}
+.rdp-day_outside{
+  color:var(--ion-color-primary);
+  background-color: var(--ion-color-tertiary-shade);
+  border-radius: 0;
+  width: 100%;
+}
+.notesIcon {
+  margin-top: 6px;
+  box-sizing: border-box;
+  width: 12px;
+}

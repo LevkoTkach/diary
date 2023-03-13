@@ -1,36 +1,13 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { format, parseISO } from 'date-fns';
-import { addCircleOutline, ellipse, pencilSharp, settingsSharp } from 'ionicons/icons';
+import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import ComponentDayPicker from '../components/ComponentDayPicker';
 import { NoteService } from '../NoteService';
 import './MainPage.css';
-import { DateFormatter, DayPicker } from 'react-day-picker';
-
 
 const service = NoteService.getInstance();
-
-const notesIcon = (day: Date) => {
-  const dayNotes = service.findByDate(format(day, "yyyy-MM-dd"));
-  return (
-    <IonItemGroup>
-      {dayNotes.slice(0, 3).map((note, index) => (
-        <IonIcon key={index} className='notesIcon' color={note.color} src={ellipse} />
-      ))}
-      {dayNotes.length > 3 && <IonIcon className='notesIcon' icon={addCircleOutline} />}
-    </IonItemGroup>
-  );
-};
-
-const formatDay: DateFormatter = (day, options) => {
-  return (
-    <>
-      {format(day, 'd', { locale: options?.locale })}
-      <br />
-      {notesIcon(day)}
-    </>
-  );
-};
 
 interface Params {
   date: string;
@@ -71,10 +48,9 @@ const MainPage: React.FC<Params> = () => {
       </IonHeader>
       <IonContent >
 
-        <DayPicker
-          selected={new Date(date)}
+        <ComponentDayPicker  
+          date={date}
           onDayClick={(day: Date) =>setDate(format(day, "yyyy-MM-dd"))}
-          formatters={{ formatDay }}
         />
 
       </IonContent>
@@ -103,7 +79,6 @@ const MainPage: React.FC<Params> = () => {
           </IonButton>
         })()
       }
-
     </IonPage >
   );
 };
