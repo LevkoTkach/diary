@@ -71,11 +71,7 @@ const MainPage: React.FC<Params> = () => {
             routerLink={`/note/${date}`}
             className="compose-button"
             shape="round">
-            <IonIcon
-              className="pen-icon"
-              slot="start"
-              icon={pencilSharp}>
-            </IonIcon>
+            <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>
             Compose
           </IonButton>
         })()

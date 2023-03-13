@@ -40,8 +40,8 @@ const NoteListPage: React.FC<Params> = () => {
       <IonHeader className="list-ion-header ion-no-border">
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonButton color='dark' shape='round' className="list-back-button" routerLink={`/main/${date}`}>
-              <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+            <IonButton color="primary" shape='round' className="list-back-button" routerLink={`/main/${date}`}>
+              <IonIcon  className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back
             </IonButton>
           </IonButtons>

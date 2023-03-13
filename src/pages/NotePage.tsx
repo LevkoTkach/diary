@@ -22,7 +22,7 @@ const NotePage: React.FC<Params> = () => {
 
   useEffect(() => {
     setDate(params.date)
-  }, [params.date])  
+  }, [params.date])
 
   useEffect(() => {
     if (params.id) {
@@ -62,15 +62,16 @@ const NotePage: React.FC<Params> = () => {
           <IonTitle color='dark' className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent fullscreen className='note-content'>
         <IonItemGroup className="left-right-margin-16px" >
-          <TextEditor
+          <TextEditor           
             value={title!}
             className="title-textarea ion-no-padding"
             placeholder=" Title"
             onChange={setTitle}
           />
           <TextEditor
+            
             value={text!}
             className="custom-textarea "
             placeholder="Write your message in here.."
@@ -82,20 +83,20 @@ const NotePage: React.FC<Params> = () => {
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
             <IonRadio className="first-radio" value="first" ></IonRadio>
             <IonRadio className="second-radio" value="second"></IonRadio>
-            <IonRadio className="third-radio" value="third"></IonRadio> 
+            <IonRadio className="third-radio" value="third"></IonRadio>
             <IonRadio className="forth-radio" value="forth"></IonRadio>
             <IonRadio className="fifth-radio" value="fifth"></IonRadio>
             <IonRadio className="sixst-radio" value="sixst"></IonRadio>
           </IonRadioGroup>
         </IonItemGroup>
-        <IonButton
-          routerLink={`/note-list/${date}`}
-          className="dode-button"
-          shape="round">
-          <IonIcon icon={checkmarkOutline}></IonIcon>
-          Done
-        </IonButton>
       </IonContent>
+      <IonButton
+        routerLink={`/note-list/${date}`}
+        className="dode-button"
+        shape="round">
+        <IonIcon icon={checkmarkOutline}></IonIcon>
+        Done
+      </IonButton>
     </IonPage>
   );
 }

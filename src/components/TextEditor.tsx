@@ -1,27 +1,26 @@
 import React from 'react';
 import { IonTextarea } from '@ionic/react';
 
-interface addProps {
-  value: string;
-  className: string;
-  placeholder: string;
-  onChange: (e: string) => void;
-  
+interface Params {
+  value: string,
+  className: string,
+  placeholder: string,
+  onChange: (e: string) => void,  
 }
 
-const TextEditor: React.FC<addProps> = (props) => { 
+const TextEditor: React.FC<Params> = (params) => { 
 
   const textChange = (e: CustomEvent) => {
-    props.onChange(e.detail.value as string);
+    params.onChange(e.detail.value as string);
   }
   
 
   return (
     <IonTextarea
-      value={props.value}
+      value={params.value}
       onIonChange={(e) => textChange(e)}
-      className={props.className}
-      placeholder={props.placeholder} />
+      className={params.className}
+      placeholder={params.placeholder} />
   );
 }
 

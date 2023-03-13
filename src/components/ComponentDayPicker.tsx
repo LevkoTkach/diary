@@ -1,4 +1,4 @@
-import { IonItemGroup, IonIcon } from "@ionic/react";
+import { IonItemGroup, IonIcon, IonList } from "@ionic/react";
 import { format } from "date-fns";
 import { ellipse, addCircleOutline } from "ionicons/icons";
 import { DateFormatter, DayPicker } from "react-day-picker";
@@ -21,10 +21,9 @@ const notesIcon = (day: Date) => {
 
 const formatDay: DateFormatter = (day, options) => {
   return (
-    <>
-      {format(day, 'd', { locale: options?.locale })}
-      <br />
-      {notesIcon(day)}
+    <>      
+      {format(day, 'd', { locale: options?.locale })} 
+      <div>{notesIcon(day)}</div>
     </>
   );
 };

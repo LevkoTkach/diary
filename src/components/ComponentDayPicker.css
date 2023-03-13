@@ -8,8 +8,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 36px;
-  margin: 0 16px;
+  height: fit-content;
+  margin: 1.8rem 1rem 0;
   font-size: 1.3rem;
 }
 
@@ -20,41 +20,41 @@
   color: var(--ion-color-dark);
 }
 
-.rdp-caption_label {
-  padding: 10px 0 0;
-}
-
 .rdp-table {
-  margin-top: 10px;
   width: 100vw;
-
 }
 
 .rdp-head_cell {
-  width: 14vw;
-  font-size: 14px;
+  height: 8vh;
+  font-size: .9rem;
 }
 
 .rdp-day {
-  width: 13vw;
-  height: 50px;
-  border-radius: 16px;
+  padding: 2.2vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
   font-size: 1rem;
   background-color: var(--background-main);
   color: var(--ion-color-dark);
+  margin: 10px auto 0;
 }
 
 .rdp-day_selected {
   background-color: var(--ion-color-danger);
 }
-.rdp-day_outside{
-  color:var(--ion-color-primary);
+
+.rdp-day_outside {
+  color: var(--ion-color-primary);
   background-color: var(--ion-color-tertiary-shade);
   border-radius: 0;
   width: 100%;
 }
+
 .notesIcon {
-  margin-top: 6px;
   box-sizing: border-box;
-  width: 12px;
+  width: 11px;
 }
