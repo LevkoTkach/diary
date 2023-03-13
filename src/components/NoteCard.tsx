@@ -16,7 +16,7 @@ const NoteCard: React.FC<Params> = (params) => {
     <IonItem>
       <IonCard className={params.className} button={true} routerLink={params.routerLink}>
         <IonCardHeader>
-          <IonCardTitle color='light'>{params.title.length > 23 ? params.title.slice(0,23)+"..." : params.title }</IonCardTitle>
+          <IonCardTitle color='light'>{params.title.length > 18 ? params.title.slice(0,16)+"..." : params.title }</IonCardTitle>
         </IonCardHeader>
         <IonCardContent>
           {params.text}
