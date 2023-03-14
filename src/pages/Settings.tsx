@@ -26,8 +26,8 @@ const Settings: React.FC<{}> = () => {
       <IonHeader className="ion-no-border settings-ion-header">
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonButton color='dark' className="list-back-button" routerLink={`/main`}>
-              <IonIcon color="primary" className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+            <IonButton color="primary" className="list-back-button" routerLink={`/main`}>
+              <IonIcon  className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back</IonButton>
           </IonButtons>
           <IonTitle color='dark'>Settings</IonTitle>

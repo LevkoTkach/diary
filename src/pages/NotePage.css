@@ -5,6 +5,7 @@
 
 ion-back-button {
   text-transform: none;
+  box-shadow: none;
 }
 
 .title-date {
@@ -34,7 +35,7 @@ ion-back-button {
 .custom-textarea {
   margin-top: 1.2rem;
   resize: none;
-  height: 55vh;
+  height: 64vh;
   font-size: 1.1rem;
   border-radius: 16px;
   --background: var(--ion-color-secondary-shade);
@@ -47,7 +48,7 @@ ion-back-button {
 
 .custom-textarea .textarea-wrapper {
   resize: none;
-  height: 55vh;
+  height: 64vh;
 }
 
 .color-label {
@@ -79,47 +80,45 @@ ion-radio.radio-checked::part(mark) {
   border-style: solid;
 }
 
-.green-radio {
+.first-radio {
   background-color: var(--note-color-first);
   --color: var(--note-color-first);
   border: 5px solid var(--note-color-first);
 }
 
-.blue-radio {
+.second-radio {
   background-color: var(--note-color-second);
   --color: var(--note-color-second);
   border: 5px solid var(--note-color-second);
 }
 
-.purple-radio {
+.third-radio {
   background-color: var(--note-color-third);
   --color: var(--note-color-third);
   border: 5px solid var(--note-color-third);
 }
 
-.red-radio {
+.forth-radio {
   background-color: var(--note-color-forth);
   --color: var(--note-color-forth);
   border: 5px solid var(--note-color-forth);
 }
 
-.yellow-radio {
+.fifth-radio {
   background-color: var(--note-color-fifth);
   --color: var(--note-color-fifth);
   border: 5px solid var(--note-color-fifth);
 }
 
-.brown-radio {
+.sixst-radio {
   background-color: var(--note-color-sixst);
   --color: var(--note-color-sixst);
   border: 5px solid var(--note-color-sixst);
 }
 
 .dode-button {  
-  margin: 10px 0 100px;
-  padding: 0 16px;
+  margin: 10px 16px 30px;
   height: 44px;
-  width: 100vw;
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: none;
