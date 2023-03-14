@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import { pencilSharp, settingsSharp } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import ComponentDayPicker from '../components/ComponentDayPicker';
+import Calendar from '../components/Calendar';
 import { NoteService } from '../NoteService';
 import './MainPage.css';
 
@@ -49,7 +49,7 @@ const MainPage: React.FC<Params> = () => {
       </IonHeader>
       <IonContent >
 
-        <ComponentDayPicker  
+        <Calendar  
           date={date}
           onDayClick={(day: Date) =>setDate(format(day, "yyyy-MM-dd"))}
         />
