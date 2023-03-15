@@ -1,3 +1,7 @@
+:root {
+  --font: 'Nunito', sans-serif;
+}
+
 .item-select {
   text-decoration: none;
 }

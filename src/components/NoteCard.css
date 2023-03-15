@@ -5,32 +5,35 @@ ion-item {
 ion-card {
   position: relative;
   margin: 0;
-  height: 90px;
+  height: 5rem;
   width: 100%;
   left: 0;
   right: 0;
   border-radius: 16px;
+  
 }
 
 ion-card-header {
-  height: 20px;
-  margin: 10px 16px;
+  height: 1.4rem;
+  margin: 5px 16px;
   padding: 0;
 }
 
 ion-card-title {
-  height: 20px;
-  margin: 0 30px 0 0;
-  font-size: 1.2rem;
+  height: 1.4rem;
+  margin: 0 40px 0 0;
+  font-size: 1.3rem;
+  font-family: var(--font);
   overflow: hidden;
   white-space: nowrap;
 }
 
 ion-card-content {
   position: relative;
-  margin: 0 30px 0 0;
-  height: 55px;
+  margin: 0 40px 0 0;
+  height: 3rem;
   font-size: 1rem;
+  font-family: var(--font);
   color: var(--ion-color-light);
   overflow: hidden;
   
