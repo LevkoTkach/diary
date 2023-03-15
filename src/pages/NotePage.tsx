@@ -92,8 +92,10 @@ const NotePage: React.FC<Params> = () => {
       </IonContent>
       <IonButton
         routerLink={`/note-list/${date}`}
-        className="dode-button"
-        shape="round">
+        className="done-button"
+        shape="round"
+        fill="outline"
+        color="danger">
         <IonIcon icon={checkmarkOutline}></IonIcon>
         Done
       </IonButton>

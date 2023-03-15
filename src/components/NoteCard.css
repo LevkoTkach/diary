@@ -1,10 +1,10 @@
-ion-item{
-  width:100vw;  
+ion-item {
+  width: 100vw;
 }
 
 ion-card {
   position: relative;
-  margin:0;
+  margin: 0;
   height: 90px;
   width: 100%;
   left: 0;
@@ -13,23 +13,27 @@ ion-card {
 }
 
 ion-card-header {
-  height: 20px;  
+  height: 20px;
   margin: 10px 16px;
-  padding: 0;  
+  padding: 0;
 }
 
-ion-card-title{
+ion-card-title {
   height: 20px;
   margin: 0 30px 0 0;
-  font-size: 1.2rem;  
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-ion-card-content{
+ion-card-content {
   position: relative;
   margin: 0 30px 0 0;
   height: 55px;
   font-size: 1rem;
   color: var(--ion-color-light);
+  overflow: hidden;
+  
 }
 
 .icon-in-card {
