@@ -113,13 +113,13 @@ const NoteListPage: React.FC<Params> = () => {
       </IonContent >
 
       <IonButton
-        color="danger"
+        color="success"
         routerLink={`/note/${date}`}
         className="compose-button"
         shape="round"
       >
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
-        Compose
+        Make a note
       </IonButton>
 
     </IonPage>

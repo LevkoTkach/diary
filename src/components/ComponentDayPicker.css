@@ -44,7 +44,7 @@
 }
 
 .rdp-day_selected {
-  background-color: var(--ion-color-danger);
+  background-color: var(--ion-color-success);
 }
 
 .rdp-day_outside {

@@ -17,8 +17,8 @@ const MainPage: React.FC<Params> = () => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
 
-  useEffect(() => { 
-    if (params.date ) {
+  useEffect(() => {
+    if (params.date) {
       setDate(params.date)
     };
   }, [params])
@@ -44,14 +44,14 @@ const MainPage: React.FC<Params> = () => {
           </IonButtons>
         </IonToolbar>
 
-        <IonTitle color='warning' className='main-header-title'>Compose now</IonTitle>
+        <IonTitle color='warning' className='main-header-title'>Feel free to create</IonTitle>
         <IonTitle color='dark' className='main-header-date-title'>{format(parseISO(date!), 'd MMMM')} selected</IonTitle>
       </IonHeader>
       <IonContent >
 
-        <ComponentDayPicker  
+        <ComponentDayPicker
           date={date}
-          onDayClick={(day: Date) =>setDate(format(day, "yyyy-MM-dd"))}
+          onDayClick={(day: Date) => setDate(format(day, "yyyy-MM-dd"))}
         />
 
       </IonContent>
@@ -59,21 +59,24 @@ const MainPage: React.FC<Params> = () => {
         (function () {
           if (service.findByDate(date).length) {
             return <IonButton
-              color="danger"
+              color="success"
               routerLink={`/note-list/${date}`}
               className="compose-button"
               shape="round">
               View Notes
             </IonButton>
           };
-          return <IonButton
-            color="danger"
-            routerLink={`/note/${date}`}
-            className="compose-button"
-            shape="round">
-            <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>
-            Compose
-          </IonButton>
+          return (
+            <IonButton
+              color="success"
+              routerLink={`/note/${date}`}
+              className="compose-button"
+              shape="round"
+            >
+              <IonIcon className="pen-icon" slot="start" icon={pencilSharp}></IonIcon>
+              Make a note
+            </IonButton>
+          )
         })()
       }
     </IonPage >
