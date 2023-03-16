@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonPage, IonToolbar } from "@ionic/react";
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList, IonPage, IonToolbar, } from "@ionic/react";
 import { arrowBackOutline, chevronBackOutline, chevronForwardOutline, pencilSharp, trash } from "ionicons/icons";
 import { useParams } from "react-router";
 import NoteCard from "../components/NoteCard";
@@ -7,7 +7,9 @@ import { format, parseISO } from "date-fns";
 import { NoteModel, NoteService } from "../NoteService";
 import './NoteListPage.css';
 
+
 interface Params {
+  history: string;
   date: string;
 }
 const service = NoteService.getInstance();
@@ -41,14 +43,22 @@ const NoteListPage: React.FC<Params> = () => {
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
             <IonButton color="primary" shape='round' className="list-back-button" routerLink={`/main/${date}`}>
-              <IonIcon  className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+              <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back
             </IonButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar className="date-toolbar">
           <IonButtons slot="start">
-            <IonButton color='dark' routerLink={`/note-list/${countDate(-1)}`} shape="round" fill="clear" >
+            <IonButton
+              color='dark'
+              onClick={() => {
+                setDate(countDate(-1));
+                window.history.replaceState(null, '', `/note-list/${(countDate(-1))}`);
+              }}
+              shape="round"
+              fill="clear"
+            >
               <IonIcon className="arrow-icon " slot="start" icon={chevronBackOutline} />
             </IonButton>
           </IonButtons>
@@ -56,7 +66,15 @@ const NoteListPage: React.FC<Params> = () => {
             {format(parseISO(date), 'd MMMM yyyy')}
           </IonLabel>
           <IonButtons slot="end">
-            <IonButton color='dark' routerLink={`/note-list/${countDate(+1)}`} shape="round" fill="clear" className="forward-date-button">
+            <IonButton color='dark'
+              onClick={() => {
+                setDate(countDate(-1));
+                window.history.replaceState(null, '', `/note-list/${(countDate(+1))}`);
+              }}
+              shape="round"
+              fill="clear"
+              className="forward-date-button"
+            >
               <IonIcon className="arrow-icon" slot="end" icon={chevronForwardOutline} />
             </IonButton>
           </IonButtons>
@@ -71,7 +89,7 @@ const NoteListPage: React.FC<Params> = () => {
               return (
                 <IonItemSliding key={note.id} className="margin-bottom-8px">
                   <NoteCard
-                    
+
                     className={`note-color-${note.color}`}
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}
@@ -94,10 +112,12 @@ const NoteListPage: React.FC<Params> = () => {
 
       </IonContent >
 
-      <IonButton color="danger"
+      <IonButton
+        color="danger"
         routerLink={`/note/${date}`}
         className="compose-button"
-        shape="round">
+        shape="round"
+      >
         <IonIcon className="pen-icon" slot="start" icon={pencilSharp} />
         Compose
       </IonButton>
