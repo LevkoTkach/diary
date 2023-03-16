@@ -1,9 +1,9 @@
-import { IonItemGroup, IonIcon, IonList } from "@ionic/react";
+import { IonItemGroup, IonIcon } from "@ionic/react";
 import { format } from "date-fns";
 import { ellipse, addCircleOutline } from "ionicons/icons";
 import { DateFormatter, DayPicker } from "react-day-picker";
 import { NoteService } from "../NoteService";
-import "../components/ComponentDayPicker.css"
+import "../components/Calendar.css"
 
 const service = NoteService.getInstance();
 
@@ -32,7 +32,7 @@ interface Params {
   date: string,
   onDayClick: (day: Date) => void,
 }
-const ComponentDayPicker: React.FC<Params> = (params) => {
+const Calendar: React.FC<Params> = (params) => {
   
   return (
     <DayPicker
@@ -44,5 +44,5 @@ const ComponentDayPicker: React.FC<Params> = (params) => {
   );
 }
 
-export default ComponentDayPicker;
+export default Calendar;
 
