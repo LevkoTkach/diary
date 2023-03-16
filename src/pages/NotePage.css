@@ -1,3 +1,4 @@
+
 .toolbar {
   margin: 25px 0 0;
   width: 97%;
@@ -26,8 +27,11 @@ ion-back-button {
   height: 2rem;
   --placeholder-color: var(--ion-color-primary);
   --color: var(--ion-color-dark);
+  
 }
-
+.native-textarea.sc-ion-textarea-md{
+  font-family:var(--font);
+}
 .title-textarea .textarea-wrapper {
   height: 2rem;
 }
@@ -43,7 +47,6 @@ ion-back-button {
   --color: var(--ion-color-dark);
   --padding-end: 10px;
   --padding-start: 10px;
-
 }
 
 .custom-textarea .textarea-wrapper {
@@ -57,7 +60,6 @@ ion-back-button {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.1rem;
-  font-family: var(--font);
 }
 
 .radio-group {
@@ -116,16 +118,12 @@ ion-radio.radio-checked::part(mark) {
   border: 5px solid var(--note-color-sixst);
 }
 
-.dode-button {  
+.done-button {  
   margin: 10px 16px 30px;
   height: 44px;
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: none;
-  --background: var(--background-main);
-  --color: var(--ion-color-danger);
-  --border-color: var(--ion-color-danger);
-  --border-style: solid;
   --border-width: 1.5px;  
-  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); 
+  --box-shadow:none; 
 }

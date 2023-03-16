@@ -64,14 +64,14 @@ const NotePage: React.FC<Params> = () => {
       </IonHeader>
       <IonContent fullscreen className='note-content'>
         <IonItemGroup className="left-right-margin-16px" >
-          <TextEditor           
+          <TextEditor
             value={title!}
             className="title-textarea ion-no-padding"
             placeholder=" Title"
             onChange={setTitle}
           />
           <TextEditor
-            
+
             value={text!}
             className="custom-textarea "
             placeholder="Write your message in here.."
@@ -92,8 +92,11 @@ const NotePage: React.FC<Params> = () => {
       </IonContent>
       <IonButton
         routerLink={`/note-list/${date}`}
-        className="dode-button"
-        shape="round">
+        className="done-button"
+        shape="round"
+        fill="outline"
+        color="success"
+      >
         <IonIcon icon={checkmarkOutline}></IonIcon>
         Done
       </IonButton>
