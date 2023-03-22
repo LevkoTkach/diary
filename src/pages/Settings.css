@@ -4,6 +4,7 @@
 
 .item-select {
   text-decoration: none;
+  font-family: var(--font);
 }
 
 .toolbar ion-title {
@@ -16,18 +17,24 @@
   background-color: var(--ion-color-tertiary-shade);
   border-radius: 32px;
   padding: .8rem 1.1rem;
+  font-family: var(--font);
 }
+
 ion-select::part(text) {
   color: var(--ion-color-dark);
 }
+
 ion-select::part(icon) {
 
   color: var(--ion-color-dark);
   opacity: .8;
 }
+
 .action-sheet-button-inner {
-  color:var(--ion-color-dark);
+  color: var(--ion-color-dark);
+  font-family: var(--font);
 }
+
 .dark-theme-label {
   margin-left: 16px;
 }
@@ -37,9 +44,12 @@ ion-select::part(icon) {
   --handle-background-checked: #E1E1E1;
 }
 
+
+
 .nunito {
   --font: 'Nunito', sans-serif;
 }
+
 
 .montserrat-alternates {
   --font: 'Montserrat Alternates', sans-serif;
@@ -65,7 +75,7 @@ ion-select::part(icon) {
   --font: 'Tilt Neon', cursive;
 }
 
-.gotisch {
+.gotisch {  
   --font: 'Grenze Gotisch', cursive;
 }
 

@@ -22,9 +22,9 @@ const Settings: React.FC<{}> = () => {
 
   const toggleTheme = (event: CustomEvent) => {
     if (event.detail.checked) {
-    localStorage.setItem('dark-theme', 'true');
+      localStorage.setItem('dark-theme', 'true');
     } else {
-    localStorage.removeItem('dark-theme');
+      localStorage.removeItem('dark-theme');
     };
     setDarkTheme(event.detail.checked);
   }
@@ -47,15 +47,15 @@ const Settings: React.FC<{}> = () => {
         <IonList lines="none" className="ion-no-border">
           <IonItem lines="none" className="item-select ion-no-border">
             <IonSelect className="select ion-no-border" value={font} onIonChange={e => handleFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
-              <IonSelectOption value="nunito">Nunito</IonSelectOption>
-              <IonSelectOption value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
-              <IonSelectOption value="mukta">Mukta</IonSelectOption>
-              <IonSelectOption value="poppins">Poppins</IonSelectOption>
-              <IonSelectOption value="prompt">Prompt</IonSelectOption>
-              <IonSelectOption value="raleway">Raleway</IonSelectOption>
-              <IonSelectOption value="tilt-neon">Tilt Neon</IonSelectOption>
-              <IonSelectOption value="gotisch">Grenze Gotisch</IonSelectOption>
-              <IonSelectOption value="josefin-sans">JosefinSans</IonSelectOption>
+              <IonSelectOption className="nunito" value="nunito">Nunito</IonSelectOption>
+              <IonSelectOption className="montserrat-alternates" value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
+              <IonSelectOption className="mukta" value="mukta">Mukta</IonSelectOption>
+              <IonSelectOption className="poppins" value="poppins">Poppins</IonSelectOption>
+              <IonSelectOption className="prompt" value="prompt">Prompt</IonSelectOption>
+              <IonSelectOption className="raleway" value="raleway">Raleway</IonSelectOption>
+              <IonSelectOption className="tilt-neon" value="tilt-neon">Tilt Neon</IonSelectOption>
+              <IonSelectOption className="gotisch" value="gotisch">Grenze Gotisch</IonSelectOption>
+              <IonSelectOption className="josefin-sans" value="josefin-sans">JosefinSans</IonSelectOption>
             </IonSelect>
           </IonItem>
         </IonList>
