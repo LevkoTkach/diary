@@ -1,24 +1,32 @@
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel, IonToggle } from "@ionic/react";
+import { IonPage, IonHeader, IonToolbar, IonButtons, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel, IonToggle } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './Settings.css';
 
 const Settings: React.FC<{}> = () => {
   const [font, setFont] = useState(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
+  const [darkTheme, setDarkTheme] = useState(localStorage.getItem('dark-theme') === 'true');
 
-  useEffect(() => {
+  if (darkTheme) {
+    document.body.classList.add("dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
+  }
+
+  const handleFont = (font: string) => {
     document.body.classList.remove("nunito", "montserrat-alternates", "mukta", "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
     document.body.classList.add(font);
     localStorage.setItem('font', font);
-  }, [font]);
+    setFont(font);
+  }
 
   const toggleTheme = (event: CustomEvent) => {
-    console.log(event.detail.checked);
     if (event.detail.checked) {
-      document.body.classList.add("dark-theme");
+    localStorage.setItem('dark-theme', 'true');
     } else {
-      document.body.classList.remove("dark-theme");
+    localStorage.removeItem('dark-theme');
     };
+    setDarkTheme(event.detail.checked);
   }
 
   return (
@@ -27,7 +35,7 @@ const Settings: React.FC<{}> = () => {
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
             <IonButton color="primary" className="list-back-button" routerLink={`/main`}>
-              <IonIcon  className="back-button-icon" icon={arrowBackOutline}></IonIcon>
+              <IonIcon className="back-button-icon" icon={arrowBackOutline}></IonIcon>
               Back</IonButton>
           </IonButtons>
           <IonTitle color='dark'>Settings</IonTitle>
@@ -38,7 +46,7 @@ const Settings: React.FC<{}> = () => {
         <IonLabel slot="start">Selected font</IonLabel>
         <IonList lines="none" className="ion-no-border">
           <IonItem lines="none" className="item-select ion-no-border">
-            <IonSelect className="select ion-no-border" value={font} onIonChange={e => setFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
+            <IonSelect className="select ion-no-border" value={font} onIonChange={e => handleFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption value="nunito">Nunito</IonSelectOption>
               <IonSelectOption value="montserrat-alternates">Montserrat Alternates</IonSelectOption>
               <IonSelectOption value="mukta">Mukta</IonSelectOption>
@@ -54,7 +62,7 @@ const Settings: React.FC<{}> = () => {
 
         <IonItem lines="none">
           <IonLabel color='dark' className="dark-theme-label" slot="start">Dark theme</IonLabel>
-          <IonToggle className="dark-theme-toggle" slot="end" onIonChange={toggleTheme}></IonToggle>
+          <IonToggle className="dark-theme-toggle" slot="end" checked={darkTheme} onIonChange={toggleTheme}></IonToggle>
         </IonItem>
       </IonContent>
     </IonPage>
