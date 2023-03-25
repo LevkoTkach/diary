@@ -68,8 +68,8 @@ const NoteListPage: React.FC<Params> = () => {
           <IonButtons slot="end">
             <IonButton color='dark'
               onClick={() => {
-                setDate(countDate(-1));
-                window.history.replaceState(null, '', `/note-list/${(countDate(+1))}`);
+                setDate(countDate(+1));
+                window.history.replaceState(null, '', `/note-list/${(countDate(+1))}`)
               }}
               shape="round"
               fill="clear"

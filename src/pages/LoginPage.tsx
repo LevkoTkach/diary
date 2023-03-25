@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon, IonItem, IonItemGroup } from "@ionic/react";
+import React, { useState } from "react";
+import { IonPage, IonButton, IonImg, IonContent, IonItemGroup, IonSpinner } from "@ionic/react";
 import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper';
@@ -11,13 +11,21 @@ import 'swiper/css/scrollbar';
 import Avatar1 from '../pages/girl1.png'
 import Avatar2 from '../pages/girl2.png'
 import BG from '../pages/background-light.png'
+import { useHistory } from "react-router-dom";
+import { googleLogin } from "../firebase";
 
 
 const LoginPage: React.FC<{}> = () => {
 
-  useEffect(() => {
-    return () => localStorage.setItem("getStarted", "true");
-  });
+  let history = useHistory();
+  const [load, getload] = useState(false);
+  async function login() {
+    getload(true);
+    const res = await googleLogin();
+    console.log(res ? 'sucses' : 'fail');
+    if (res) history.push('/main');
+    getload(false);
+  }
 
   return (
     <IonPage>
@@ -60,10 +68,12 @@ const LoginPage: React.FC<{}> = () => {
         </Swiper>
 
         <IonButton
-          routerLink='/main'
+          onClick={login}
           className="login-button"
-          shape="round">
-          Get Started
+          shape="round"
+        >
+          login with goole
+          {load && <IonSpinner></IonSpinner>}
         </IonButton>
 
       </IonContent>
