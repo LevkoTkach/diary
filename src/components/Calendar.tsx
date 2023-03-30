@@ -20,9 +20,10 @@ const notesIcon = (day: Date) => {
 };
 
 const formatDay: DateFormatter = (day, options) => {
+
   return (
-    <>      
-      {format(day, 'd', { locale: options?.locale })} 
+    <>
+      {format(day, 'd', { locale: options?.locale })}
       <div>{notesIcon(day)}</div>
     </>
   );
@@ -33,7 +34,6 @@ interface Params {
   onDayClick: (day: Date) => void,
 }
 const Calendar: React.FC<Params> = (params) => {
-  
   return (
     <DayPicker
       showOutsideDays

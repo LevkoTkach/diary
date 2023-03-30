@@ -1,3 +1,5 @@
+import { deleteNote, getUserNotes } from "./firebase";
+
 export type NoteColor = 'first' | 'second' | 'third' | 'forth' | 'fifth' | 'sixst';
 
 export interface NoteModel {
@@ -11,7 +13,7 @@ export interface NoteModel {
 export class NoteService {
 
   private data: NoteModel[] = [];
-  private readonly key = 'notes';
+  // private readonly key = 'notes';
 
   private static instance: NoteService;
 
@@ -22,9 +24,9 @@ export class NoteService {
     return this.instance;
   }
 
-  private constructor() {
-    this.load();
-  }
+  // private constructor() {
+  //   this.load();
+  // }
 
   create(date: string, color: NoteColor, title: string, text: string) {
     if (!date) {
@@ -38,7 +40,7 @@ export class NoteService {
       title,
       text
     })
-    this.save();
+    // this.save();
     return id;
   }
   update(id: number, color: NoteColor, title: string, text: string) {
@@ -46,28 +48,28 @@ export class NoteService {
     record.color = color;
     record.title = title;
     record.text = text;
-    this.save();
+    // this.save();
   }
 
   setDate(id: number, date: string) {
     const record = this.byId(id);
     record.date = date;
-    this.save();
+    // this.save();
   }
   setColor(id: number, color: NoteColor) {
     const record = this.byId(id);
     record.color = color;
-    this.save();
+    // this.save();
   }
   setTitle(id: number, title: string) {
     const record = this.byId(id);
     record.title = title;
-    this.save();
+    // this.save();
   }
   setText(id: number, text: string) {
     const record = this.byId(id);
     record.text = text;
-    this.save();
+    // this.save();
   }
   findByText() { };
 
@@ -78,7 +80,7 @@ export class NoteService {
 
   delete(id: number) {
     this.data = this.data.filter(d => d.id !== id);
-    this.save();
+    deleteNote(id);
   }
 
   getById(id: number) {
@@ -91,10 +93,19 @@ export class NoteService {
     return record;
   }
 
-  private save() {
-    localStorage.setItem(this.key, JSON.stringify(this.data))
-  }
-  private load() {
-    this.data = !localStorage.getItem(this.key) ? [] : JSON.parse(localStorage.getItem(this.key)!);
+  // private save() {
+  //    localStorage.setItem(this.key, JSON.stringify(this.data))
+  // }
+  // private
+  
+  async load() {
+    const loadNotes = await getUserNotes()
+      .then((result: NoteModel[]) => {
+        return result;
+      }).catch((error) => {
+        console.log('I dont get notes on servise level');
+      })
+    this.data = loadNotes!;
+    console.log(loadNotes);
   }
 }

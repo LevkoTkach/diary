@@ -13,18 +13,27 @@ import Avatar2 from '../pages/girl2.png'
 import BG from '../pages/background-light.png'
 import { useHistory } from "react-router-dom";
 import { googleLogin } from "../firebase";
+import { NoteService } from "../NoteService";
 
+const service = NoteService.getInstance();
 
 const LoginPage: React.FC<{}> = () => {
-
+  const [loading, getloading] = useState(false);
   let history = useHistory();
-  const [load, getload] = useState(false);
+
   async function login() {
-    getload(true);
-    const res = await googleLogin();
-    console.log(res ? 'sucses' : 'fail');
-    if (res) history.push('/main');
-    getload(false);
+    getloading(true);
+    await googleLogin()
+      .then((res) => {
+        if (res) {
+          console.log('Login sucses');                  
+        }
+      })
+      .catch((e) => {
+        console.log('Login fail' + e);
+      }) 
+    history.push(`/main`);
+    getloading(false);
   }
 
   return (
@@ -34,8 +43,7 @@ const LoginPage: React.FC<{}> = () => {
           modules={[Pagination, A11y]}
           pagination={{ clickable: true }}
           slidesPerView={1}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}>
+        >
 
           <SwiperSlide className="slide">
             <IonImg className="avatar1" src={Avatar1}></IonImg>
@@ -73,7 +81,8 @@ const LoginPage: React.FC<{}> = () => {
           shape="round"
         >
           login with goole
-          {load && <IonSpinner></IonSpinner>}
+        
+          {loading && <IonSpinner></IonSpinner>}
         </IonButton>
 
       </IonContent>

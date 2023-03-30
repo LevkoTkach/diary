@@ -6,6 +6,7 @@ import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
 import { checkmarkOutline } from "ionicons/icons";
+import { writeNote } from "../firebase";
 
 interface Params {
   id: string;
@@ -49,7 +50,9 @@ const NotePage: React.FC<Params> = () => {
     }
   }, [title, text, color]);
 
-
+  const criateNote = () => {
+    writeNote(+params.id, date, color!, title!, text!);
+  }
 
   return (
 
@@ -92,6 +95,7 @@ const NotePage: React.FC<Params> = () => {
       </IonContent>
       <IonButton
         routerLink={`/note-list/${date}`}
+        onClick={() => { if (title || text) criateNote() }}
         className="done-button"
         shape="round"
         fill="outline"
