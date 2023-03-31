@@ -13,7 +13,7 @@
 }
 
 .font-label {
-  margin:0 32px;
+  margin: 0 32px;
 }
 
 .select {
@@ -30,7 +30,6 @@ ion-select::part(text) {
 }
 
 ion-select::part(icon) {
-
   color: var(--ion-color-dark);
   opacity: .8;
 }
@@ -49,12 +48,9 @@ ion-select::part(icon) {
   --handle-background-checked: #E1E1E1;
 }
 
-
-
 .nunito {
   --font: 'Nunito', sans-serif;
 }
-
 
 .montserrat-alternates {
   --font: 'Montserrat Alternates', sans-serif;
@@ -80,7 +76,7 @@ ion-select::part(icon) {
   --font: 'Tilt Neon', cursive;
 }
 
-.gotisch {  
+.gotisch {
   --font: 'Grenze Gotisch', cursive;
 }
 

@@ -27,7 +27,7 @@ ion-back-button {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.6rem;
-  height: 2rem;
+  min-height: 2rem;
   --placeholder-color: var(--ion-color-primary);
   --color: var(--ion-color-dark);
 }
@@ -37,13 +37,13 @@ ion-back-button {
 }
 
 .title-textarea .textarea-wrapper {
-  height: 2rem;
+  min-height: 2rem;
 }
 
 .custom-textarea {
   margin-top: 1.2rem;
   resize: none;
-  height: 64vh;
+  min-height: 50vh;
   font-size: 1.1rem;
   border-radius: 16px;
   --background: var(--ion-color-secondary-shade);
@@ -55,7 +55,7 @@ ion-back-button {
 
 .custom-textarea .textarea-wrapper {
   resize: none;
-  height: 64vh;
+  min-height: 60vh;
 }
 
 .color-label {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon, IonItem, } from '@ionic/react';
+import { IonCard, IonCardContent, IonIcon, IonItem, } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
 import './NoteCard.css';
 

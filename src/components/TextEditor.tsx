@@ -6,7 +6,6 @@ interface Params {
   className: string,
   placeholder: string,
   onChange: (e: string) => void,
-  maxlength?: number;
 }
 
 const TextEditor: React.FC<Params> = (params) => { 
@@ -18,7 +17,7 @@ const TextEditor: React.FC<Params> = (params) => {
 
   return (
     <IonTextarea
-      maxlength={params.maxlength}
+      autoGrow={true}
       value={params.value}
       onIonChange={(e) => textChange(e)}
       className={params.className}

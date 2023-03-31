@@ -64,7 +64,6 @@ const NotePage: React.FC<Params> = () => {
       <IonContent fullscreen className='note-content'>
         <IonItemGroup className="left-right-margin-16px" >
           <TextEditor
-            maxlength={22}
             value={title!}
             className="title-textarea ion-no-padding"
             placeholder=" Title"
