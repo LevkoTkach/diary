@@ -49,7 +49,7 @@ const Settings: React.FC<{}> = () => {
 
 
         <IonList lines="none" className="ion-no-border">
-          <IonLabel className="font-label" color="dark" slot="start"> Selected font</IonLabel>
+          <IonLabel className="font-label" color="dark" slot="start">Selected font</IonLabel>
           <IonItem lines="none" className="item-select ion-no-border">
             <IonSelect className="select ion-no-border" value={font} onIonChange={e => handleFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption className="nunito" value="nunito">Nunito</IonSelectOption>

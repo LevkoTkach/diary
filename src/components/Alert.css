@@ -27,10 +27,10 @@ button.alert-button.alert-button-cancel {
   background-color: var(--ion-color-success);
   color: var(--ion-color-success-contrast);
   text-transform: none;
-  padding: 12px 32px;
+  padding: 12px 25px;
   border-radius: 32px;
   font-size: 14px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .md button.alert-button.alert-button-confirm {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
+import {  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
@@ -48,7 +48,7 @@ const NotePage: React.FC<Params> = () => {
     } else {
       service.update(+params.id, color!, title!, text!);
     }
-  }, [title, text, color]);
+  }, [title, text, color, params, date]);
 
   return (
 

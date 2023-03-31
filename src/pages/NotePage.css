@@ -30,7 +30,6 @@ ion-back-button {
   height: 2rem;
   --placeholder-color: var(--ion-color-primary);
   --color: var(--ion-color-dark);
-
 }
 
 .native-textarea.sc-ion-textarea-md {
