@@ -1,6 +1,9 @@
+.note-ion-header {
+  background-color: var(--background-main);
+}
 
 .toolbar {
-  margin: 25px 0 0;
+  margin-top: 25px;
   width: 97%;
 }
 
@@ -27,11 +30,13 @@ ion-back-button {
   height: 2rem;
   --placeholder-color: var(--ion-color-primary);
   --color: var(--ion-color-dark);
-  
+
 }
-.native-textarea.sc-ion-textarea-md{
-  font-family:var(--font);
+
+.native-textarea.sc-ion-textarea-md {
+  font-family: var(--font);
 }
+
 .title-textarea .textarea-wrapper {
   height: 2rem;
 }
@@ -118,12 +123,15 @@ ion-radio.radio-checked::part(mark) {
   border: 5px solid var(--note-color-sixst);
 }
 
-.done-button {  
-  margin: 10px 16px 30px;
+.done-button {
+  background-color: var(--background-main);
+  margin: 10px 0 30px;
+  padding: 0 16px;
+  width: 100%;
   height: 44px;
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: none;
-  --border-width: 1.5px;  
-  --box-shadow:none; 
+  --border-width: 1.5px;
+  --box-shadow: none;
 }

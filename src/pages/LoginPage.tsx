@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { IonPage, IonButton, IonLabel, IonImg, IonContent, IonIcon, IonItem, IonItemGroup } from "@ionic/react";
+import { IonPage, IonButton, IonImg, IonContent, IonItemGroup } from "@ionic/react";
 import '../pages/LoginPage.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper';
@@ -10,15 +10,19 @@ import 'swiper/css/scrollbar';
 
 import Avatar1 from '../pages/girl1.png'
 import Avatar2 from '../pages/girl2.png'
-import BG from '../pages/background-light.png'
+import Background from '../pages/background-light.png'
+import BackgroundDark from '../pages/background-darck.png'
 
 
 const LoginPage: React.FC<{}> = () => {
 
   useEffect(() => {
+    if (localStorage.getItem('dark-theme') === 'true') {
+      document.body.classList.add("dark-theme");
+    }
     return () => localStorage.setItem("getStarted", "true");
   });
-
+  const background = !localStorage.getItem('dark-theme') ? Background : BackgroundDark;
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -27,8 +31,8 @@ const LoginPage: React.FC<{}> = () => {
           pagination={{ clickable: true }}
           slidesPerView={1}
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}>
-
+          onSlideChange={() => console.log('slide change')}
+        >
           <SwiperSlide className="slide">
             <IonImg className="avatar1" src={Avatar1}></IonImg>
             <IonItemGroup className="text-group">
@@ -38,7 +42,7 @@ const LoginPage: React.FC<{}> = () => {
                 her emotions, thoughts or feelings on<br></br>daily basis.
               </p>
             </IonItemGroup>
-            <IonImg src={BG} className="imgBG"></IonImg>
+            <IonImg src={background} className="imgBG"></IonImg>
           </SwiperSlide>
 
           <SwiperSlide className="slide2">
@@ -54,9 +58,8 @@ const LoginPage: React.FC<{}> = () => {
                 extension of your mind: safe and free.
               </p>
             </IonItemGroup>
-            <IonImg src={BG} className="imgBG"></IonImg>
+            <IonImg src={background} className="imgBG"></IonImg>
           </SwiperSlide>
-
         </Swiper>
 
         <IonButton
@@ -67,7 +70,7 @@ const LoginPage: React.FC<{}> = () => {
         </IonButton>
 
       </IonContent>
-    </IonPage>
+    </IonPage >
   );
 };
 

@@ -15,15 +15,13 @@ const NoteCard: React.FC<Params> = (params) => {
   return (
     <IonItem>
       <IonCard className={params.className} button={true} routerLink={params.routerLink}>
-        <IonCardHeader>
-          <IonCardTitle color='light'>{params.title}</IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent>
-          {params.text}
-        </IonCardContent>
-        <IonIcon color='light' className='icon-in-card' icon={arrowForwardOutline}>
-        </IonIcon>
-      </IonCard>
+        <IonCardContent >
+          {params.title.length > 0 && <h2 className='ion-card-title'><strong>{params.title}</strong></h2>}
+        {params.text}
+      </IonCardContent>
+      <IonIcon color='light' className='icon-in-card' icon={arrowForwardOutline}>
+      </IonIcon>
+    </IonCard>
     </IonItem >
   );
 }
