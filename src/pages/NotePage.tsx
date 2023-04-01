@@ -48,7 +48,7 @@ const NotePage: React.FC<Params> = () => {
     } else {
       service.update(+params.id, color!, title!, text!);
     }
-  }, [title, text, color, params, date]);
+  }, [title, text, color]);
 
   return (
 
