@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
+import {  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
 import { useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
@@ -7,6 +7,7 @@ import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
 import { checkmarkOutline } from "ionicons/icons";
 import { writeNote } from "../firebase";
+import Alert from "../components/Alert";
 
 interface Params {
   id: string;
@@ -60,7 +61,7 @@ const NotePage: React.FC<Params> = () => {
       <IonHeader className="ion-no-border note-ion-header">
         <IonToolbar className="toolbar">
           <IonButtons slot="start">
-            <IonBackButton color="primary" text="Back"></IonBackButton>
+            <Alert id={+params.id}></Alert>
           </IonButtons>
           <IonTitle color='dark' className="title-date">{date && format(parseISO(date!), 'd ccc / MMM yyyy')}</IonTitle>
         </IonToolbar>
@@ -74,14 +75,13 @@ const NotePage: React.FC<Params> = () => {
             onChange={setTitle}
           />
           <TextEditor
-
             value={text!}
             className="custom-textarea "
             placeholder="Write your message in here.."
             onChange={setText}
           />
           <IonLabel color='dark' className="color-label">
-            Choose a color
+            Choose a note color
           </IonLabel>
           <IonRadioGroup className="radio-group" value={color} onIonChange={e => setColor(e.detail.value)} >
             <IonRadio className="first-radio" value="first" ></IonRadio>
@@ -92,18 +92,19 @@ const NotePage: React.FC<Params> = () => {
             <IonRadio className="sixst-radio" value="sixst"></IonRadio>
           </IonRadioGroup>
         </IonItemGroup>
-      </IonContent>
-      <IonButton
-        routerLink={`/note-list/${date}`}
+
+        <IonButton
+          routerLink={`/note-list/${date}`}
         onClick={() => { if (title || text) criateNote() }}
-        className="done-button"
-        shape="round"
-        fill="outline"
-        color="success"
-      >
-        <IonIcon icon={checkmarkOutline}></IonIcon>
-        Done
-      </IonButton>
+          className="done-button"
+          shape="round"
+          fill="outline"
+          color="success"
+        >
+          <IonIcon icon={checkmarkOutline}></IonIcon>
+          Done
+        </IonButton>
+      </IonContent>
     </IonPage>
   );
 }

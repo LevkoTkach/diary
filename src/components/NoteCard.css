@@ -3,40 +3,28 @@ ion-item {
 }
 
 ion-card {
-  position: relative;
   margin: 0;
-  height: 5rem;
+  height: 8rem;
   width: 100%;
   left: 0;
   right: 0;
   border-radius: 16px;
-  
-}
-
-ion-card-header {
-  height: 1.4rem;
-  margin: 5px 16px;
+  word-break: normal;
   padding: 0;
 }
-
-ion-card-title {
-  height: 1.4rem;
-  margin: 0 40px 0 0;
-  font-size: 1.3rem;
-  font-family: var(--font);
-  overflow: hidden;
-  white-space: nowrap;
+.ion-card-title{
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
-
 ion-card-content {
-  position: relative;
-  margin: 0 40px 0 0;
-  height: 3rem;
+  margin: auto 35px 0 0;
+  height: 100%;
   font-size: 1rem;
+  line-height: 1rem;
   font-family: var(--font);
   color: var(--ion-color-light);
-  overflow: hidden;
-  
+  overflow: hidden;  
 }
 
 .icon-in-card {
@@ -44,5 +32,5 @@ ion-card-content {
   height: 16px;
   width: 16px;
   right: 20px;
-  top: 37px;
+  top: 3.6rem;
 }

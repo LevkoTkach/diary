@@ -10,7 +10,8 @@ import 'swiper/css/scrollbar';
 
 import Avatar1 from '../pages/girl1.png'
 import Avatar2 from '../pages/girl2.png'
-import BG from '../pages/background-light.png'
+import Background from '../pages/background-light.png'
+import BackgroundDark from '../pages/background-darck.png'
 import { useHistory } from "react-router-dom";
 import { googleLogin } from "../firebase";
 import { NoteService } from "../NoteService";
@@ -25,6 +26,9 @@ const LoginPage: React.FC<{}> = () => {
     getloading(true);
     await googleLogin()
       .then((res) => {
+    if (localStorage.getItem('dark-theme') === 'true') {
+      document.body.classList.add("dark-theme");
+    }
         if (res) {
           console.log('Login sucses');                  
         }
@@ -35,7 +39,7 @@ const LoginPage: React.FC<{}> = () => {
     history.push(`/main`);
     getloading(false);
   }
-
+  const background = !localStorage.getItem('dark-theme') ? Background : BackgroundDark;
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -54,7 +58,7 @@ const LoginPage: React.FC<{}> = () => {
                 her emotions, thoughts or feelings on<br></br>daily basis.
               </p>
             </IonItemGroup>
-            <IonImg src={BG} className="imgBG"></IonImg>
+            <IonImg src={background} className="imgBG"></IonImg>
           </SwiperSlide>
 
           <SwiperSlide className="slide2">
@@ -70,9 +74,8 @@ const LoginPage: React.FC<{}> = () => {
                 extension of your mind: safe and free.
               </p>
             </IonItemGroup>
-            <IonImg src={BG} className="imgBG"></IonImg>
+            <IonImg src={background} className="imgBG"></IonImg>
           </SwiperSlide>
-
         </Swiper>
 
         <IonButton
@@ -86,7 +89,7 @@ const LoginPage: React.FC<{}> = () => {
         </IonButton>
 
       </IonContent>
-    </IonPage>
+    </IonPage >
   );
 };
 

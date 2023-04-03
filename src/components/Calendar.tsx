@@ -4,6 +4,7 @@ import { ellipse, addCircleOutline } from "ionicons/icons";
 import { DateFormatter, DayPicker } from "react-day-picker";
 import { NoteService } from "../NoteService";
 import "../components/Calendar.css"
+import { useEffect, useState } from "react";
 
 const service = NoteService.getInstance();
 
@@ -34,9 +35,15 @@ interface Params {
   onDayClick: (day: Date) => void,
 }
 const Calendar: React.FC<Params> = (params) => {
+  const [montn, setMonts] = useState<Date>(new Date(params.date));
+  useEffect(() => { 
+    setMonts(new Date(params.date))
+  }, [params.date])
   return (
     <DayPicker
       showOutsideDays
+      month={montn}
+      onMonthChange={setMonts}
       selected={new Date(params.date)}
       onDayClick={(day: Date) => params.onDayClick(day)}
       formatters={{ formatDay }}

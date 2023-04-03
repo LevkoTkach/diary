@@ -1,17 +1,20 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel, IonToggle } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Settings.css';
 
 const Settings: React.FC<{}> = () => {
   const [font, setFont] = useState(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
   const [darkTheme, setDarkTheme] = useState(localStorage.getItem('dark-theme') === 'true');
 
-  if (darkTheme) {
-    document.body.classList.add("dark-theme");
-  } else {
-    document.body.classList.remove("dark-theme");
-  }
+  useEffect(() => {
+    if (localStorage.getItem('dark-theme') === 'true') {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
+  })
+
 
   const handleFont = (font: string) => {
     document.body.classList.remove("nunito", "montserrat-alternates", "mukta", "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
@@ -40,11 +43,13 @@ const Settings: React.FC<{}> = () => {
           </IonButtons>
           <IonTitle color='dark'>Settings</IonTitle>
         </IonToolbar>
+
       </IonHeader>
       <IonContent fullscreen>
 
-        <IonLabel slot="start">Selected font</IonLabel>
+
         <IonList lines="none" className="ion-no-border">
+          <IonLabel className="font-label" color="dark" slot="start">Selected font</IonLabel>
           <IonItem lines="none" className="item-select ion-no-border">
             <IonSelect className="select ion-no-border" value={font} onIonChange={e => handleFont(e.detail.value)} interface="action-sheet" placeholder="Select Font" >
               <IonSelectOption className="nunito" value="nunito">Nunito</IonSelectOption>

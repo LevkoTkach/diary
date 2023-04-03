@@ -24,11 +24,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { useEffect, useState } from 'react';
 
 setupIonicReact();
 
 const App: React.FC = () => {
-
+  const [root] = useState(() => localStorage.getItem("getStarted") ? ("/main") : ("/login"));
+  useEffect(() => {
+    if (localStorage.getItem('dark-theme') === 'true') {
+      document.body.classList.add("dark-theme");
+    }
+  });
   return (
     <IonApp>
       <IonReactRouter>
