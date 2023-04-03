@@ -68,7 +68,7 @@ const NoteListPage: React.FC<Params> = () => {
           <IonButtons slot="end">
             <IonButton color='dark'
               onClick={() => {
-                setDate(countDate(-1));
+                setDate(countDate(+1));
                 window.history.replaceState(null, '', `/note-list/${(countDate(+1))}`);
               }}
               shape="round"
@@ -84,12 +84,10 @@ const NoteListPage: React.FC<Params> = () => {
       <IonContent>
         <IonItemGroup>
           <IonList lines="none">
-
             {notes.map(note => {
               return (
                 <IonItemSliding key={note.id} className="margin-bottom-8px">
                   <NoteCard
-
                     className={`note-color-${note.color}`}
                     routerLink={`/note/${date}/${note.id}`}
                     title={`${note.title}`}
@@ -109,9 +107,7 @@ const NoteListPage: React.FC<Params> = () => {
 
           </IonList>
         </IonItemGroup>
-
-      </IonContent >
-
+      </IonContent>
       <IonButton
         color="success"
         routerLink={`/note/${date}`}
