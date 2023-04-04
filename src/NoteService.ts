@@ -1,4 +1,4 @@
-import { deleteNote, getUserNotes } from "./firebase";
+import { deleteNote, getUserNotes, saveNote } from "./firebase";
 
 export type NoteColor = 'first' | 'second' | 'third' | 'forth' | 'fifth' | 'sixst';
 
@@ -13,7 +13,6 @@ export interface NoteModel {
 export class NoteService {
 
   private data: NoteModel[] = [];
-  // private readonly key = 'notes';
 
   private static instance: NoteService;
 
@@ -23,10 +22,6 @@ export class NoteService {
     }
     return this.instance;
   }
-
-  // private constructor() {
-  //   this.load();
-  // }
 
   create(date: string, color: NoteColor, title: string, text: string) {
     if (!date) {
@@ -40,36 +35,31 @@ export class NoteService {
       title,
       text
     })
-    // this.save();
     return id;
   }
+
   update(id: number, color: NoteColor, title: string, text: string) {
     const record = this.byId(id);
     record.color = color;
     record.title = title;
     record.text = text;
-    // this.save();
   }
 
   setDate(id: number, date: string) {
     const record = this.byId(id);
     record.date = date;
-    // this.save();
   }
   setColor(id: number, color: NoteColor) {
     const record = this.byId(id);
     record.color = color;
-    // this.save();
   }
   setTitle(id: number, title: string) {
     const record = this.byId(id);
     record.title = title;
-    // this.save();
   }
   setText(id: number, text: string) {
     const record = this.byId(id);
     record.text = text;
-    // this.save();
   }
   findByText() { };
 
@@ -78,25 +68,19 @@ export class NoteService {
     return record;
   }
 
-  delete(id: number) {
-    this.data = this.data.filter(d => d.id !== id);
-    deleteNote(id);
-  }
-
   getById(id: number) {
     const record = this.byId(id);
     return { ...record };
   }
+  
   private byId(id: number) {
     const record = this.data.find(d => d.id === id);
-    if (!record) throw new Error('[NoteService] record not found');
+    if (!record) {
+      window.alert('Record not found');
+      throw new Error('[NoteServise] Record not found');
+    }
     return record;
   }
-
-  // private save() {
-  //    localStorage.setItem(this.key, JSON.stringify(this.data))
-  // }
-  // private
   
   async load() {
     const loadNotes = await getUserNotes()
@@ -107,5 +91,12 @@ export class NoteService {
       })
     this.data = loadNotes!;
     console.log(loadNotes);
+  }
+  save(id: number, date: string, color: NoteColor, title: string, text: string) {
+    saveNote(id, date, color!, title!, text!);
+  }
+  delete(id: number) {
+    this.data = this.data.filter(d => d.id !== id);
+    deleteNote(id);
   }
 }

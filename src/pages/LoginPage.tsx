@@ -15,8 +15,10 @@ import BackgroundDark from '../pages/background-darck.png'
 import { useHistory } from "react-router-dom";
 import { googleLogin } from "../firebase";
 import { NoteService } from "../NoteService";
+import { DarkThemeServise } from "../DarkThemeServise";
 
 const service = NoteService.getInstance();
+const theme = DarkThemeServise.getInstance();
 
 const LoginPage: React.FC<{}> = () => {
   const [loading, getloading] = useState(false);
@@ -26,20 +28,15 @@ const LoginPage: React.FC<{}> = () => {
     getloading(true);
     await googleLogin()
       .then((res) => {
-    if (localStorage.getItem('dark-theme') === 'true') {
-      document.body.classList.add("dark-theme");
-    }
-        if (res) {
-          console.log('Login sucses');                  
-        }
+        if (res) console.log('Login sucses');
       })
-      .catch((e) => {
-        console.log('Login fail' + e);
-      }) 
-    history.push(`/main`);
+      .catch((e) => console.log('Login fail' + e))
+    await service.load()
+      .then(() => history.push(`/main`))
     getloading(false);
   }
-  const background = !localStorage.getItem('dark-theme') ? Background : BackgroundDark;
+
+  const background = theme.getTheme() ? BackgroundDark : Background;
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -84,7 +81,7 @@ const LoginPage: React.FC<{}> = () => {
           shape="round"
         >
           login with goole
-        
+
           {loading && <IonSpinner></IonSpinner>}
         </IonButton>
 

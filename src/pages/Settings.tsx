@@ -1,14 +1,17 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonTitle, IonContent, IonItem, IonList, IonSelect, IonSelectOption, IonButton, IonIcon, IonLabel, IonToggle } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
+import { DarkThemeServise } from "../DarkThemeServise";
 import './Settings.css';
+
+const theme = DarkThemeServise.getInstance();
 
 const Settings: React.FC<{}> = () => {
   const [font, setFont] = useState(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
-  const [darkTheme, setDarkTheme] = useState(localStorage.getItem('dark-theme') === 'true');
+  const [darkTheme, setDarkTheme] = useState(theme.getTheme());
 
   useEffect(() => {
-    if (localStorage.getItem('dark-theme') === 'true') {
+    if (theme.getTheme()) {
       document.body.classList.add("dark-theme");
     } else {
       document.body.classList.remove("dark-theme");
@@ -17,7 +20,8 @@ const Settings: React.FC<{}> = () => {
 
 
   const handleFont = (font: string) => {
-    document.body.classList.remove("nunito", "montserrat-alternates", "mukta", "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
+    document.body.classList.remove("nunito", "montserrat-alternates", "mukta",
+    "poppins", "prompt", "raleway", "tilt-neon", "gotisch", "josefin-sans");
     document.body.classList.add(font);
     localStorage.setItem('font', font);
     setFont(font);
@@ -25,9 +29,9 @@ const Settings: React.FC<{}> = () => {
 
   const toggleTheme = (event: CustomEvent) => {
     if (event.detail.checked) {
-      localStorage.setItem('dark-theme', 'true');
+      theme.seveTheme();
     } else {
-      localStorage.removeItem('dark-theme');
+      theme.removeTheme();
     };
     setDarkTheme(event.detail.checked);
   }

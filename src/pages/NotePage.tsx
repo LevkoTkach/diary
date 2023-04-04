@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItemGroup, IonLabel, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from "@ionic/react";
 import './NotePage.css';
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import TextEditor from "../components/TextEditor";
 import { format, parseISO } from 'date-fns';
 import { NoteColor, NoteService } from "../NoteService";
 import { checkmarkOutline } from "ionicons/icons";
-import { writeNote } from "../firebase";
 import Alert from "../components/Alert";
 
 interface Params {
@@ -21,6 +20,7 @@ const NotePage: React.FC<Params> = () => {
   const [title, setTitle] = useState<string>();
   const [text, setText] = useState<string>();
   const [color, setColor] = useState<NoteColor>();
+  const history = useHistory();
 
   useEffect(() => {
     setDate(params.date)
@@ -46,14 +46,8 @@ const NotePage: React.FC<Params> = () => {
     if (!params.id) {
       const newId = service.create(date, color!, title!, text!);
       params.id = newId.toString();
-    } else {
-      service.update(+params.id, color!, title!, text!);
-    }
+    } 
   }, [title, text, color]);
-
-  const criateNote = () => {
-    writeNote(+params.id, date, color!, title!, text!);
-  }
 
   return (
 
@@ -94,8 +88,13 @@ const NotePage: React.FC<Params> = () => {
         </IonItemGroup>
 
         <IonButton
-          routerLink={`/note-list/${date}`}
-        onClick={() => { if (title || text) criateNote() }}
+          onClick={() => {
+            if (title || text) {
+              service.update(+params.id, color!, title!, text!);
+              service.save(+params.id, date, color!, title!, text!);              
+              history.push(`/note-list/${date}`);
+            } else window.alert('Note is Empty');
+          }}
           className="done-button"
           shape="round"
           fill="outline"

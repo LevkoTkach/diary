@@ -22,10 +22,6 @@ const MainPage: React.FC<Params> = () => {
     };
   }, [params])
 
-  useEffect(() => {
-    document.body.classList.add(localStorage.getItem('font') ? localStorage.getItem('font')! : "nunito");
-  }, []);
-
   return (
     <IonPage >
       <IonHeader className='main-header'>

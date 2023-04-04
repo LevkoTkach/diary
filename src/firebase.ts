@@ -39,7 +39,8 @@ export async function googleLogin() {
   return res;
 }
 
-export async function writeNote(noteId: number, date: string, color: NoteColor, title: string, text: string) {
+export async function saveNote(noteId: number, date: string, color: NoteColor, title: string, text: string) {
+  if (uId === undefined) throw console.error("UID is undefined you aren't login");
   const colectionUsrerDoc = doc(db, `${uId}`, `${noteId}`);
   const noteData = {
     date: date,
@@ -48,25 +49,23 @@ export async function writeNote(noteId: number, date: string, color: NoteColor, 
     text: text,
     color: color
   }
-  const res = await setDoc(colectionUsrerDoc, noteData, { merge: true })
+  await setDoc(colectionUsrerDoc, noteData, { merge: true })
     .then((result) => {
       console.log('was save into data base');
-      return result;
     }).catch((error) => {
       console.log(`I got an save error ${error}`);
     })
-  console.log(res);
 }
 
 export async function getUserNotes() {
   const userCollectionSnapshot = await getDocs(collection(db, `${uId}`))
-    .then((result) => { 
-      return result;      
+    .then((result) => {
+      return result;
     }).catch((error) => {
       console.log('I dont get notes');
     })
   const docData: NoteModel[] = [];
-  userCollectionSnapshot!.forEach((doc:any) => {
+  userCollectionSnapshot!.forEach((doc: any) => {
     docData.push(doc.data())
   });
   console.log('I get notes');
