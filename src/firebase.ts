@@ -27,16 +27,16 @@ const auth = getAuth();
 let uId: string;
 
 export async function googleLogin() {
-  const res = await signInWithPopup(auth, provider)
-    .then((result) => {
-      uId = result.user.uid;
-      console.log(uId);
-      return uId;
-    }).catch((error) => {
-      console.log('Authorisation fail', error);
-      return false;
-    });
-  return res;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    uId = result.user.uid;
+    console.log(uId);
+    return uId;
+  } catch (error) {
+    console.log('Authorisation fail', error);
+    return false;
+  }
+
 }
 
 export async function saveNote(noteId: number, date: string, color: NoteColor, title: string, text: string) {
@@ -49,35 +49,35 @@ export async function saveNote(noteId: number, date: string, color: NoteColor, t
     text: text,
     color: color
   }
-  await setDoc(colectionUsrerDoc, noteData, { merge: true })
-    .then((result) => {
-      console.log('was save into data base');
-    }).catch((error) => {
-      console.log(`I got an save error ${error}`);
-    })
+  try {
+    await setDoc(colectionUsrerDoc, noteData, { merge: true });
+    console.log('was save into data base');
+  } catch (error) {
+    console.log(`I got an save error ${error}`);
+  }
+  
 }
 
 export async function getUserNotes() {
-  const userCollectionSnapshot = await getDocs(collection(db, `${uId}`))
-    .then((result) => {
-      return result;
-    }).catch((error) => {
-      console.log('I dont get notes');
-    })
-  const docData: NoteModel[] = [];
-  userCollectionSnapshot!.forEach((doc: any) => {
-    docData.push(doc.data())
-  });
-  console.log('I get notes');
-  return docData;
-}
+  try {
+    const userCollectionSnapshot = await getDocs(collection(db, `${uId}`));
+    const docData: NoteModel[] = [];
+    userCollectionSnapshot!.forEach((doc: any) => {
+      docData.push(doc.data());
+      console.log('I get notes');
+    });
+    return docData;
+  } catch (error) {
+    console.log('I dont get notes');
+  }
+};
+
 
 export async function deleteNote(noteId: number) {
-  await deleteDoc(doc(db, `${uId}`, `${noteId}`))
-    .then((result) => {
-      console.log('delete sucses');
-    }).catch((error) => {
-      console.log(`delete error ${error}`);
-    })
+  try {
+    await deleteDoc(doc(db, `${uId}`, `${noteId}`));
+    console.log('delete sucses');
+  } catch (error) {
+    console.log(`delete error ${error}`);
+  }
 }
-

@@ -83,15 +83,16 @@ export class NoteService {
   }
   
   async load() {
-    const loadNotes = await getUserNotes()
-      .then((result: NoteModel[]) => {
-        return result;
-      }).catch((error) => {
-        console.log('I dont get notes on servise level');
-      })
-    this.data = loadNotes!;
-    console.log(loadNotes);
-  }
+    try {
+      const loadNotes = await getUserNotes();
+      this.data = loadNotes!;
+      console.log(' I  get notes ');
+      console.log(loadNotes);
+    } catch (error) {
+      console.log('I dont get notes on servise level');
+    }
+  };
+    
   save(id: number, date: string, color: NoteColor, title: string, text: string) {
     saveNote(id, date, color!, title!, text!);
   }
