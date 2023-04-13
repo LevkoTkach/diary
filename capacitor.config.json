@@ -2,5 +2,15 @@
   "appId": "spoko.dev.diary",
   "appName": "Diary",
   "webDir": "build",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": [
+        "apple.com",
+        "google.com",
+        "facebook.com"
+      ]
+    }
+  }
 }
